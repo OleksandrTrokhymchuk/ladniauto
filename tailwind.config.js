@@ -20,7 +20,16 @@ module.exports = {
         '0.25': '0.0625rem',
       },
       scale: {
-        '10': '0.10', 
+        '10': '0.10',
+      },
+      screens: {
+        'vsm': '320px', // very-small
+        'msm': '550px', // medium-small
+        // 'sm': '640px',
+        // 'md': '768px',
+        // 'lg': '1024px',
+        // 'xl': '1280px',
+        // '2xl': '1536px',
       },
     },
   },

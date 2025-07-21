@@ -65,8 +65,9 @@ export default function Header() {
         }
     }, [isMenuOpen])
 
-    return (
+    return (<div>
         <header className={`
+        z-500
             fixed top-0 w-full z-50
             bg-project-blue
             ${scrolled ? 'py-1 shadow-lg opacity-95' : 'py-4 shadow-md'}
@@ -160,29 +161,30 @@ export default function Header() {
                     </button>
                 </div>
             </div>
+        </div>
 
-
-
-            <div className={`
-                fixed top-0 left-0 h-full w-full z-40
-                bg-black bg-opacity-50
+           
+    </header>
+     <div className={`
+                top-0 left-0 h-full w-full z-1000 fixed
+                bg-project-blue
                 transition-opacity duration-500 ease-in-out
                 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+                flex justify-end
             `} onClick={toggleMenu}>
                 <nav className={`
-                    fixed top-0 right-0 h-full w-full md:w-80
-                    bg-project-blue-darker
+                    h-full w-full
                     shadow-lg
                     transform transition-transform duration-500 ease-in-out
-                    ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} // Виїжджає справа
-                    p-8 pt-20 
-                `} onClick={(e) => e.stopPropagation()}> 
+                    ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}
+                    p-8 pt-36
+                `} onClick={(e) => e.stopPropagation()}>
                     <ul className="flex flex-col space-y-6">
                         {navItems.map((item) => (
                             <li key={item.name}>
                                 <Link
                                     href={item.href}
-                                    onClick={toggleMenu} 
+                                    onClick={toggleMenu}
                                     className={`
                                         text-xl font-bold text-project-white block py-2
                                         hover:text-project-green transition-colors duration-300
@@ -195,7 +197,9 @@ export default function Header() {
                         ))}
                     </ul>
 
-                    <div className="mt-10 pt-6 border-t border-gray-700">
+                    <div className="mt-10 pt-6 border-t border-project-white flex items-center vsm:justify-center msm:justify-around
+                    vsm:flex-col msm:flex-row vsm: gap-y-5
+                    ">
                         <a
                             href="tel:+380667319809"
                             className="text-lg font-bold text-project-white block hover:text-project-green transition-colors duration-300"
@@ -203,16 +207,18 @@ export default function Header() {
                             +38 066 731 98 09
                         </a>
                         <button
-                            className="mt-4 bg-project-white text-project-blue font-bold py-2 px-4 rounded-full w-full
-                                hover:bg-gray-300 transition-colors duration-300"
-                            onClick={toggleMenu}
+                            className=" bg-project-white text-project-blue font-bold py-2 px-4 rounded-full w-full 
+                                hover:bg-gray-300 transition-colors duration-300
+                                vsm:max-w-[80%] msm:max-w-[50%]"
+                            onClick={() => {
+                                toggleMenu()
+                            }}
                         >
                             Зателефонуйте мені
                         </button>
                     </div>
                 </nav>
             </div>
-        </div>
-    </header>
+            </div>
     )
 }
