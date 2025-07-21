@@ -78,9 +78,8 @@ export default function Header() {
         target:`}>
         <div className="container mx-auto custom-container flex items-center justify-between">
             <Link href="/" className={`flex items-center mr-8
-                transition-opacity
+                transition-opacity 
                 ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
-                ${isMenuOpen ? "opacity-0" : ""}
                 `}
                 >
                     <Image
@@ -89,6 +88,7 @@ export default function Header() {
                         width={scrolled ? 90 : 100}
                         height={scrolled ? 31 : 34}
                         className={`
+                            transition-all duration-700
                             object-contain
                             md:w-[125px] md:max-h-[90px]
                         `}
@@ -234,7 +234,7 @@ export default function Header() {
                     </div>
                     <Link href="/">
                         {/* <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="tranform scale-70"/> */}
-                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="pr-10 pl-10 pt-5"/>
+                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="max-w-[60%] mx-auto pt-5"/>
                     </Link>
 
                 </nav>
