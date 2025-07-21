@@ -232,8 +232,7 @@ export default function Header() {
                             Зателефонуйте мені
                         </button>
                     </div>
-                    <Link href="/">
-                        {/* <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="tranform scale-70"/> */}
+                    <Link href="/" onClick={toggleMenu}>
                         <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className={`mx-auto
                             ${scrolled ? "max-w-[80%] pt-10" : "max-w-[65%] pt-6"}
                             `}/>
