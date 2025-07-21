@@ -79,7 +79,7 @@ export default function Header() {
         <div className="container mx-auto custom-container flex items-center justify-between">
             <Link href="/" className={`flex items-center mr-8
                 transition-opacity
-                ${isMenuOpen ? "duration-150 opacity-0" : "duration-700"}
+                ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
                 ${isMenuOpen ? "opacity-0" : ""}
                 `}
                 >
@@ -145,7 +145,7 @@ export default function Header() {
             <div className="md:hidden">
                 <div className="flex items-center gap-x-5 ">
                     <Image src={phone} alt="phone" width={50} height={50} className={`
-                        ${isMenuOpen ? "duration-150 opacity-0" : "duration-700"}
+                        ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
                         transition-all ease-in-out transform  ${isPulsing ? 'scale-50 rotate-12' : ''}`}/>
                     <button
                         onClick={toggleMenu}
@@ -233,7 +233,8 @@ export default function Header() {
                         </button>
                     </div>
                     <Link href="/">
-                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="tranform scale-75"/>
+                        {/* <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="tranform scale-70"/> */}
+                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="pr-10 pl-10 pt-5"/>
                     </Link>
 
                 </nav>

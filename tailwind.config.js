@@ -21,6 +21,7 @@ module.exports = {
       },
       scale: {
         '10': '0.10',
+        '70': '0.70',
       },
       screens: {
         'vsm': '320px', // very-small
