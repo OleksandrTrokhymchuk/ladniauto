@@ -231,8 +231,9 @@ export default function Header() {
                             Зателефонуйте мені
                         </button>
                     </div>
-
-                    <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="mt-16"/>
+                    <Link href="/">
+                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="mt-10 tranform scale-90"/>
+                    </Link>
 
                 </nav>
             </div>
