@@ -214,7 +214,7 @@ export default function Header() {
                     ">
                         <a
                             href="tel:+380667319809"
-                            className="text-lg font-bold text-project-white block hover:text-project-green transition-colors duration-300"
+                            className="text-xl font-bold text-project-white block hover:text-project-green transition-colors duration-300"
                         >
                             +38 066 731 98 09
                         </a>
