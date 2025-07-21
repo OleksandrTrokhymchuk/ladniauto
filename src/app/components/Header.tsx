@@ -54,8 +54,19 @@ export default function Header() {
     }, [])
 
 
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [isMenuOpen])
+
     return (
-      <header className={`
+        <header className={`
             fixed top-0 w-full z-50
             bg-project-blue
             ${scrolled ? 'py-1 shadow-lg opacity-95' : 'py-4 shadow-md'}
@@ -78,23 +89,23 @@ export default function Header() {
             </Link>
 
             <nav className="hidden md:block">
-              <ul className="flex items-center space-x-2">
-                {navItems.map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className={`
-                      lg:text-lg md:text-base px-2 py-2 relative block
-                      transition-all duration-300 ease-in-out
-                      ${pathname === item.href
-                        ? 'font-bold text-project-white after:scale-x-100'
-                        : 'font-medium text-gray-100 hover:text-project-white hover:after:scale-x-100'
-                      }
-                      after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.25 after:bg-project-white after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-out
-                    `}>
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                <ul className="flex items-center space-x-2">
+                    {navItems.map((item) => (
+                        <li key={item.name}>
+                            <Link href={item.href} className={`
+                                lg:text-lg md:text-base px-2 py-2 relative block
+                                transition-all duration-300 ease-in-out
+                                ${pathname === item.href
+                                    ? 'font-bold text-project-white after:scale-x-100'
+                                    : 'font-medium text-gray-100 hover:text-project-white hover:after:scale-x-100'
+                                }
+                                after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.25 after:bg-project-white after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-out
+                            `}>
+                                {item.name}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             </nav>
 
             <div className="hidden md:flex items-center space-x-6 ml-auto">
@@ -124,32 +135,84 @@ export default function Header() {
 
 
             <div className="md:hidden">
-                  <div className="flex items-center gap-x-5 ">
-                      <Image src={phone} alt="phone" width={50} height={50} className={`transition-all duration-700 ease-in-out transform  ${isPulsing ? 'scale-50 rotate-12' : ''}`}/>
-                      <button
-                          onClick={toggleMenu}
-                          className="flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none z-50 relative"
-                          aria-label="Toggle menu"
-                      >
-                          <div className={`
-                              w-8 h-0.25 bg-project-white rounded
-                              transition-all duration-500 ease-in-out
-                              ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}
-                          `}></div>
-                          <div className={`
-                              w-8 h-0.25 bg-project-white rounded
-                              transition-all duration-200 ease-in-out
-                              ${isMenuOpen ? 'opacity-0' : ''}
-                          `}></div>
-                          <div className={`
-                              w-8 h-0.25 bg-project-white rounded
-                              transition-all duration-500 ease-in-out
-                              ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}
-                          `}></div>
+                <div className="flex items-center gap-x-5 ">
+                    <Image src={phone} alt="phone" width={50} height={50} className={`transition-all duration-700 ease-in-out transform  ${isPulsing ? 'scale-50 rotate-12' : ''}`}/>
+                    <button
+                        onClick={toggleMenu}
+                        className="flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none z-50 relative"
+                        aria-label="Toggle menu"
+                    >
+                        <div className={`
+                            w-8 h-0.25 bg-project-white rounded
+                            transition-all duration-500 ease-in-out
+                            ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}
+                        `}></div>
+                        <div className={`
+                            w-8 h-0.25 bg-project-white rounded
+                            transition-all duration-200 ease-in-out
+                            ${isMenuOpen ? 'opacity-0' : ''}
+                        `}></div>
+                        <div className={`
+                            w-8 h-0.25 bg-project-white rounded
+                            transition-all duration-500 ease-in-out
+                            ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}
+                        `}></div>
                     </button>
-                  </div>
-                  </div>
+                </div>
             </div>
-        </header>
+
+
+
+            <div className={`
+                fixed top-0 left-0 h-full w-full z-40
+                bg-black bg-opacity-50
+                transition-opacity duration-500 ease-in-out
+                ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+            `} onClick={toggleMenu}>
+                <nav className={`
+                    fixed top-0 right-0 h-full w-full md:w-80
+                    bg-project-blue-darker
+                    shadow-lg
+                    transform transition-transform duration-500 ease-in-out
+                    ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} // Виїжджає справа
+                    p-8 pt-20 
+                `} onClick={(e) => e.stopPropagation()}> 
+                    <ul className="flex flex-col space-y-6">
+                        {navItems.map((item) => (
+                            <li key={item.name}>
+                                <Link
+                                    href={item.href}
+                                    onClick={toggleMenu} 
+                                    className={`
+                                        text-xl font-bold text-project-white block py-2
+                                        hover:text-project-green transition-colors duration-300
+                                        ${pathname === item.href ? 'text-project-green' : ''}
+                                    `}
+                                >
+                                    {item.name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <div className="mt-10 pt-6 border-t border-gray-700">
+                        <a
+                            href="tel:+380667319809"
+                            className="text-lg font-bold text-project-white block hover:text-project-green transition-colors duration-300"
+                        >
+                            +38 066 731 98 09
+                        </a>
+                        <button
+                            className="mt-4 bg-project-white text-project-blue font-bold py-2 px-4 rounded-full w-full
+                                hover:bg-gray-300 transition-colors duration-300"
+                            onClick={toggleMenu}
+                        >
+                            Зателефонуйте мені
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
     )
 }
