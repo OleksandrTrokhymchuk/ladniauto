@@ -230,9 +230,7 @@ export default function Header() {
                         </button>
                     </div>
                     <Link href="/" onClick={toggleMenu}>
-                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className={`mx-auto
-                            "max-w-[80%] pt-10""
-                            `}/>
+                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="mx-auto max-w-[80%] pt-10"/>
                     </Link>
 
                 </nav>
