@@ -77,22 +77,23 @@ export default function Header() {
             transition-all duration-700 ease-in-out backdrop-blur-sm
         target:`}>
         <div className="container mx-auto custom-container flex items-center justify-between">
-            <Link href="/" className={`flex items-center mr-8 
-                transition-opacity duration-150
+            <Link href="/" className={`flex items-center mr-8
+                transition-opacity
+                ${isMenuOpen ? "duration-150 opacity-0" : "duration-700"}
                 ${isMenuOpen ? "opacity-0" : ""}
-                `}>
-              <Image
-              src={ladniAutoLogo}
-              alt="Ladni Auto Logo"
-              width={scrolled ? 90 : 100}
-              height={scrolled ? 31 : 34}
-              className={`
-                
-                object-contain transition-all duration-700 ease-in-out
-                md:w-[125px] md:max-h-[90px]
-              `}
-              priority
-            />
+                `}
+                >
+                    <Image
+                        src={ladniAutoLogo}
+                        alt="Ladni Auto Logo"
+                        width={scrolled ? 90 : 100}
+                        height={scrolled ? 31 : 34}
+                        className={`
+                            object-contain
+                            md:w-[125px] md:max-h-[90px]
+                        `}
+                    priority
+                />
             </Link>
 
             <nav className="hidden md:block">
@@ -232,7 +233,7 @@ export default function Header() {
                         </button>
                     </div>
                     <Link href="/">
-                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="mt-10 tranform scale-90"/>
+                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="tranform scale-75"/>
                     </Link>
 
                 </nav>
