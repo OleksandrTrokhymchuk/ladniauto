@@ -225,16 +225,13 @@ export default function Header() {
                                 transition-all duration-700 transform
                                 ${isPulsing ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
                                 `}
-                            onClick={() => {
-                                toggleMenu()
-                            }}
                         >
                             Зателефонуйте мені
                         </button>
                     </div>
                     <Link href="/" onClick={toggleMenu}>
                         <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className={`mx-auto
-                            ${scrolled ? "max-w-[80%] pt-10" : "max-w-[65%] pt-6"}
+                            "max-w-[80%] pt-10""
                             `}/>
                     </Link>
 
