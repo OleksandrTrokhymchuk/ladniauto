@@ -128,7 +128,7 @@ export default function Header() {
                     <div className={`
                         md:hidden
                         transition-all duration-500 ease-in-out
-                        ${isPulsing ? 'scale-105 brightness-125 drop-shadow-lg rotate-2' : ''}
+                        ${isPulsing ? 'scale-105 brightness-125 drop-shadow-lg' : ''}
                         `}
                     >
                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
