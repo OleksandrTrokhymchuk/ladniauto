@@ -234,7 +234,7 @@ export default function Header() {
                     </div>
                     <Link href="/">
                         {/* <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="tranform scale-70"/> */}
-                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="max-w-[60%] mx-auto pt-5"/>
+                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="max-w-[65%] mx-auto pt-6"/>
                     </Link>
 
                 </nav>
