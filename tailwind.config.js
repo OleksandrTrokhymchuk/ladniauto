@@ -11,7 +11,6 @@ module.exports = {
       colors: {
         'project-blue': '#024097',
         'project-white': '#feffff',
-        'project-green': '#4F9B68',
         'project-blue-darker': '#013070',
       },
        fontFamily: {
