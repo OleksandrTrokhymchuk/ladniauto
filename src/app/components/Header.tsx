@@ -64,13 +64,16 @@ export default function Header() {
         <div className="container mx-auto custom-container flex items-center justify-between">
           <Link href="/" className="flex items-center mr-8">
             <Image
-              src={ladniAutoLogo}
-              alt="Ladni Auto Logo"
-              width={125}
-              height={125}
-              className={`object-contain transition-all duration-500 ease-in-out`}
-              priority
-            />
+            src={ladniAutoLogo}
+            alt="Ladni Auto Logo"
+            width={scrolled ? 90 : 100}
+            height={scrolled ? 31 : 34}
+            className={`
+              object-contain transition-all duration-700 ease-in-out
+              md:w-[125px] md:max-h-[90px]
+            `}
+            priority
+          />
           </Link>
 
           <nav className="hidden md:block">
