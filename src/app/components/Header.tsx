@@ -41,15 +41,15 @@ export default function Header() {
     }
 
     useEffect(() => {
-    const pulseInterval = setInterval(() => {
-            setIsPulsing(true)
-            const timeoutId = setTimeout(() => {
-                setIsPulsing(false)
-            }, 500)
+        const pulseInterval = setInterval(() => {
+                setIsPulsing(true)
+                const timeoutId = setTimeout(() => {
+                    setIsPulsing(false)
+                }, 500)
 
-            return () => clearTimeout(timeoutId)
-        }, 10000)
-        return () => clearInterval(pulseInterval)
+                return () => clearTimeout(timeoutId)
+            }, 10000)
+            return () => clearInterval(pulseInterval)
     }, [])
 
 
@@ -59,7 +59,7 @@ export default function Header() {
         bg-project-blue
         ${scrolled ? 'py-1 shadow-lg opacity-95' : 'py-4 shadow-md'}
         text-project-white
-        transition-all duration-500 ease-in-out backdrop-blur-sm
+        transition-all duration-700 ease-in-out backdrop-blur-sm
       `}>
         <div className="container mx-auto custom-container flex items-center justify-between">
           <Link href="/" className="flex items-center mr-8">
@@ -98,7 +98,7 @@ export default function Header() {
 
           <div className="hidden md:flex items-center space-x-6 ml-auto">
             <div className={`w-px bg-project-white opacity-50 ${scrolled ? 'h-14' : 'h-16'} transition-all duration-500`}></div>
-            <div className="flex md:flex-col lg:flex-row items-center md:items-start lg:items-center md:space-y-2 lg:space-y-0 lg:space-x-6"> {/* Змінено класи тут */}
+            <div className="flex md:flex-col lg:flex-row items-center md:items-start lg:items-center md:space-y-2 lg:space-y-0 lg:space-x-6">
               <a
                 href="tel:+380667319809"
                 className={`
@@ -112,7 +112,10 @@ export default function Header() {
               </a>
 
               <button
-                className={`bg-project-white lg:text-lg md:text-base hover:bg-gray-300 text-project-blue font-bold py-2 px-6 rounded-full transition-all duration-500 transform hover:scale-105 active:scale-95 whitespace-nowrap ${isPulsing ? 'scale-105 brightness-125 drop-shadow-lg' : ''} `}
+                className={`bg-project-white lg:text-lg md:text-base hover:bg-gray-300 text-project-blue font-bold py-2 px-6 rounded-full
+                    transition-all duration-700 transform hover:scale-105 active:scale-95 whitespace-nowrap
+                    ${isPulsing ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
+                    `}
               >
                 Зателефонуйте мені
               </button>
@@ -125,7 +128,7 @@ export default function Header() {
                     <div className={`
                         md:hidden
                         transition-all duration-500 ease-in-out
-                        ${isPulsing ? 'scale-110 brightness-125 drop-shadow-lg' : ''}
+                        ${isPulsing ? 'scale-105 brightness-125 drop-shadow-lg rotate-2' : ''}
                         `}
                     >
                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
