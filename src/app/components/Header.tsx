@@ -67,21 +67,27 @@ export default function Header() {
 
     return (<div>
         <header className={`
+        
         z-500
             fixed top-0 w-full z-50
             bg-project-blue
             ${scrolled ? 'py-1 shadow-lg opacity-95' : 'py-4 shadow-md'}
+            ${isMenuOpen ? "shadow-none" : ""}
             text-project-white
             transition-all duration-700 ease-in-out backdrop-blur-sm
         target:`}>
         <div className="container mx-auto custom-container flex items-center justify-between">
-            <Link href="/" className="flex items-center mr-8">
+            <Link href="/" className={`flex items-center mr-8 
+                transition-opacity duration-150
+                ${isMenuOpen ? "opacity-0" : ""}
+                `}>
               <Image
               src={ladniAutoLogo}
               alt="Ladni Auto Logo"
               width={scrolled ? 90 : 100}
               height={scrolled ? 31 : 34}
               className={`
+                
                 object-contain transition-all duration-700 ease-in-out
                 md:w-[125px] md:max-h-[90px]
               `}
@@ -137,10 +143,12 @@ export default function Header() {
 
             <div className="md:hidden">
                 <div className="flex items-center gap-x-5 ">
-                    <Image src={phone} alt="phone" width={50} height={50} className={`transition-all duration-700 ease-in-out transform  ${isPulsing ? 'scale-50 rotate-12' : ''}`}/>
+                    <Image src={phone} alt="phone" width={50} height={50} className={`
+                        ${isMenuOpen ? "duration-150 opacity-0" : "duration-700"}
+                        transition-all ease-in-out transform  ${isPulsing ? 'scale-50 rotate-12' : ''}`}/>
                     <button
                         onClick={toggleMenu}
-                        className="flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none z-50 relative"
+                        className="z-1000 flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none z-50 relative"
                         aria-label="Toggle menu"
                     >
                         <div className={`
@@ -165,21 +173,24 @@ export default function Header() {
 
            
     </header>
-     <div className={`
-                top-0 left-0 h-full w-full z-1000 fixed
-                bg-project-blue
+            <div className={`
+                fixed top-0 left-0 h-full w-full z-40
                 transition-opacity duration-500 ease-in-out
                 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
-                flex justify-end
+                flex justify-center items-start
             `} onClick={toggleMenu}>
+                
                 <nav className={`
-                    h-full w-full
-                    shadow-lg
+                    w-full 
+                    h-full
+                    bg-project-blue
                     transform transition-transform duration-500 ease-in-out
-                    ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}
-                    p-8 pt-36
+                    ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} // Виїжджає зверху
+                    p-8 
+                    ${scrolled ? "pt-[66px]" : "pt-[94px]"}
                 `} onClick={(e) => e.stopPropagation()}>
-                    <ul className="flex flex-col space-y-6">
+                    
+                    <ul className="flex flex-col space-y-6 border-t border-project-white border-opacity-50 pt-10">
                         {navItems.map((item) => (
                             <li key={item.name}>
                                 <Link
@@ -197,7 +208,7 @@ export default function Header() {
                         ))}
                     </ul>
 
-                    <div className="mt-10 pt-6 border-t border-project-white flex items-center vsm:justify-center msm:justify-around
+                    <div className="mt-10 pt-6 border-t border-project-white border-opacity-50 flex items-center vsm:justify-center msm:justify-around
                     vsm:flex-col msm:flex-row vsm: gap-y-5
                     ">
                         <a
@@ -207,9 +218,12 @@ export default function Header() {
                             +38 066 731 98 09
                         </a>
                         <button
-                            className=" bg-project-white text-project-blue font-bold py-2 px-4 rounded-full w-full 
-                                hover:bg-gray-300 transition-colors duration-300
-                                vsm:max-w-[80%] msm:max-w-[50%]"
+                            className= {`bg-project-white text-project-blue font-bold py-2 px-4 rounded-full w-full
+                                hover:bg-gray-300 
+                                vsm:max-w-[80%] msm:max-w-[50%]
+                                transition-all duration-700 transform
+                                ${isPulsing ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
+                                `}
                             onClick={() => {
                                 toggleMenu()
                             }}
@@ -217,8 +231,11 @@ export default function Header() {
                             Зателефонуйте мені
                         </button>
                     </div>
+
+                    <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className="mt-16"/>
+
                 </nav>
             </div>
-            </div>
+        </div>
     )
 }
