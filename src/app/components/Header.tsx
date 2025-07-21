@@ -57,7 +57,7 @@ export default function Header() {
       <header className={`
         fixed top-0 w-full z-50
         bg-project-blue
-        ${scrolled ? 'py-2 shadow-lg opacity-95' : 'py-4 shadow-md'}
+        ${scrolled ? 'py-1 shadow-lg opacity-95' : 'py-4 shadow-md'}
         text-project-white
         transition-all duration-500 ease-in-out backdrop-blur-sm
       `}>
