@@ -25,11 +25,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
+      <head>
+        <link
+          rel="preload"
+          href="/images/IMG_6936.jpg"
+          as="image"
+          fetchPriority="high"
+        />
+      </head>
       <body className={`${montserrat.variable}`}>
-        <div className="flex flex-col min-h-[100%]">
+        <div className="flex flex-col min-h-[100%] bg-project-white">
           <Header/>
-          <main className="flex-grow pt-44 custom-container">
-            <div>
+          <main className="flex-grow pt-24">
+            {/* <div>
               <h3>First</h3>
               <h3>I</h3>
               <h3>I</h3>
@@ -119,7 +127,7 @@ export default function RootLayout({
               <h3>I</h3>
               <h3>I</h3>
               <h3>I</h3>
-            </div>
+            </div> */}
             {children}
           </main>
           <Footer/>

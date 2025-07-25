@@ -9,7 +9,6 @@ import ladniAutoLogo from "../../images/logo.png"
 import phone from "../../images/phone-call.png"
 
 import CallModal from "./CallModal/CallModal"
-import Modal from "./CallModal/PhoneInput"
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false)
@@ -68,7 +67,7 @@ export default function Header() {
         }
     }, [isMenuOpen])
 
-const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <>
@@ -83,8 +82,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                 target:`}
             >
                 <div className="container mx-auto custom-container flex items-center justify-between">
-                    <Link href="/" className={`flex items-center mr-8
-                        transition-opacity
+                    <Link href="/" className={`flex items-center mr-8 transition-opacity
                         ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
                         `}
                         >
@@ -138,14 +136,13 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                             </a>
                             <button
                               className={`bg-project-white lg:text-lg md:text-base hover:bg-gray-300 text-project-blue font-bold py-2 px-6 rounded-full
-                                  transition-all duration-700 transform hover:scale-105 active:scale-95 whitespace-nowrap
-                                  ${isPulsing && !isModalOpen ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
+                                    transition-all duration-700 transform hover:scale-105 active:scale-95 whitespace-nowrap
+                                    ${isPulsing && !isModalOpen ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
                               `}
                             onClick={() => setIsModalOpen(true)}
                             >
                                 Зателефонуйте мені
                             </button>
-              
                         </div>
                     </div>
 
@@ -154,7 +151,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                             <Image src={phone} alt="phone" width={50} height={50} className={`
                                 ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
                                 transition-all ease-in-out transform  ${isPulsing && !isModalOpen ? 'scale-50 rotate-12' : ''}`}
-                                onClick={() => setIsModalOpen(true)}
+                                onClick={() => {!isMenuOpen && setIsModalOpen(true)}}
                             />
                             <button
                                 onClick={toggleMenu}
@@ -180,8 +177,8 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                         </div>
                     </div>
                 </div>
-
             </header>
+
             <div className={`
                 fixed top-0 left-0 h-full w-full z-40
                 transition-opacity duration-500 ease-in-out
@@ -228,8 +225,9 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                                 hover:bg-gray-300
                                 vsm:max-w-[80%] msm:max-w-[50%]
                                 transition-all duration-700 transform
-                                ${isPulsing ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
+                                ${isPulsing && !isModalOpen ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
                                 `}
+                            onClick={() => setIsModalOpen(true)}
                         >
                             Зателефонуйте мені
                         </button>
