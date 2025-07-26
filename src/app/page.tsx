@@ -17,16 +17,12 @@ export default function Home() {
                 <CarCard carType="hatchback"/>
 
                 <CarCard carType="sedan"/>
-                <CarCard carType="hatchback"/>
+                <CarCard carType="pickup"/>
+                <CarCard carType="universal"/>
+                <CarCard carType="crossover"/>
+                <CarCard carType="minivan"/>
+                <CarCard carType="suv"/>
 
-                <CarCard carType="sedan"/>
-                <CarCard carType="hatchback"/>
-
-                <CarCard carType="sedan"/>
-                <CarCard carType="hatchback"/>
-
-                <CarCard carType="sedan"/>
-                <CarCard carType="hatchback"/>
               </div>
             </div>
         </div>

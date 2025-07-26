@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import "./globals.css"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
-import { Montserrat } from 'next/font/google';
+import { Montserrat } from 'next/font/google'
+import StoreProvider from "./StoreProvider"
 
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
@@ -34,10 +35,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${montserrat.variable}`}>
-        <div className="flex flex-col min-h-[100%] bg-project-white">
-          <Header/>
-          <main className="flex-grow pt-24">
-            {/* <div>
+        <StoreProvider>
+          <div className="flex flex-col min-h-[100%] bg-project-white">
+            <Header/>
+            <main className="flex-grow pt-24">
+              {/* <div>
               <h3>First</h3>
               <h3>I</h3>
               <h3>I</h3>
@@ -127,11 +129,12 @@ export default function RootLayout({
               <h3>I</h3>
               <h3>I</h3>
               <h3>I</h3>
-            </div> */}
-            {children}
-          </main>
-          <Footer/>
-        </div>
+              </div> */}
+              {children}
+            </main>
+            <Footer/>
+          </div>
+        </StoreProvider>
       </body>
     </html>
   );
