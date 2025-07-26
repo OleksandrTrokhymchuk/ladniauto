@@ -3,7 +3,6 @@
 import { toggle } from "@/lib/redux/features/selectedCars/selectedCarsSlice"
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
 import Image from "next/image"
-import { useRef, useState } from "react"
 
 interface cardsListInterface {
     carType: string
@@ -17,6 +16,8 @@ interface CardCardProps {
 }
 
 export default function CarCard({ carType }: CardCardProps) {
+    const selectedCars = useAppSelector((state) => state.selectedCars.value)
+    const dispatch = useAppDispatch()
 
     const cardsList: cardsListInterface[] = [
         { carType: "sedan", carTypeToUkr: "Седан", altText: "sedan auto", imageSrc: "/images/carCards/sedan.png" },
@@ -34,9 +35,6 @@ export default function CarCard({ carType }: CardCardProps) {
         console.warn(`Дані для carType: "${carType}" не знайдено у cardslist.`)
         return null
     }
-
-    const selectedCars = useAppSelector((state) => state.selectedCars.value)
-    const dispatch = useAppDispatch()
 
     return(
         <div className={`p-2 hover:cursor-pointer transform z-0 mx-auto
