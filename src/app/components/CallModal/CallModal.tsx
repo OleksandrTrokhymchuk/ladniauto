@@ -92,11 +92,13 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
         `}
       >
         <button
-          className="absolute right-4 top-4 text-project-white transition-opacity duration-500 hover:opacity-40"
+          className="absolute right-4 top-4 text-white transition-all duration-500 opacity-50 hover:scale-125 hover:opacity-100"
           onClick={requestClose}
           aria-label="Close modal"
         >
-          ✕
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 5L4.99998 19M5.00001 5L19 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+          </svg>
         </button>
         <h2 className="mb-4 text-lg font-bold">Залишити заявку</h2>
         <p className="mb-5">Будь ласка, введіть Ваш номер телефону</p>
