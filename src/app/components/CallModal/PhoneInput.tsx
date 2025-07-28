@@ -35,6 +35,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
         id="phone-input"
         format="+380 ## ### ## ##" 
         allowEmptyFormatting
+        type="tel"
         mask="_" 
         value={value}
         onValueChange={handleChange} 

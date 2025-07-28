@@ -40,22 +40,34 @@ export default function CarBody({ carBody }: CardCardProps) {
     }
 
     return(
-        <div className={` hover:cursor-pointer transform z-0 mx-auto
+        <div className={`hover:cursor-pointer transform z-0 mx-auto
                 transition-all duration-300 ease-in-out
                 hover:scale-110 hover:z-100 active:scale-105
                 ${selectedCarBodies.includes(cardData.carBody) ? "scale-110 " : ""}
                 `}
             onClick={() => {dispatch(toggle(cardData.carBody))}}
             >
-            <div className={`bordered-element p-2 h-[200px] w-[200px] flex flex-col justify-between
+            <div className={`msm:border-none vsm:border vsm:border-opacity-20 vsm:border-project-white
+                msm:bordered-element vsm:rounded-md 
+                pb-1
+                vsm:px-1 msm:px-2
+                vsm:pt-1 msm:pt-2
+                vsm:h-[110px] vsm:w-[110px]
+                vsm1:h-[130px] vsm1:w-[130px]
+                vsm2:h-[150px] vsm2:w-[150px]
+                vsm3:h-[170px] vsm3:w-[170px]
+                vmsm:h-[200px] vmsm:w-[200px]
+                flex flex-col justify-between
                 transition-all duration-500
-                hover:rounded-lg text-lg
-                ${selectedCarBodies.includes(cardData.carBody) ? "bg-green-500 bg-opacity-65 rounded-lg" : ""}
+                hover:rounded-lg
+                ${selectedCarBodies.includes(cardData.carBody) ? "bg-[#149218] rounded-lg" : ""}
                 `}
             >
-                <div className={`bg-project-blue-darker rounded-lg h-[90%] mb-1 flex items-center justify-center
+                <div className={`bg-project-blue-darker rounded-lg h-[90%] 
+                    ${cardData.carBody === "unknown" ? "vsm2:mb-[2px] msm:mb-0" : "mb-1"}
+                    flex items-center justify-center
                     transition-all duration-300
-                    ${selectedCarBodies.includes(cardData.carBody) ? "bg-green-500 bg-opacity-50" : ""}
+                    ${selectedCarBodies.includes(cardData.carBody) ? "bg-opacity-45" : ""}
                     `}>
                     <Image
                         src={cardData.imageSrc}
@@ -66,7 +78,9 @@ export default function CarBody({ carBody }: CardCardProps) {
                         priority
                     />
                 </div>
-                <div className="text-center">
+                <div className={`text-center
+                    ${cardData.carBody === "unknown" ? "vsm:text-xs vsm3:text-base msm:text-base lg:text-lg " : "vsm:text-base msm:text-xl"}
+                    `}>
                     {cardData.carBodyToUkr}
                 </div>
             </div>

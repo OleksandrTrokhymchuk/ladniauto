@@ -8,22 +8,13 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 
 import CarBody from "./CarBody"
-import Brand from './Brand'
-
-import carsData from "@/app/data/cars.json"
-import { toggle } from "@/lib/redux/features/selectedBrands/selectedBrandsSlice"
-import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
-import Model from './Model'
+import Budget from './Budget'
 
 
 export default function ChooseCar() {
-    const selectedCarBodies = useAppSelector((state) => state.selectedCarBodies.value)
-    const selectedModels = useAppSelector((state) => state.selectedModels.value)
-    const selectedBrands = useAppSelector((state) => state.selectedBrands.value)
+    const carBodies: string[] = ["crossover", "sedan", "hatchback", "minivan", "pickup", "universal", "coupe", "cabriolet", "unknown"]
+    const budgets: string[] = ["10.000 - 20.000", "20.000 - 30.000", "30.000 - 40.000", "40.000 - 50.000", "Більше 50.000",]
 
-
-    const dispatch = useAppDispatch()
-    const uniqueBrands = new Set()
     return(
         <>
             <Swiper
@@ -36,70 +27,24 @@ export default function ChooseCar() {
                 className="mySwiper"
                 style={{ width: '100%' }}
             >
-
-                <SwiperSlide >
-                    <div className="grid grid-auto-fit-cards gap-9">
-                        <CarBody carBody="crossover"/>
-                        <CarBody carBody="sedan"/>
-                        <CarBody carBody="hatchback"/>
-                        <CarBody carBody="minivan"/>
-                        <CarBody carBody="pickup"/>
-                        <CarBody carBody="universal"/>
-                        {/* <CarBody carBody="coupe"/> */}
-                        {/* <CarBody carBody="cabriolet"/> */}
-
-                        {/* <CarBody carBody="unknown"/> */}
+                <SwiperSlide>
+                    <p className='text-center text-2xl'>Кузов</p>
+                    <div className="vsm:grid-small-auto-fit-cards msm:grid-auto-fit-cards">
+                    {/* <div className="msm:grid msm:grid-auto-fit-cards msm:gap-9 vsm:gap-y-5 vsm:flex vsm:flex-wrap vsm:py-2"> */}
+                        {
+                            carBodies.map(carBody => <CarBody key={carBody} carBody={carBody}/>)
+                        }
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                        <div className="grid grid-auto-fit-cards gap-9">
-                            {
-                                selectedCarBodies.map(selectedCarBody => (
-                                    Object.keys(carsData[selectedCarBody as keyof typeof carsData]).map(key => {
-                                        if (!uniqueBrands.has(key)) {
-                                            uniqueBrands.add(key)
-                                            return <Brand key={key} brand={key}/>
-                                        }
-                                        return null
-                                    }
-                                ))).flat().filter(Boolean)
-                            }
-                        </div>
-                        {/* <Brand brand="unknown"/> */}
-                </SwiperSlide>
-                <SwiperSlide>
+                    <p className='text-center text-2xl'>Бюджет</p>
                     <div className='grid grid-auto-fit-cards gap-9'>
-                        {selectedCarBodies.length > 0 && selectedBrands.length > 0 ? (
-                            Array.from(new Set(
-                                selectedCarBodies.flatMap(selectedCarBody => {
-                                    const brandsForBody = carsData[selectedCarBody as keyof typeof carsData];
-
-                                    if (!brandsForBody) {
-                                        return []
-                                    }
-
-                                    return selectedBrands.flatMap(selectedBrand => {
-                                        const modelsForBrand = brandsForBody[selectedBrand as keyof typeof brandsForBody];
-
-                                        if (!modelsForBrand) {
-                                            return []
-                                        }
-
-                                        return Object.keys(modelsForBrand);
-                                    });
-                                })
-                            )).map(modelName => (
-                                <div key={modelName} className='mx-auto'>
-                                    <Model model={modelName}/>
-                                </div>
-                            ))
-                        ) : (
-                            <div>Будь ласка, виберіть тип(и) кузова та марку(и).</div>
-                        )}
+                        {
+                            budgets.map(budget => <Budget key={budget} budget={budget}/>)
+                        }
                     </div>
                 </SwiperSlide>
             </Swiper>
-
         </>
     )
 }

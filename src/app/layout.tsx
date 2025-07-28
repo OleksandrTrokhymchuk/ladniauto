@@ -27,18 +27,13 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <head>
-        <link
-          rel="preload"
-          href="/images/IMG_6936.jpg"
-          as="image"
-          fetchPriority="high"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </head>
       <body className={`${montserrat.variable}`}>
         <StoreProvider>
           <div className="flex flex-col min-h-[100%] bg-project-white">
             <Header/>
-            <main className="flex-grow pt-24">
+            <main className="flex-grow pt-[60px]">
               {/* <div>
               <h3>First</h3>
               <h3>I</h3>

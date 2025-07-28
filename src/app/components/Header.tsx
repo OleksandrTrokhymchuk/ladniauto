@@ -6,7 +6,8 @@ import { useEffect, useState } from "react"
 import { usePathname } from 'next/navigation'
 
 import ladniAutoLogo from "../../images/logo.png"
-import phone from "../../images/phone-call.png"
+import phoneIconWithoutBg from "../../images/phone-icon-for-modal.png"
+import phoneIcon from "@/images/phone-icon-for-header.png"
 
 import CallModal from "./CallModal/CallModal"
 
@@ -75,26 +76,27 @@ export default function Header() {
                 z-500
                 fixed top-0 w-full z-50
                 bg-project-blue
-                ${scrolled ? 'py-1 shadow-lg opacity-95' : 'py-4 shadow-md'}
+                ${scrolled ? 'vsm:py-1 lg:py-2 shadow-lg opacity-95' : 'lg:py-3 vsm:py-2 shadow-md'}
                 ${isMenuOpen ? "shadow-none" : ""}
                 text-project-white
                 transition-all duration-700 ease-in-out backdrop-blur-sm
                 target:`}
             >
                 <div className="container mx-auto custom-container flex items-center justify-between">
-                    <Link href="/" className={`flex items-center mr-8 transition-opacity
+                    <Link href="/" className={`hidden md:flex items-center mr-8 transition-opacity
                         ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
                         `}
                         >
                             <Image
                                 src={ladniAutoLogo}
                                 alt="Ladni Auto Logo"
-                                width={scrolled ? 90 : 100}
-                                height={scrolled ? 31 : 34}
+                                width={ladniAutoLogo.width}
+                                height={ladniAutoLogo.height}
                                 className={`
                                     transition-all duration-700
                                     object-contain
-                                    md:w-[125px] md:max-h-[90px]
+
+                                    ${scrolled ? "max-w-[130px]" : "max-w-[140px]"}
                                 `}
                             priority
                         />
@@ -126,7 +128,7 @@ export default function Header() {
                             <a
                                 href="tel:+380667319809"
                                 className={`
-                                    lg:text-xl md:text-base font-bold whitespace-nowrap
+                                    lg:text-2xl md:text-xl font-bold whitespace-nowrap
                                     transition-all duration-500 ease-in-out
                                     mx-auto
                                     hover:transform hover:scale-105
@@ -146,34 +148,91 @@ export default function Header() {
                         </div>
                     </div>
 
-                    <div className="md:hidden">
-                        <div className="flex items-center gap-x-5 ">
-                            <Image src={phone} alt="phone" width={50} height={50} className={`
+                    <div className="md:hidden w-full">
+                        <div className="flex items-center vsm:gap-x-3 vsm1:gap-x-5 justify-between relative">
+                            <Link href="/" className={`md:hidden flex items-center transition-opacity
                                 ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
-                                transition-all ease-in-out transform  ${isPulsing && !isModalOpen ? 'scale-50 rotate-12' : ''}`}
-                                onClick={() => {!isMenuOpen && setIsModalOpen(true)}}
-                            />
-                            <button
-                                onClick={toggleMenu}
-                                className="z-1000 flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none z-50 relative"
-                                aria-label="Toggle menu"
+                                `}
+                                >
+                                    <Image
+                                        src={ladniAutoLogo}
+                                        alt="Ladni Auto Logo"
+                                        width={ladniAutoLogo.width}
+                                        height={ladniAutoLogo.height}
+                                        className={`
+                                            transition-all duration-700
+                                            object-contain
+                                            vsm:max-w-24 vsm1:max-w-28
+                                        `}
+                                    priority
+                                />
+                            </Link>
+                            <div className={`
+                                bg-project-white py-1 rounded-full relative
+                                vsm:px-2 vsm2:px-5 vsm3:px-7 vsm4:px-9
+                                flex gap-x-1
+                                ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
+                                ${isPulsing && !isModalOpen ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
+                                `}
                             >
-                                <div className={`
-                                    w-8 h-0.25 bg-project-white rounded
-                                    transition-all duration-500 ease-in-out
-                                    ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}
-                                `}></div>
-                                <div className={`
-                                    w-8 h-0.25 bg-project-white rounded
-                                    transition-all duration-200 ease-in-out
-                                    ${isMenuOpen ? 'opacity-0' : ''}
-                                `}></div>
-                                <div className={`
-                                    w-8 h-0.25 bg-project-white rounded
-                                    transition-all duration-500 ease-in-out
-                                    ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}
-                                `}></div>
-                            </button>
+                                <div className="vsm:h-[18px] vsm:w-[18px] my-auto">
+                                    <Image height={24} width={24} src={phoneIconWithoutBg} alt="phone icon" objectFit="contain"/>
+                                </div>
+                                <a
+                                    href="tel:+380667319809"
+                                    className={`text-project-blue font-bold
+                                        vsm:text-lg vsm4:text-xl
+                                        pl-1
+                                        `}
+                                >
+                                    066 731 98 09
+                                </a>
+                            </div>
+                            {/* <div> */}
+                                {/* <Image src={phone} alt="phone" width={50} height={50} className={`
+                                    ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
+                                    transition-all ease-in-out transform  ${isPulsing && !isModalOpen ? 'scale-50 rotate-12' : ''}`}
+                                    onClick={() => {!isMenuOpen && setIsModalOpen(true)}}
+                                /> */}
+                                {/* <div className="scale-45 absolute -top-9 left-0 bg-project-white rounded-full p-5">
+                                    <Image src={phoneIcon} alt="phone icon" />
+                                </div> */}
+                            {/* </div> */}
+                            <div className="flex items-center gap-x-4">
+                                <div
+                                    className={`max-h-14 max-w-14
+                                        duration-200
+                                        ${isMenuOpen ? "opacity-0" : ""}
+                                        active:opacity-70
+                                        hidden vsm3:block
+                                        `}
+                                    onClick={() => {!isMenuOpen && setIsModalOpen(true)}}
+                                >
+                                    <Image src={phoneIcon} alt="phone icon" />
+                                </div>
+
+                                <button
+                                    onClick={toggleMenu}
+                                    className="z-1000 flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none z-50 relative"
+                                    aria-label="Toggle menu"
+                                >
+                                    <span className={`
+                                        w-8 h-[1px] bg-project-white
+                                        transition-all duration-500 ease-in-out
+                                        ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}
+                                    `}></span>
+                                    <span className={`
+                                        w-8 h-[1px] bg-project-white
+                                        transition-all duration-200 ease-in-out
+                                        ${isMenuOpen ? 'opacity-0' : ''}
+                                    `}></span>
+                                    <span className={`
+                                        w-8 h-[1px] bg-project-white
+                                        transition-all duration-500 ease-in-out
+                                        ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}
+                                    `}></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

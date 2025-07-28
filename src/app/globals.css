@@ -6,8 +6,20 @@
 
 @layer utilities {
   .grid-auto-fit-cards {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* padding: 20px; */
+    gap: 35px;
     padding: 20px;
+  }
+  .grid-small-auto-fit-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    padding: 15px;
+    row-gap: 25px;
+    column-gap: 10px;
   }
 }
 

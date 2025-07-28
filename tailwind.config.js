@@ -22,10 +22,15 @@ module.exports = {
       scale: {
         '10': '0.10',
         '25': '0.25',
+        '30': '0.30',
         '70': '0.70',
       },
       screens: {
         'vsm': '320px', // very-small
+        'vsm1': '350px',
+        'vsm2': '400px',
+        'vsm3': '450px',
+        'vsm4': '500px',
         'msm': '550px', // medium-small
         // 'sm': '640px',
         // 'md': '768px',
