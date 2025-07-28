@@ -27,7 +27,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   return (
     <div className="mb-4">
       {label && (
-        <label htmlFor="phone-input" className="block text-project-white text-lg font-bold mb-2">
+        <label htmlFor="phone-input" className="block text-project-white text-lg font-bold mb-1">
           {label}
         </label>
       )}
@@ -48,6 +48,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
           transition-all duration-300 ease-in-out
           ${isFocused ? 'ring-2 ring-project-white' : ''}
           ${className}
+          text-[16px] min-h-[44px]
         `}
       />
     </div>
