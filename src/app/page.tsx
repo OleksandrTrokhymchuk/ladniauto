@@ -12,8 +12,11 @@ export default function Home() {
             </h1>
             <h2 className="my-5">Ми не продаємо авто – ми продаємо спокій. Реалізовуємо автомобільні мрії клієнтів</h2>
             <p className="my-5">Від аукціону США до видачі відновленого авто у вашому місті. Купуємо безпечні, а віддаємо готові. Ви обираєте – ми робимо результат. Чесно. Прозоро. Без зайвих турбот</p>
-            <div className="bg-project-blue w-full rounded-3xl vsm:p-1 msm:p-5 bg-opacity-90 shadow-2xl">
-              <p className="text-center mb-3 text-4xl font-bold">Оберіть автомобіль</p>
+            <div className="bg-project-blue w-full rounded-3xl p-5 bg-opacity-90 shadow-2xl">
+              <p className="text-center text-4xl font-bold">Оберіть автомобіль</p>
+              <div
+                className="h-[1px] bg-project-white w-[95%] mx-auto my-4 bg-opacity-30"
+              ></div>
               <ChooseCar/>
             </div>
         </div>
