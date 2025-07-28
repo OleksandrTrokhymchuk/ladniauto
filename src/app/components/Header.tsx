@@ -253,7 +253,7 @@ export default function Header() {
                     p-8
                     ${scrolled ? "pt-[66px]" : "pt-[94px]"}
                 `} onClick={(e) => e.stopPropagation()}>
-                    <ul className="flex flex-col space-y-6 border-t border-project-white border-opacity-50 pt-10">
+                    <ul className="flex flex-col space-y-6 border-t border-project-white border-opacity-50 pt-10 mt-[2px]">
                         {navItems.map((item) => (
                             <li key={item.name}>
                                 <Link
