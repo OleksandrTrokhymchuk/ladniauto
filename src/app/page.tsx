@@ -8,7 +8,7 @@ export default function Home() {
         style={{ backgroundImage: "url(/images/hero-background.jpg)" }}>
           <div className="custom-container">
             <h1
-              className="vsm:text-3xl msm:text-5xl lg:text-7xl font-bold text-project-blue"
+              className="vsm:text-5xl lg:text-7xl font-bold text-project-blue"
             >
               Авто із США під ключ
             </h1>
