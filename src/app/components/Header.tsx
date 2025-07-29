@@ -68,7 +68,15 @@ export default function Header() {
         }
     }, [isMenuOpen])
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const scrollToTop = (e: any) => {
+        e.preventDefault()
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
 
     return (
         <>
@@ -86,6 +94,7 @@ export default function Header() {
                     <Link href="/" className={`hidden md:flex items-center mr-8 transition-opacity
                         ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
                         `}
+                        onClick={scrollToTop}
                         >
                             <Image
                                 src={ladniAutoLogo}
@@ -113,7 +122,7 @@ export default function Header() {
                                             ? 'font-bold text-project-white after:scale-x-100'
                                             : 'font-medium text-gray-100 hover:text-project-white hover:after:scale-x-100'
                                         }
-                                        after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.25 after:bg-project-white after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-out
+                                        after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.25 after:bg-project-white after:scale-x-0 after:origin-left after:transition-transform after:duration-500 after:ease-out
                                     `}>
                                         {item.name}
                                     </Link>
@@ -153,6 +162,7 @@ export default function Header() {
                             <Link href="/" className={`md:hidden flex items-center transition-opacity
                                 ${isMenuOpen ? "duration-200 opacity-0 pointer-events-none" : "duration-700"}
                                 `}
+                                onClick={scrollToTop}
                                 >
                                     <Image
                                         src={ladniAutoLogo}
@@ -289,7 +299,7 @@ export default function Header() {
                             Зателефонуйте мені
                         </button>
                     </div>
-                    <Link href="/" onClick={toggleMenu}>
+                    <Link href="/" onClick={(e) => {toggleMenu(); scrollToTop(e)}}>
                         <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className={`mx-auto
                             ${scrolled ? "max-w-[80%] pt-10" : "max-w-[65%] pt-6"}
                             `}/>
