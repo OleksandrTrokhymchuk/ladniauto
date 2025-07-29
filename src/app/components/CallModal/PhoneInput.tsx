@@ -18,7 +18,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   placeholder = "+380 __ ___ __ __",
   className
 }) => {
-  const [isFocused, setIsFocused] = useState(false)
+  const [isFocused, setIsFocused] = useState<boolean>(false)
 
   const handleChange = (values: { formattedValue: string; value: string; floatValue?: number; }) => {
     onChange(values.formattedValue)
@@ -27,18 +27,22 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   return (
     <div className="mb-4">
       {label && (
-        <label htmlFor="phone-input" className="block text-project-white text-lg font-bold mb-1">
+        <label htmlFor="phone-input" className={`block text-project-white font-bold mb-1
+            transition-all duration-300
+            ${isFocused ? "text-xl" : "text-lg"}
+          `}
+        >
           {label}
         </label>
       )}
       <PatternFormat
         id="phone-input"
-        format="+380 ## ### ## ##" 
+        format="+380 ## ### ## ##"
         allowEmptyFormatting
         type="tel"
-        mask="_" 
+        mask="_"
         value={value}
-        onValueChange={handleChange} 
+        onValueChange={handleChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}

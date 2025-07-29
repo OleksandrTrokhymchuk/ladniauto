@@ -8,6 +8,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        'fade-in-down': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(-10px)', // Починаємо трохи вище
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)', // Завершуємо на початковому місці
+          },
+        },
+      },
+      animation: {
+        'fade-in-down': 'fade-in-down 0.3s ease-out forwards', // 0.3 секунди, плавне завершення, залишається в кінцевому стані
+      },
       colors: {
         'project-blue': '#024097',
         'project-white': '#feffff',
@@ -22,6 +37,7 @@ module.exports = {
       },
       scale: {
         '10': '0.10',
+        '17': '0.17',
         '25': '0.25',
         '30': '0.30',
         '70': '0.70',

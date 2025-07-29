@@ -3,7 +3,9 @@
 import { useEffect, useState, useCallback } from "react"
 import Image from "next/image"
 import phoneIcon from "@/images/phone-icon-for-modal.png"
+import userIcon from "@/images/user-icon-for-modal.png"
 import PhoneInput from "./PhoneInput"
+import TimePicker from "./TimerPicker"
 
 type ModalProps = {
   isOpen: boolean
@@ -14,6 +16,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
   const [showContent, setShowContent] = useState<boolean>(false)
   const [isVisible, setIsVisible] = useState<boolean>(false)
   const [phoneNumber, setPhoneNumber] = useState<string>("")
+  const [userInput, setUserInput] = useState<string>("")
+  const [isUserInputFocused, setIsUserInputFocused] = useState<boolean>(false)
 
   useEffect(() => {
     if (isOpen) {
@@ -42,8 +46,11 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
       console.log("Номер телефону (відформатований):", phoneNumber)
       console.log("Номер телефону (чистий):", cleanPhoneNumber)
 
-      onClose()
+      console.log("user name", userInput)
+
       setPhoneNumber("")
+      setUserInput("")
+      onClose()
     },
     [phoneNumber, onClose]
   );
@@ -100,18 +107,59 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
             <path d="M19 5L4.99998 19M5.00001 5L19 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
           </svg>
         </button>
-        <h2 className="mb-4 text-lg font-bold">Залишити заявку</h2>
-        <p className="mb-5">Будь ласка, введіть Ваш номер телефону</p>
+        <h2 className="mb-5 text-xl font-bold">Залишити заявку</h2>
+        <p className="mb-5 max-w-80">Будь ласка, введіть Ваше ім'я та Ваш номер телефону</p>
         <form className="relative" onSubmit={handleFormSubmit}>
-          <span className="absolute -left-9 top-14 -translate-y-1/2 scale-25">
-            <Image src={phoneIcon} alt="phone icon" />
-          </span>
-          <PhoneInput
-            label="Ваш номер телефону"
-            value={phoneNumber}
-            onChange={setPhoneNumber}
-            className="text-project-blue"
-          />
+          <div className="mb-6 relative">
+            <span className="absolute -left-14 top-14 -translate-y-1/2 scale-17">
+              <Image src={userIcon} alt="phone icon" />
+            </span>
+            <label
+                htmlFor="name-input"
+                className={`block text-project-white font-bold mb-1
+                  transition-all duration-300
+                ${isUserInputFocused ? "text-xl" : "text-lg"}
+                `}
+              >
+              Ваше ім'я
+            </label>
+            <input
+              id="name-input"
+              type="text"
+              className={`w-full px-4 py-2 text-project-blue bg-project-white rounded-lg pl-8
+                border-2 border-transparent focus:outline-none
+                transition-all duration-300 ease-in-out
+                text-[16px] min-h-[44px]
+                ${isUserInputFocused ? 'ring-2 ring-project-white' : ''}
+              `}
+              onFocus={() => setIsUserInputFocused(true)}
+              onBlur={() => setIsUserInputFocused(false)}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>{
+                const filteredValue = event.target.value.replace(/[^a-zA-Zа-яА-ЯҐґІіЇїЄє\s-]/g, '')
+                setUserInput(filteredValue)
+              }}
+              value={userInput}
+            />
+          </div>
+
+          <div className="mb-6 relative">
+            <span className="absolute -left-9 top-14 -translate-y-1/2 scale-25">
+              <Image src={phoneIcon} alt="phone icon" />
+            </span>
+            <PhoneInput
+              label="Ваш номер телефону"
+              value={phoneNumber}
+              onChange={setPhoneNumber}
+              className="text-project-blue"
+            />
+          </div>
+
+          <div>
+            <p className="mb-1 font-bold">
+              Виберіть час, за яким Вам зателефонувати
+            </p>
+            <TimePicker/>
+          </div>
 
           <div className={`h-[1px] mt-5 mb-3 bg-project-white opacity-10`}></div>
 
@@ -121,12 +169,12 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               mt-3 w-full rounded-full bg-project-white px-6 py-3 font-bold text-project-blue transition-all duration-300
               hover:bg-gray-300
               ${
-                phoneNumber.replace(/\D/g, "").length < 12
+                phoneNumber.replace(/\D/g, "").length < 12 || userInput.length < 2
                   ? "cursor-not-allowed opacity-50"
                   : ""
               }
             `}
-            disabled={phoneNumber.replace(/\D/g, "").length < 12}
+            disabled={phoneNumber.replace(/\D/g, "").length < 12 || userInput.length < 2}
           >
             Зателефонуйте мені
           </button>

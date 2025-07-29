@@ -1,6 +1,26 @@
+"use client"
+
+
+
+import { useEffect, useState } from "react"
 import ChooseCar from "./components/ChooseCar/ChooseCar"
+import CallModal from "@/app/components/CallModal/CallModal"
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  useEffect(() => {
+       if (isModalOpen) {
+           document.body.style.overflow = 'hidden'
+       } else {
+           document.body.style.overflow = ''
+       }
+       return () => {
+           document.body.style.overflow = ''
+       }
+   }, [isModalOpen])
+
+
   return (
     <section className="min-h-screen bg-cover bg-center text-project-white
     vsm:pt-32 md:pt-48
@@ -26,6 +46,7 @@ export default function Home() {
                   py-2 px-5
                   transition-all duration-500
                   hover:scale-110 hover:opacity-85"
+                  onClick={() => setIsModalOpen(true)}
                 >
                   Залишити заявку
                 </button>
@@ -39,6 +60,7 @@ export default function Home() {
               <ChooseCar/>
             </div>
         </div>
+        <CallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>
     </section>
   )
 }
