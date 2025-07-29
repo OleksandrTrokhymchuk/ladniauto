@@ -108,7 +108,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
           </svg>
         </button>
         <h2 className="mb-5 text-xl font-bold">Залишити заявку</h2>
-        <p className="mb-5 max-w-80">Будь ласка, введіть Ваше ім'я та Ваш номер телефону</p>
+        <p className="mb-5 max-w-80">Будь ласка, введіть Ваше ім&apos;я та Ваш номер телефону</p>
         <form className="relative" onSubmit={handleFormSubmit}>
           <div className="mb-6 relative">
             <span className="absolute -left-14 top-14 -translate-y-1/2 scale-17">
@@ -121,7 +121,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                 ${isUserInputFocused ? "text-xl" : "text-lg"}
                 `}
               >
-              Ваше ім'я
+              Ваше ім&apos;я
             </label>
             <input
               id="name-input"
