@@ -2,12 +2,12 @@ import ChooseCar from "./components/ChooseCar/ChooseCar"
 
 export default function Home() {
   return (
-    <section className="min-h-screen bg-cover bg-center text-project-white
+    <section className=" bg-cover bg-center text-project-white
     vsm:pt-32 md:pt-48
     pb-20"
         style={{ backgroundImage: "url(/images/hero-background.jpg)" }}>
           <div className="custom-container vsm:text-lg lg:text-xl">
-            <div className="min-h-screen">
+            <div className="min-h-[calc(100vh-112px)]">
               <h1
                 className="vsm:text-6xl lg:text-7xl font-bold text-project-blue mb-10"
               >
