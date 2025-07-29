@@ -34,7 +34,7 @@ export default function RootLayout({
         <StoreProvider>
           <div className="flex flex-col min-h-[100%] bg-project-white">
             <Header/>
-            <main className="flex-grow pt-[60px]">
+            <main className="flex-grow">
               {/* <div>
               <h3>First</h3>
               <h3>I</h3>
