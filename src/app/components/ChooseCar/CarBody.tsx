@@ -60,7 +60,7 @@ export default function CarBody({ carBody }: CardCardProps) {
                 flex flex-col justify-between
                 transition-all duration-500
                 hover:rounded-lg
-                ${selectedCarBodies.includes(cardData.carBody) ? "bg-[#149218] rounded-lg" : ""}
+                ${selectedCarBodies.includes(cardData.carBody) ? "bg-project-green rounded-lg" : ""}
                 `}
             >
                 <div className={`bg-project-blue-darker rounded-lg h-[90%] 

@@ -21,7 +21,7 @@ export default function Budget({budget}: BudgetProps) {
             <div className={`bordered-element p-2 h-[70px] w-[200px] flex flex-col justify-between
                 transition-all duration-500
                 hover:rounded-lg text-lg
-                ${selectedBudget === budget ? "bg-[#149218] rounded-lg" : ""}
+                ${selectedBudget === budget ? "bg-project-green rounded-lg" : ""}
                 `}
             >
                 <div className={`bg-project-blue-darker rounded-lg h-[100%] flex items-center justify-center
