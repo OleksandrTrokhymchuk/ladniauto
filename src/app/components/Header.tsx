@@ -151,7 +151,7 @@ export default function Header() {
                     <div className="md:hidden w-full">
                         <div className="flex items-center vsm:gap-x-3 vsm1:gap-x-5 justify-between relative">
                             <Link href="/" className={`md:hidden flex items-center transition-opacity
-                                ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
+                                ${isMenuOpen ? "duration-200 opacity-0 pointer-events-none" : "duration-700"}
                                 `}
                                 >
                                     <Image
@@ -171,7 +171,7 @@ export default function Header() {
                                 bg-project-white py-1 rounded-full relative
                                 vsm:px-2 vsm2:px-5 vsm3:px-7 vsm4:px-9
                                 flex gap-x-1
-                                ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
+                                ${isMenuOpen ? "duration-200 opacity-0 pointer-events-none" : "duration-700"}
                                 ${isPulsing && !isModalOpen ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
                                 `}
                             >
@@ -202,7 +202,7 @@ export default function Header() {
                                 <div
                                     className={`max-h-14 max-w-14
                                         duration-200
-                                        ${isMenuOpen ? "opacity-0" : ""}
+                                        ${isMenuOpen ? "opacity-0 pointer-events-none" : ""}
                                         active:opacity-70
                                         hidden vsm3:block
                                         `}
@@ -261,8 +261,6 @@ export default function Header() {
                                     onClick={toggleMenu}
                                     className={`
                                         text-xl font-bold text-project-white block py-2
-                                        hover:text-project-green transition-colors duration-300
-                                        ${pathname === item.href ? 'text-project-green' : ''}
                                     `}
                                 >
                                     {item.name}
