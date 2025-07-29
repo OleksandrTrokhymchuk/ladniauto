@@ -6,15 +6,16 @@ import youtubeIcon from "@/images/youtube.svg"
 import ladniAutoLogo from "../../images/logo.png"
 
 import Image from "next/image"
+import { MouseEventHandler } from "react"
 
 export default function Footer() {
-    const scrollToTop = (e: any) => {
+    const scrollToTop: MouseEventHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
-        });
-    };
+        })
+    }
 
     return(
         <footer className="bg-project-blue py-6 text-project-white">

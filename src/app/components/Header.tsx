@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { MouseEventHandler, useEffect, useState } from "react"
 import { usePathname } from 'next/navigation'
 
 import ladniAutoLogo from "../../images/logo.png"
@@ -70,7 +70,7 @@ export default function Header() {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
 
-    const scrollToTop = (e: any) => {
+    const scrollToTop: MouseEventHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         window.scrollTo({
             top: 0,
