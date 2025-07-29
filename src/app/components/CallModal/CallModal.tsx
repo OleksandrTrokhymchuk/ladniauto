@@ -187,7 +187,15 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                 transition-all duration-300 ease-in-out
                 ${isCarBudgetInfoInputFocused ? 'ring-2 ring-project-white' : ''}
               `}
-              onFocus={() => {setIsCarBudgetInfoInputFocused(true)}}
+              onFocus={(e) => {
+                setIsCarBudgetInfoInputFocused(true)
+                setTimeout(() => {
+                  e.target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                  })
+                }, 300)
+              }}
               onBlur={() => {setIsCarBudgetInfoInputFocused(false)}}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 setCarBudgetInfoInput(event.target.value)
