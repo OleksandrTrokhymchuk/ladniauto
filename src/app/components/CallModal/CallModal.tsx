@@ -4,6 +4,8 @@ import { useEffect, useState, useCallback } from "react"
 import Image from "next/image"
 import phoneIcon from "@/images/phone-icon-for-modal.png"
 import userIcon from "@/images/user-icon-for-modal.png"
+import carIcon from "@/images/car-icon-for-modal.png"
+
 import PhoneInput from "./PhoneInput"
 import TimePicker from "./TimerPicker"
 
@@ -17,7 +19,9 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
   const [isVisible, setIsVisible] = useState<boolean>(false)
   const [phoneNumber, setPhoneNumber] = useState<string>("")
   const [userInput, setUserInput] = useState<string>("")
+  const [carBudgetInfoInput, setCarBudgetInfoInput] = useState<string>("")
   const [isUserInputFocused, setIsUserInputFocused] = useState<boolean>(false)
+  const [isCarBudgetInfoInputFocused, setIsCarBudgetInfoInputFocused] = useState<boolean>(false)
 
   useEffect(() => {
     if (isOpen) {
@@ -112,7 +116,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
         <form className="relative" onSubmit={handleFormSubmit}>
           <div className="mb-6 relative">
             <span className="absolute -left-14 top-14 -translate-y-1/2 scale-17">
-              <Image src={userIcon} alt="phone icon" />
+              <Image src={userIcon} alt="user icon" />
             </span>
             <label
                 htmlFor="name-input"
@@ -128,8 +132,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               type="text"
               className={`w-full px-4 py-2 text-project-blue bg-project-white rounded-lg pl-8
                 border-2 border-transparent focus:outline-none
-                transition-all duration-300 ease-in-out
                 text-[16px] min-h-[44px]
+                transition-all duration-300 ease-in-out
                 ${isUserInputFocused ? 'ring-2 ring-project-white' : ''}
               `}
               onFocus={() => setIsUserInputFocused(true)}
@@ -154,11 +158,42 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
             />
           </div>
 
-          <div>
+          <div className="mb-6">
             <p className="mb-1 font-bold">
               Виберіть час, за яким Вам зателефонувати
             </p>
             <TimePicker/>
+          </div>
+
+          <div className="relative">
+            <span className="absolute -left-12 top-14 -translate-y-1/2 scale-23">
+              <Image src={carIcon} alt="car icon" />
+            </span>
+            <label
+                htmlFor="car-budget-info-input"
+                className={`block text-project-white font-bold mb-1
+                  transition-all duration-300
+                ${isCarBudgetInfoInputFocused ? "text-xl" : "text-lg"}
+                `}
+              >
+              Вкажіть авто та бюджет
+            </label>
+            <input
+              id="car-budget-info-input"
+              type="text"
+              className={`w-full px-4 py-2 text-project-blue bg-project-white rounded-lg pl-[45px]
+                border-2 border-transparent focus:outline-none
+                text-[16px] min-h-[44px]
+                transition-all duration-300 ease-in-out
+                ${isCarBudgetInfoInputFocused ? 'ring-2 ring-project-white' : ''}
+              `}
+              onFocus={() => {setIsCarBudgetInfoInputFocused(true)}}
+              onBlur={() => {setIsCarBudgetInfoInputFocused(false)}}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                setCarBudgetInfoInput(event.target.value)
+              }}
+              value={carBudgetInfoInput}
+            />
           </div>
 
           <div className={`h-[1px] mt-5 mb-3 bg-project-white opacity-10`}></div>
