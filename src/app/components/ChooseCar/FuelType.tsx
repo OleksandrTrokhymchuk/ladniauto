@@ -31,18 +31,18 @@ export default function FuelType({ fuelType }: CardCardProps) {
         { fuelType: "unknown", fuelTypeToUkr: "Інший тип", altText: "another fuel", imageSrc: "/images/Car-Body/unknown.svg" },
     ]
 
-    const cardData  = cardsList.find(car => car.fuelType === fuelType)
+    const cardData  = cardsList.find(fuel => fuel.fuelType === fuelType)
 
-    if (!cardData ) {
-        console.warn(`Дані для carBody: "${fuelType}" не знайдено у cardslist.`)
+    if (!cardData) {
+        console.warn(`Дані для fuelType: "${fuelType}" не знайдено у cardslist.`)
         return null
     }
 
     return(
         <div className={`hover-supported:hover:cursor-pointer transform z-0 mx-auto
                 transition-all duration-300 ease-in-out
-                hover-supported:hover:scale-110 hover-supported:hover:z-100
-                no-hover:active:z-100
+                hover-supported:hover:scale-110 no-hover:active:scale-110
+                hover-supported:hover:z-100 no-hover:active:z-100
 
                 ${selectedFuelTypes.includes(cardData.fuelType) ? "scale-110 " : ""}
                 `}

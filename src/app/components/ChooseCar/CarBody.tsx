@@ -34,15 +34,16 @@ export default function CarBody({ carBody }: CardCardProps) {
 
     const cardData  = cardsList.find(car => car.carBody === carBody)
 
-    if (!cardData ) {
+    if (!cardData) {
         console.warn(`Дані для carBody: "${carBody}" не знайдено у cardslist.`)
         return null
     }
 
     return(
-        <div className={`hover:cursor-pointer transform z-0 mx-auto
+        <div className={`hover-supported:hover:cursor-pointer transform z-0 mx-auto
                 transition-all duration-300 ease-in-out
-                hover:scale-110 hover:z-100 active:scale-105
+                hover-supported:hover:scale-110 no-hover:active:scale-110
+                hover-supported:hover:z-100 no-hover:active:z-100
                 ${selectedCarBodies.includes(cardData.carBody) ? "scale-110 " : ""}
                 `}
             onClick={() => {dispatch(toggle(cardData.carBody))}}
@@ -59,7 +60,7 @@ export default function CarBody({ carBody }: CardCardProps) {
                 vmsm:h-[200px] vmsm:w-[200px]
                 flex flex-col justify-between
                 transition-all duration-500
-                hover:rounded-lg
+                hover-supported:hover:rounded-lg  no-hover:active:rounded-lg
                 ${selectedCarBodies.includes(cardData.carBody) ? "bg-project-green rounded-lg" : ""}
                 `}
             >
