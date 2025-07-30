@@ -7,22 +7,21 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      // keyframes: {
-      //   'fade-in-down': {
-      //     '0%': {
-      //       opacity: '0',
-      //       transform: 'translateY(-10px)', 
-      //     },
-      //     '100%': {
-      //       opacity: '1',
-      //       transform: 'translateY(0)', 
-      //     },
-      //   },
-      // },
-      // animation: {
-      //   'fade-in-down': 'fade-in-down 0.3s ease-out forwards', 
-      // },
+      extend: {
+        keyframes: {
+        'fade-in-down': {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'fade-out-up': {
+          '0%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(-10px)' },
+        },
+      },
+      animation: {
+        'fade-in-down': 'fade-in-down 0.3s ease-out forwards',
+        'fade-out-up': 'fade-out-up 0.3s ease-in forwards',
+      },
       colors: {
         'project-blue': '#024097',
         'project-white': '#feffff',
@@ -64,7 +63,7 @@ module.exports = {
         const rule = postcss.atRule({ name: 'media', params: '(hover: none)' });
         rule.append(container.nodes);
         container.append(rule);
-        rule.selector = `.${e(`no-hover${separator} `)}&`; 
+        rule.selector = `.${e(`no-hover${separator} `)}&`;
       });
       addVariant('hover-supported', ({ container, separator }) => {
         const rule = postcss.atRule({ name: 'media', params: '(hover: hover)' });

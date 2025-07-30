@@ -162,7 +162,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
             <p className="mb-1 font-bold">
               Виберіть час, за яким Вам зателефонувати
             </p>
-            <TimePicker/>
+              <TimePicker/>
           </div>
 
           <div className="relative">

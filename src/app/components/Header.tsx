@@ -182,17 +182,12 @@ export default function Header() {
                                 vsm:px-2 vsm2:px-5 vsm3:px-7 vsm4:px-9
                                 flex gap-x-1
                                 ${isMenuOpen ? "duration-200 opacity-0 pointer-events-none" : "duration-700"}
-                                ${isPulsing && !isModalOpen ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
                                 `}
                             >
-                                <div className="vsm:h-[18px] vsm:w-[18px] my-auto">
-                                    <Image height={24} width={24} src={phoneIconWithoutBg} alt="phone icon" objectFit="contain"/>
-                                </div>
                                 <a
                                     href="tel:+380667319809"
                                     className={`text-project-blue font-bold
-                                        vsm:text-lg vsm4:text-xl
-                                        pl-1
+                                        vsm:text-[13px] vsm1:text-[15px] vsm2:text-xl vsm3:text-2xl
                                         `}
                                 >
                                     066 731 98 09
@@ -211,10 +206,10 @@ export default function Header() {
                             <div className="flex items-center gap-x-4">
                                 <div
                                     className={`max-h-14 max-w-14
-                                        duration-200
-                                        ${isMenuOpen ? "opacity-0 pointer-events-none" : ""}
+                                        ${isMenuOpen ? "opacity-0 pointer-events-none duration-200" : "duration-700"}
+                                        ${isPulsing && !isModalOpen ? 'scale-50 rotate-12' : ''}
                                         active:opacity-70
-                                        hidden vsm3:block
+                                        block md:hidden
                                         `}
                                     onClick={() => {!isMenuOpen && setIsModalOpen(true)}}
                                 >

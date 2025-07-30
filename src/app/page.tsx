@@ -34,22 +34,29 @@ export default function Home() {
                 Авто із США під ключ
               </h1>
               <div className="flex flex-col gap-y-6 mb-16">
-                <h2>Ми не продаємо авто – ми продаємо спокій. Реалізовуємо автомобільні мрії клієнтів</h2>
-                <p>Від аукціону США до видачі відновленого авто у вашому місті. Купуємо безпечні, а віддаємо готові. Ви обираєте – ми робимо результат. Чесно. Прозоро. Без зайвих турбот</p>
+                <h2>Ми не продаємо авто – ми продаємо спокій. Реалізовуємо автомобільні мрії клієнтів.</h2>
+                <p>Від аукціону США до видачі відновленого авто у вашому місті. Купуємо безпечні, а віддаємо готові. Ви обираєте – ми робимо результат. Чесно. Прозоро. Без зайвих турбот.</p>
               </div>
-              <div>
-                <p>
+              <div className="">
+                <p className="font-semibold text-2xl mb-4"
+                  style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+                >
                   Залишайте заявку на персональну консультацію та безкоштовний підбір!
                 </p>
-                <button
-                  className="bg-project-green mt-5 rounded-full
-                  py-2 px-5
-                  transition-all duration-500
-                  hover:scale-110 hover:opacity-85"
-                  onClick={() => setIsModalOpen(true)}
-                >
-                  Залишити заявку
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    className="bg-project-green mt-5 rounded-full
+                    py-5 px-10 font-bold
+                    text-2xl
+                    transition-all duration-500
+                    hover:scale-110 hover:opacity-85
+
+                    "
+                    onClick={() => setIsModalOpen(true)}
+                  >
+                    Залишити заявку
+                  </button>
+                </div>
               </div>
             </div>
             <div className="bg-project-blue w-full rounded-3xl p-5 bg-opacity-90 shadow-2xl">

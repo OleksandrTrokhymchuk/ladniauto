@@ -4,8 +4,10 @@ import React, { useState, useRef, useEffect } from 'react'
 const TimePicker: React.FC = () => {
   const [selectedHour, setSelectedHour] = useState<string>('09')
   const [selectedMinute, setSelectedMinute] = useState<string>('00')
-  const [isHourOpen, setIsHourOpen] = useState<boolean>(false) 
+  const [isHourOpen, setIsHourOpen] = useState<boolean>(false)
   const [isMinuteOpen, setIsMinuteOpen] = useState<boolean>(false)
+  const [hourClosing, setHourClosing] = useState<boolean>(false)
+  const [minuteClosing, setMinuteClosing] = useState<boolean>(false)
 
   const hourRef = useRef<HTMLDivElement>(null)
   const minuteRef = useRef<HTMLDivElement>(null)
@@ -23,7 +25,11 @@ const TimePicker: React.FC = () => {
           `}
           onClick={() => {
             setSelectedHour(hour)
-            setIsHourOpen(false)
+            setHourClosing(true)
+            setTimeout(() => {
+              setIsHourOpen(false)
+              setHourClosing(false)
+            }, 300)
           }}
         >
           {hour}
@@ -46,7 +52,11 @@ const TimePicker: React.FC = () => {
           `}
           onClick={() => {
             setSelectedMinute(minute)
-            setIsMinuteOpen(false)
+            setMinuteClosing(true)
+            setTimeout(() => {
+              setIsMinuteOpen(false)
+              setMinuteClosing(false)
+            }, 300)
           }}
         >
           {minute}
@@ -59,10 +69,22 @@ const TimePicker: React.FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (hourRef.current && !hourRef.current.contains(event.target as Node)) {
-        setIsHourOpen(false)
+        if (isHourOpen) {
+          setHourClosing(true)
+          setTimeout(() => {
+            setIsHourOpen(false)
+            setHourClosing(false)
+          }, 300)
+        }
       }
       if (minuteRef.current && !minuteRef.current.contains(event.target as Node)) {
-        setIsMinuteOpen(false)
+        if (isMinuteOpen) {
+          setMinuteClosing(true)
+          setTimeout(() => {
+            setIsMinuteOpen(false)
+            setMinuteClosing(false)
+          }, 300)
+        }
       }
     }
 
@@ -70,14 +92,24 @@ const TimePicker: React.FC = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [])
+  }, [isHourOpen, isMinuteOpen])
 
   return (
-    <div className="flex items-center space-x-1.5 text-project-blue text-lg">
+    <div className="flex items-center justify-center space-x-1.5 text-project-blue text-lg">
       <div className="relative" ref={hourRef}>
         <div
           className="bg-project-white rounded-lg px-2 py-1 cursor-pointer shadow-md flex items-center justify-between min-w-[55px]"
-          onClick={() => setIsHourOpen(!isHourOpen)}
+          onClick={() => {
+            if (!isHourOpen) {
+              setIsHourOpen(true)
+            } else {
+              setHourClosing(true)
+              setTimeout(() => {
+                setIsHourOpen(false)
+                setHourClosing(false)
+              }, 300)
+            }
+          }}
         >
           {selectedHour}
           <svg
@@ -90,19 +122,34 @@ const TimePicker: React.FC = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </div>
-        {isHourOpen && (
-          <div className="absolute z-10 bg-project-white rounded-lg  max-h-60 overflow-y-auto w-full border border-gray-200 animate-fade-in-down">
+        {(isHourOpen || hourClosing) && (
+          <div
+            className={`
+              absolute z-10 bg-project-white rounded-lg max-h-60 overflow-y-auto w-full border border-gray-200
+              ${hourClosing ? 'animate-fade-out-up' : 'animate-fade-in-down'}
+            `}
+          >
             {generateHourOptions()}
           </div>
         )}
       </div>
 
-      <span className='text-project-white'>:</span>
+      <span className="text-project-white">:</span>
 
       <div className="relative" ref={minuteRef}>
         <div
           className="bg-project-white rounded-lg px-2 py-1 cursor-pointer shadow-md flex items-center justify-between min-w-[55px]"
-          onClick={() => setIsMinuteOpen(!isMinuteOpen)}
+          onClick={() => {
+            if (!isMinuteOpen) {
+              setIsMinuteOpen(true)
+            } else {
+              setMinuteClosing(true)
+              setTimeout(() => {
+                setIsMinuteOpen(false)
+                setMinuteClosing(false)
+              }, 300)
+            }
+          }}
         >
           {selectedMinute}
           <svg
@@ -115,8 +162,13 @@ const TimePicker: React.FC = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </div>
-        {isMinuteOpen && (
-          <div className="absolute z-10 bg-project-white rounded-lg  max-h-60 overflow-y-auto w-full border border-gray-200 animate-fade-in-down">
+        {(isMinuteOpen || minuteClosing) && (
+          <div
+            className={`
+              absolute z-10 bg-project-white rounded-lg max-h-60 overflow-y-auto w-full border border-gray-200
+              ${minuteClosing ? 'animate-fade-out-up' : 'animate-fade-in-down'}
+            `}
+          >
             {generateMinuteOptions()}
           </div>
         )}
