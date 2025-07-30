@@ -179,7 +179,7 @@ export default function Header() {
                             </Link>
                             <div className={`
                                 bg-project-white py-1 rounded-full relative
-                                vsm:px-1 vsm1:px-1.5 vsm2:px-5 vsm3:px-7 vsm4:px-9
+                                vsm:px-1 vsm1:px-1.5 vsm15:px-2 vsm2:px-5 vsm3:px-7 vsm4:px-9
                                 flex gap-x-1
                                 ${isMenuOpen ? "duration-200 opacity-0 pointer-events-none" : "duration-700"}
                                 `}
@@ -187,8 +187,8 @@ export default function Header() {
                                 <a
                                     href="tel:+380667319809"
                                     className={`text-project-blue font-bold
-                                        vsm:text-base vsm1:text-lg vsm2:text-xl vsm3:text-2xl
-                                        `}
+                                        vsm:text-base vsm1:text-lg vsm15:text-lg1 vsm2:text-xl vsm3:text-2xl
+                                    `}
                                 >
                                     066 731 98 09
                                 </a>

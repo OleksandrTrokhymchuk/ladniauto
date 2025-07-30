@@ -45,6 +45,7 @@ module.exports = {
       screens: {
         'vsm': '320px', // very-small
         'vsm1': '362px',
+        'vsm15': '385px',
         'vsm2': '407px',
         'vsm3': '453px',
         'vsm4': '500px',
@@ -60,6 +61,7 @@ module.exports = {
         //sm: ['0.875rem', { lineHeight: '1.25rem' }],   // 14px
         //base: ['1rem', { lineHeight: '1.5rem' }],      // 16px
         //lg: ['1.125rem', { lineHeight: '1.75rem' }],   // 18px
+        lg1: ['1.12rem', { lineHeight: '1.75rem' }],
         //xl: ['1.25rem', { lineHeight: '1.75rem' }],    // 20px
         //'2xl': ['1.5rem', { lineHeight: '2rem' }],     // 24px
         //'3xl': ['1.875rem', { lineHeight: '2.25rem' }],// 30px
