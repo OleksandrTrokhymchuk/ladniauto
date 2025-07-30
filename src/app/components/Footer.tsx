@@ -29,7 +29,7 @@ export default function Footer() {
                         className={`
                             font-bold whitespace-nowrap
                             transition-all duration-500 ease-in-out
-                            hover:transform hover:scale-105
+                            hover-supported:hover:scale-105 no-hover:active:scale-105
                         `}
                     >
                         +38 066 731 98 09
@@ -45,12 +45,13 @@ export default function Footer() {
                         className="group relative inline-block rounded-full p-2 transition-all duration-500"
                     >
                         <span className="absolute inset-0 rounded-full border border-project-white opacity-0 scale-75 transition-all duration-500
-                            group-hover:opacity-100 group-hover:scale-110"></span>
+                            group-hover-supported:group-hover:opacity-100 group-hover-supported:group-hover:scale-110
+                            group-no-hover:group-active:opacity-100 group-no-hover:group-active:scale-110"></span>
                         <Image
                             src={youtubeIcon}
                             width={36}
                             alt="YouTube"
-                            className="relative z-10 transition-all duration-500 hover:scale-110"
+                            className="relative z-10 transition-all duration-500 hover-supported:hover:scale-110 no-hover:active:scale-110"
                         />
                     </a>
                     <a
@@ -59,12 +60,13 @@ export default function Footer() {
                         className="group relative inline-block rounded-full p-2 transition-all duration-500"
                     >
                         <span className="absolute inset-0 rounded-full border border-project-white opacity-0 scale-75 transition-all duration-500
-                            group-hover:opacity-100 group-hover:scale-110"></span>
+                            group-hover-supported:group-hover:opacity-100 group-hover-supported:group-hover:scale-110
+                            group-no-hover:group-active:opacity-100 group-no-hover:group-active:scale-110"></span>
                         <Image
                             src={instagramIcon}
                             width={36}
                             alt="Instagram"
-                            className="relative z-10 transition-all duration-500 hover:scale-110"
+                            className="relative z-10 transition-all duration-500 hover-supported:hover:scale-110 no-hover:active:scale-110"
                         />
                     </a>
                     <a
@@ -73,76 +75,17 @@ export default function Footer() {
                         className="group relative inline-block rounded-full p-2 transition-all duration-500"
                     >
                         <span className="absolute inset-0 rounded-full border border-project-white opacity-0 scale-75 transition-all duration-500
-                            group-hover:opacity-100 group-hover:scale-110"></span>
+                            group-hover-supported:group-hover:opacity-100 group-hover-supported:group-hover:scale-110
+                            group-no-hover:group-active:opacity-100 group-no-hover:group-active:scale-110"></span>
                         <Image
                             src={telegramIcon}
                             width={36}
                             alt="Telegram"
-                            className="relative z-10 transition-all duration-500 hover:scale-110"
+                            className="relative z-10 transition-all duration-500 hover-supported:hover:scale-110 no-hover:active:scale-110"
                         />
                     </a>
                 </div>
             </div>
         </footer>
-        // <footer className="bg-project-blue py-10 text-project-white">
-        //     <div className="custom-container">
-        //             <Image src={ladniAutoLogo} alt="ladni auto logo" height={100} width={100}/>
-        //             <address className="not-italic font-bold">
-        //                 м. Київ, Україна
-        //             </address>
-        //             <a
-        //                 href="tel:+380667319809"
-        //                 className={`
-        //                     lg:text-lg md:text-base font-bold whitespace-nowrap
-        //                     transition-all duration-500 ease-in-out
-        //                     hover:transform hover:scale-105
-        //                 `}
-        //             >
-        //                 +38 066 731 98 09
-        //             </a>
-        //             <a
-        //                 href="https://www.youtube.com/@Ladni_auto"
-        //                 target="_blank"
-        //                 className="group relative inline-block rounded-full p-3 transition-all duration-500"
-        //             >
-        //                 <span className="absolute inset-0 rounded-full border border-project-white opacity-0 scale-75 transition-all duration-500
-        //                     group-hover:opacity-100 group-hover:scale-110"></span>
-        //                 <Image
-        //                     src={youtubeIcon}
-        //                     width={40}
-        //                     alt="YouTube"
-        //                     className="relative z-10 transition-all duration-500 hover:scale-110"
-        //                 />
-        //             </a>
-        //             <a
-        //                 href="https://www.instagram.com/ladni_auto/"
-        //                 target="_blank"
-        //                 className="group relative inline-block rounded-full p-3 transition-all duration-500"
-        //             >
-        //                 <span className="absolute inset-0 rounded-full border border-project-white opacity-0 scale-75 transition-all duration-500
-        //                     group-hover:opacity-100 group-hover:scale-110"></span>
-        //                 <Image
-        //                     src={instagramIcon}
-        //                     width={40}
-        //                     alt="Instagram"
-        //                     className="relative z-10 transition-all duration-500 hover:scale-110"
-        //                 />
-        //             </a>
-        //             <a
-        //                 href="https://t.me/Ivan_1162"
-        //                 target="_blank"
-        //                 className="group relative inline-block rounded-full p-3 transition-all duration-500"
-        //             >
-        //                 <span className="absolute inset-0 rounded-full border border-project-white opacity-0 scale-75 transition-all duration-500
-        //                     group-hover:opacity-100 group-hover:scale-110"></span>
-        //                 <Image
-        //                     src={telegramIcon}
-        //                     width={40}
-        //                     alt="Telegram"
-        //                     className="relative z-10 transition-all duration-500 hover:scale-110"
-        //                 />
-        //             </a>
-        //     </div>
-        // </footer>
     )
 }

@@ -72,6 +72,19 @@ module.exports = {
         container.append(rule);
         rule.selector = `.${e(`hover-supported${separator} `)}&`;
       });
+      addVariant('group-no-hover', ({ container, separator }) => {
+        const rule = postcss.atRule({ name: 'media', params: '(hover: none)' });
+        rule.append(container.nodes);
+        container.append(rule);
+        rule.selector = `.${e(`no-hover${separator}group`)}:${e(`active${separator}`)} &`;
+      });
+
+      addVariant('group-hover-supported', ({ container, separator }) => {
+        const rule = postcss.atRule({ name: 'media', params: '(hover: hover)' });
+        rule.append(container.nodes);
+        container.append(rule);
+        rule.selector = `.${e(`hover-supported${separator}group`)}:${e(`hover${separator}`)} &`;
+      });
     },
   ],
 }
