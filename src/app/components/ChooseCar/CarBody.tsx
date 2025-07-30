@@ -12,7 +12,7 @@ interface cardsListInterface {
 }
 
 interface CardCardProps {
-  carBody: string
+    carBody: string
 }
 
 export default function CarBody({ carBody }: CardCardProps) {

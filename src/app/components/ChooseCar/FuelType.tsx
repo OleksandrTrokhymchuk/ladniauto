@@ -85,6 +85,7 @@ export default function FuelType({ fuelType }: CardCardProps) {
                                         width={110}
                                         height={110}
                                         objectFit="contain"
+                                        priority
                                     />
                                 </div>
                                 ) : (
@@ -95,6 +96,7 @@ export default function FuelType({ fuelType }: CardCardProps) {
                                         width={190}
                                         height={190}
                                         objectFit="contain"
+                                        priority
                                     />
                                 </>)
                             }
