@@ -28,7 +28,7 @@ export default function FuelType({ fuelType }: CardCardProps) {
         { fuelType: "hybrid", fuelTypeToUkr: "Гібрид", altText: "hybrid", imageSrc: "/images/Fuel-Types/petrol.svg" },
         { fuelType: "gas", fuelTypeToUkr: "Газ", altText: "gag", imageSrc: "/images/Fuel-Types/gas.png" },
 
-        { fuelType: "unknown", fuelTypeToUkr: "Не важливо", altText: "another fuel", imageSrc: "/images/Car-Body/unknown.svg" },
+        { fuelType: "unknown", fuelTypeToUkr: "Інший тип", altText: "another fuel", imageSrc: "/images/Car-Body/unknown.svg" },
     ]
 
     const cardData  = cardsList.find(car => car.fuelType === fuelType)
@@ -70,7 +70,10 @@ export default function FuelType({ fuelType }: CardCardProps) {
                     `}
                 >
                     <div className="relative">
-                        <div className="vsm:max-w-[50px] vsm:max-h-[50px] vsm2:max-w-[80px] vsm2:max-h-[80px] vsm3:max-w-[90px] vsm3:max-h-[90px]">
+                        <div className={`
+                            ${cardData.fuelType === "unknown" ? "vsm:max-w-[70px] vsm:max-h-[70px] vsm2:max-w-[110px] vsm2:max-h-[110px]" 
+                                : "vsm:max-w-[50px] vsm:max-h-[50px] vsm2:max-w-[80px] vsm2:max-h-[80px] vsm3:max-w-[90px] vsm3:max-h-[90px]"}
+                            `}>
                             {
                                 cardData.fuelType === "unknown" ? (
                                 <div className="vsm:max-w-[70px] vsm:max-h-[70px] vsm2:max-w-[110px] vsm2:max-h-[110px]">
