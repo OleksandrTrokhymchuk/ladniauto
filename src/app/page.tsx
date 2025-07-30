@@ -50,8 +50,8 @@ export default function Home() {
                     py-5 px-10 font-bold
                     text-2xl
                     transition-all duration-500
-                    hover:scale-110 hover:opacity-85
-
+                    hover-supported:hover:scale-110 no-hover:active:scale-110
+                    hover-supported:hover:opacity-90 no-hover:active:opacity-90
                     "
                     onClick={() => setIsModalOpen(true)}
                   >
