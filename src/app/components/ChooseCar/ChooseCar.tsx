@@ -1,8 +1,9 @@
 "use client"
 
-import React from 'react'
+import React, { useRef } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper as SwiperCore } from 'swiper';
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
@@ -10,12 +11,22 @@ import { Navigation } from 'swiper/modules'
 import CarBody from "./CarBody"
 import Budget from './Budget'
 import FuelType from './FuelType'
+import Gift from './Gift';
 
 
 export default function ChooseCar() {
+  const swiperRef = useRef<SwiperCore | null>(null)
+
     const carBodies: string[] = ["crossover", "sedan", "hatchback", "minivan", "pickup", "universal", "coupe", "cabriolet", "unknown"]
     const budgets: string[] = ["10.000 - 20.000", "20.000 - 30.000", "30.000 - 40.000", "40.000 - 50.000", "Більше 50.000"]
     const fuelTypes: string[] = ["petrol", "diesel", "electric", "hybrid", "gas", "unknown"]
+    const gifts: string[] = ["gift1", "gift2", "gift3", "gift4"]
+
+    const handleNextSlide = () => {
+        if (swiperRef.current) {
+            swiperRef.current.slideNext()
+        }
+    }
 
     return(
         <>
@@ -28,13 +39,14 @@ export default function ChooseCar() {
                 autoHeight
                 className="mySwiper"
                 style={{ width: '100%' }}
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
             >
                 <SwiperSlide>
                     <p className='text-center text-2xl'>Кузов</p>
                     <div className="vsm:grid-small-auto-fit-cards msm:grid-auto-fit-cards">
                     {/* <div className="msm:grid msm:grid-auto-fit-cards msm:gap-9 vsm:gap-y-5 vsm:flex vsm:flex-wrap vsm:py-2"> */}
                         {
-                            carBodies.map(carBody => <CarBody key={carBody} carBody={carBody}/>)
+                            carBodies.map(carBody => <CarBody key={carBody} carBody={carBody} onNextSlideClick={handleNextSlide}/>)
                         }
                     </div>
                 </SwiperSlide>
@@ -42,7 +54,7 @@ export default function ChooseCar() {
                     <p className='text-center text-2xl'>Тип палива</p>
                     <div className="vsm:grid-small-auto-fit-cards msm:grid-auto-fit-cards">
                         {
-                            fuelTypes.map(fuelType => <FuelType key={fuelType} fuelType={fuelType}/>)
+                            fuelTypes.map(fuelType => <FuelType key={fuelType} fuelType={fuelType} onNextSlideClick={handleNextSlide}/>)
                         }
                     </div>
                 </SwiperSlide>
@@ -50,8 +62,21 @@ export default function ChooseCar() {
                     <p className='text-center text-2xl'>Бюджет</p>
                     <div className='grid grid-auto-fit-cards gap-9'>
                         {
-                            budgets.map(budget => <Budget key={budget} budget={budget}/>)
+                            budgets.map(budget => <Budget key={budget} budget={budget} onNextSlideClick={handleNextSlide}/>)
                         }
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <p className='text-center text-2xl'>Подарунок</p>
+                    <div className='grid grid-auto-fit-cards gap-9'>
+                        {
+                            gifts.map(gift => <Gift key={gift} gift={gift} onNextSlideClick={handleNextSlide}/>)
+                        }
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='py-10 flex justify-center'>
+                        Контаки
                     </div>
                 </SwiperSlide>
             </Swiper>

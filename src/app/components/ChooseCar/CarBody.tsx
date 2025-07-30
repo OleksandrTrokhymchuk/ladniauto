@@ -1,6 +1,6 @@
 "use client"
 
-import { toggle } from "@/lib/redux/features/selectedCarBodies/selectedCarBodiesSlice"
+import { changeCarBody } from "@/lib/redux/features/selectedCarBodies/selectedCarBodiesSlice"
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
 import Image from "next/image"
 
@@ -13,9 +13,10 @@ interface cardsListInterface {
 
 interface CardCardProps {
     carBody: string
+    onNextSlideClick: () => void
 }
 
-export default function CarBody({ carBody }: CardCardProps) {
+export default function CarBody({ carBody, onNextSlideClick }: CardCardProps) {
     const selectedCarBodies = useAppSelector((state) => state.selectedCarBodies.value)
     const dispatch = useAppDispatch()
 
@@ -47,7 +48,7 @@ export default function CarBody({ carBody }: CardCardProps) {
 
                 ${selectedCarBodies.includes(cardData.carBody) ? "scale-110 " : ""}
                 `}
-            onClick={() => {dispatch(toggle(cardData.carBody))}}
+            onClick={() => {dispatch(changeCarBody(cardData.carBody)); onNextSlideClick()}}
             >
             <div className={`msm:border-none vsm:border vsm:border-opacity-20 vsm:border-project-white
                     msm:bordered-element vsm:rounded-md

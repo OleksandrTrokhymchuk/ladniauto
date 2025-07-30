@@ -45,7 +45,8 @@ export default function Home() {
                 </p>
                 <div className="flex justify-center">
                   <button
-                    className="bg-project-green mt-1 rounded-full
+                    className="bg-project-green mt-1 rounded-2xl
+                    shadow-md
                     py-5 px-10 font-bold
                     text-2xl
                     transition-all duration-500

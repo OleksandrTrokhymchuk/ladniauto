@@ -1,6 +1,6 @@
 "use client"
 
-import { toggle } from "@/lib/redux/features/selectedFuelTypes/selectedFuelTypesSlice"
+import { changeFuelType } from "@/lib/redux/features/selectedFuelTypes/selectedFuelTypesSlice"
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
 import Image from "next/image"
 
@@ -15,9 +15,10 @@ interface cardsListInterface {
 
 interface CardCardProps {
   fuelType: string
+  onNextSlideClick: () => void
 }
 
-export default function FuelType({ fuelType }: CardCardProps) {
+export default function FuelType({ fuelType, onNextSlideClick }: CardCardProps) {
     const selectedFuelTypes = useAppSelector((state) => state.selectedFuelTypes.value)
     const dispatch = useAppDispatch()
 
@@ -46,7 +47,7 @@ export default function FuelType({ fuelType }: CardCardProps) {
 
                 ${selectedFuelTypes.includes(cardData.fuelType) ? "scale-110 " : ""}
                 `}
-            onClick={() => {dispatch(toggle(cardData.fuelType))}}
+            onClick={() => {dispatch(changeFuelType(cardData.fuelType)); onNextSlideClick()}}
             >
             <div className={`msm:border-none vsm:border vsm:border-opacity-20 vsm:border-project-white
                     msm:bordered-element vsm:rounded-md
