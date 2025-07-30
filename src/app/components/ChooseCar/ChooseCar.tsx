@@ -18,7 +18,7 @@ export default function ChooseCar() {
   const swiperRef = useRef<SwiperCore | null>(null)
 
     const carBodies: string[] = ["crossover", "sedan", "hatchback", "minivan", "pickup", "universal", "coupe", "cabriolet", "unknown"]
-    const budgets: string[] = ["10.000 - 20.000", "20.000 - 30.000", "30.000 - 40.000", "40.000 - 50.000", "Більше 50.000"]
+    const budgets: string[] = ["10 000 — 20 000", "20 000 — 30 000", "30 000 — 40 000", "40 000 — 50 000", "Більше 50 000"]
     const fuelTypes: string[] = ["petrol", "diesel", "electric", "hybrid", "gas", "unknown"]
     const gifts: string[] = ["gift1", "gift2", "gift3", "gift4"]
 

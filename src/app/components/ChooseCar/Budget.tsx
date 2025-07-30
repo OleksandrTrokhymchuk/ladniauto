@@ -17,10 +17,10 @@ export default function Budget({ budget, onNextSlideClick }: BudgetProps) {
     const dispatch = useAppDispatch()
 
     const cardsList: cardsListInterface[] = [
-        { budget: "10.000 - 20.000" },
-        { budget: "20.000 - 30.000" },
-        { budget: "30.000 - 40.000" },
-        { budget: "40.000 - 50.000" },
+        { budget: "10 000 — 20 000" },
+        { budget: "20 000 — 30 000" },
+        { budget: "30 000 — 40 000" },
+        { budget: "40 000 — 50 000" },
         { budget: "Більше 50.000" },
     ]
 
