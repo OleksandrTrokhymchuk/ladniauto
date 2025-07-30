@@ -8,21 +8,21 @@ module.exports = {
   ],
   theme: {
     extend: {
-      keyframes: {
-        'fade-in-down': {
-          '0%': {
-            opacity: '0',
-            transform: 'translateY(-10px)', // Починаємо трохи вище
-          },
-          '100%': {
-            opacity: '1',
-            transform: 'translateY(0)', // Завершуємо на початковому місці
-          },
-        },
-      },
-      animation: {
-        'fade-in-down': 'fade-in-down 0.3s ease-out forwards', // 0.3 секунди, плавне завершення, залишається в кінцевому стані
-      },
+      // keyframes: {
+      //   'fade-in-down': {
+      //     '0%': {
+      //       opacity: '0',
+      //       transform: 'translateY(-10px)', 
+      //     },
+      //     '100%': {
+      //       opacity: '1',
+      //       transform: 'translateY(0)', 
+      //     },
+      //   },
+      // },
+      // animation: {
+      //   'fade-in-down': 'fade-in-down 0.3s ease-out forwards', 
+      // },
       colors: {
         'project-blue': '#024097',
         'project-white': '#feffff',
@@ -45,9 +45,9 @@ module.exports = {
       },
       screens: {
         'vsm': '320px', // very-small
-        'vsm1': '350px',
-        'vsm2': '400px',
-        'vsm3': '450px',
+        'vsm1': '362px',
+        'vsm2': '407px',
+        'vsm3': '453px',
         'vsm4': '500px',
         'msm': '550px', // medium-small
         // 'sm': '640px',
@@ -58,6 +58,21 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant, e, postcss }) {
+      addVariant('no-hover', ({ container, separator }) => {
+        const rule = postcss.atRule({ name: 'media', params: '(hover: none)' });
+        rule.append(container.nodes);
+        container.append(rule);
+        rule.selector = `.${e(`no-hover${separator} `)}&`; 
+      });
+      addVariant('hover-supported', ({ container, separator }) => {
+        const rule = postcss.atRule({ name: 'media', params: '(hover: hover)' });
+        rule.append(container.nodes);
+        container.append(rule);
+        rule.selector = `.${e(`hover-supported${separator} `)}&`;
+      });
+    },
+  ],
 }
 

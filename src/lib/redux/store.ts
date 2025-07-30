@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import selectedCarBodiesReducer from './features/selectedCarBodies/selectedCarBodiesSlice'
 import selectedBudgetReducer from './features/selectedBudget/selectedBudgetSlice'
+import selectedFuelTypesReducer from './features/selectedFuelTypes/selectedFuelTypesSlice'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       selectedCarBodies: selectedCarBodiesReducer,
       selectedBudget: selectedBudgetReducer,
+      selectedFuelTypes: selectedFuelTypesReducer,
     },
   })
 }

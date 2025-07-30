@@ -29,7 +29,7 @@ export default function CarBody({ carBody }: CardCardProps) {
         { carBody: "coupe", carBodyToUkr: "Купе", altText: "coupe auto", imageSrc: "/images/Car-Body/coupe.png" },
         { carBody: "cabriolet", carBodyToUkr: "Кабріолет", altText: "cabriolet auto", imageSrc: "/images/Car-Body/cabriolet.png" },
 
-        { carBody: "unknown", carBodyToUkr: "Інший автомобіль", altText: "unknown auto", imageSrc: "/images/Car-Body/unknown.svg" },
+        { carBody: "unknown", carBodyToUkr: "Інше авто", altText: "another auto", imageSrc: "/images/Car-Body/unknown.svg" },
     ]
 
     const cardData  = cardsList.find(car => car.carBody === carBody)
@@ -48,7 +48,7 @@ export default function CarBody({ carBody }: CardCardProps) {
             onClick={() => {dispatch(toggle(cardData.carBody))}}
             >
             <div className={`msm:border-none vsm:border vsm:border-opacity-20 vsm:border-project-white
-                msm:bordered-element vsm:rounded-md 
+                msm:bordered-element vsm:rounded-md
                 pb-1
                 vsm:px-1 msm:px-2
                 vsm:pt-1 msm:pt-2
@@ -63,24 +63,36 @@ export default function CarBody({ carBody }: CardCardProps) {
                 ${selectedCarBodies.includes(cardData.carBody) ? "bg-project-green rounded-lg" : ""}
                 `}
             >
-                <div className={`bg-project-blue-darker rounded-lg h-[90%] 
+                <div className={`bg-project-blue-darker rounded-lg h-[90%]
                     ${cardData.carBody === "unknown" ? "vsm2:mb-[2px] msm:mb-0" : "mb-1"}
                     flex items-center justify-center
                     transition-all duration-300
                     ${selectedCarBodies.includes(cardData.carBody) ? "bg-opacity-45" : ""}
                     `}>
-                    <Image
-                        src={cardData.imageSrc}
-                        alt={cardData.altText}
-                        width={cardData.carBody === "unknown" ? 140 : 190}
-                        height={cardData.carBody === "unknown" ? 140 : 190}
-                        objectFit="contain"
-                        priority
-                    />
+                    {
+                        cardData.carBody === "unknown" ? (
+                        <div className="vsm:max-w-[70px] vsm:max-h-[70px] vsm2:max-w-[110px] vsm2:max-h-[110px]">
+                            <Image
+                                src={cardData.imageSrc}
+                                alt={cardData.altText}
+                                width={110}
+                                height={110}
+                                objectFit="contain"
+                            />
+                        </div>
+                        ) : (
+                        <>
+                            <Image
+                                src={cardData.imageSrc}
+                                alt={cardData.altText}
+                                width={190}
+                                height={190}
+                                objectFit="contain"
+                            />
+                        </>)
+                    }
                 </div>
-                <div className={`text-center
-                    ${cardData.carBody === "unknown" ? "vsm:text-xs vsm3:text-base msm:text-base lg:text-lg " : "vsm:text-base msm:text-xl"}
-                    `}>
+                <div className="text-center vsm:text-base msm:text-xl">
                     {cardData.carBodyToUkr}
                 </div>
             </div>
