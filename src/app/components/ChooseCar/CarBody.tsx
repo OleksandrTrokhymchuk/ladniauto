@@ -42,34 +42,36 @@ export default function CarBody({ carBody }: CardCardProps) {
     return(
         <div className={`hover-supported:hover:cursor-pointer transform z-0 mx-auto
                 transition-all duration-300 ease-in-out
-                hover-supported:hover:scale-110 no-hover:active:scale-110
+                hover-supported:hover:scale-110 
                 hover-supported:hover:z-100 no-hover:active:z-100
+
                 ${selectedCarBodies.includes(cardData.carBody) ? "scale-110 " : ""}
                 `}
             onClick={() => {dispatch(toggle(cardData.carBody))}}
             >
             <div className={`msm:border-none vsm:border vsm:border-opacity-20 vsm:border-project-white
-                msm:bordered-element vsm:rounded-md
-                pb-1
-                vsm:px-1 msm:px-2
-                vsm:pt-1 msm:pt-2
-                vsm:h-[110px] vsm:w-[110px]
-                vsm1:h-[130px] vsm1:w-[130px]
-                vsm2:h-[150px] vsm2:w-[150px]
-                vsm3:h-[170px] vsm3:w-[170px]
-                vmsm:h-[200px] vmsm:w-[200px]
-                flex flex-col justify-between
-                transition-all duration-500
-                hover-supported:hover:rounded-lg  no-hover:active:rounded-lg
-                ${selectedCarBodies.includes(cardData.carBody) ? "bg-project-green rounded-lg" : ""}
+                    msm:bordered-element vsm:rounded-md
+                    pb-1
+                    vsm:px-1 msm:px-2
+                    vsm:pt-1 msm:pt-2
+                    vsm:h-[110px] vsm:w-[110px]
+                    vsm1:h-[130px] vsm1:w-[130px]
+                    vsm2:h-[150px] vsm2:w-[150px]
+                    vsm3:h-[170px] vsm3:w-[170px]
+                    vmsm:h-[200px] vmsm:w-[200px]
+                    flex flex-col justify-between
+                    transition-all duration-500
+                    hover-supported:hover:rounded-lg no-hover:active:rounded-lg
+                    ${selectedCarBodies.includes(cardData.carBody) ? "bg-project-green rounded-lg" : ""}
                 `}
             >
                 <div className={`bg-project-blue-darker rounded-lg h-[90%]
-                    ${cardData.carBody === "unknown" ? "vsm2:mb-[2px] msm:mb-0" : "mb-1"}
-                    flex items-center justify-center
-                    transition-all duration-300
-                    ${selectedCarBodies.includes(cardData.carBody) ? "bg-opacity-45" : ""}
-                    `}>
+                        ${cardData.carBody === "unknown" ? "vsm2:mb-[2px] msm:mb-0" : "mb-1"}
+                        flex items-center justify-center
+                        transition-all duration-300
+                        ${selectedCarBodies.includes(cardData.carBody) ? "bg-opacity-45" : ""}
+                    `}
+                >
                     {
                         cardData.carBody === "unknown" ? (
                         <div className="vsm:max-w-[70px] vsm:max-h-[70px] vsm2:max-w-[110px] vsm2:max-h-[110px]">
