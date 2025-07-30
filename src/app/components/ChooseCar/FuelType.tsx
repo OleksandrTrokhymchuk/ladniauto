@@ -41,7 +41,7 @@ export default function FuelType({ fuelType }: CardCardProps) {
     return(
         <div className={`hover-supported:hover:cursor-pointer transform z-0 mx-auto
                 transition-all duration-300 ease-in-out
-                hover-supported:hover:scale-110 
+                hover-supported:hover:scale-110
                 hover-supported:hover:z-100 no-hover:active:z-100
 
                 ${selectedFuelTypes.includes(cardData.fuelType) ? "scale-110 " : ""}
@@ -73,7 +73,7 @@ export default function FuelType({ fuelType }: CardCardProps) {
                 >
                     <div className="relative">
                         <div className={`
-                            ${cardData.fuelType === "unknown" ? "vsm:max-w-[70px] vsm:max-h-[70px] vsm2:max-w-[110px] vsm2:max-h-[110px]" 
+                            ${cardData.fuelType === "unknown" ? "vsm:max-w-[70px] vsm:max-h-[70px] vsm2:max-w-[110px] vsm2:max-h-[110px]"
                                 : "vsm:max-w-[50px] vsm:max-h-[50px] vsm2:max-w-[80px] vsm2:max-h-[80px] vsm3:max-w-[90px] vsm3:max-h-[90px]"}
                             `}>
                             {

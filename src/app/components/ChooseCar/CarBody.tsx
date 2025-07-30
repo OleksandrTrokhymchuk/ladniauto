@@ -42,7 +42,7 @@ export default function CarBody({ carBody }: CardCardProps) {
     return(
         <div className={`hover-supported:hover:cursor-pointer transform z-0 mx-auto
                 transition-all duration-300 ease-in-out
-                hover-supported:hover:scale-110 
+                hover-supported:hover:scale-110
                 hover-supported:hover:z-100 no-hover:active:z-100
 
                 ${selectedCarBodies.includes(cardData.carBody) ? "scale-110 " : ""}

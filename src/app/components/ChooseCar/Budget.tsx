@@ -12,15 +12,16 @@ export default function Budget({budget}: BudgetProps) {
     const dispatch = useAppDispatch()
 
     return (
-        <div className={`hover:cursor-pointer transform z-0 mx-auto
-            transition-all duration-300 ease-in-out
-            hover:scale-110 hover:z-10 active:scale-105
+        <div className={`hover-supported:hover:cursor-pointer transform z-0 mx-auto
+                transition-all duration-300 ease-in-out
+                hover-supported:hover:scale-110
+                hover-supported:hover:z-100 no-hover:active:z-100
             `}
             onClick={() => {dispatch(changeBudget(budget))}}
         >
             <div className={`bordered-element p-2 h-[70px] w-[200px] flex flex-col justify-between
-                transition-all duration-500
-                hover:rounded-lg text-lg
+                transition-all duration-500 text-lg
+                hover-supported:hover:rounded-lg no-hover:active:rounded-lg
                 ${selectedBudget === budget ? "bg-project-green rounded-lg" : ""}
                 `}
             >
