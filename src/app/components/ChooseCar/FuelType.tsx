@@ -39,9 +39,12 @@ export default function FuelType({ fuelType }: CardCardProps) {
     }
 
     return(
-        <div className={`hover:cursor-pointer transform z-0 mx-auto
+        <div className={`hover-supported:hover:cursor-pointer transform z-0 mx-auto
                 transition-all duration-300 ease-in-out
-                hover:scale-110 hover:z-100 active:scale-105
+                active:scale-105
+                hover-supported:hover:scale-110 hover-supported:hover:z-100
+                no-hover:active:z-100
+
                 ${selectedFuelTypes.includes(cardData.fuelType) ? "scale-110 " : ""}
                 `}
             onClick={() => {dispatch(toggle(cardData.fuelType))}}
@@ -58,7 +61,7 @@ export default function FuelType({ fuelType }: CardCardProps) {
                     vmsm:h-[200px] vmsm:w-[200px]
                     flex flex-col justify-between
                     transition-all duration-500
-                    hover:rounded-lg
+                    hover-supported:hover:rounded-lg   no-hover:active:rounded-lg
                 ${selectedFuelTypes.includes(cardData.fuelType) ? "bg-project-green rounded-lg" : ""}
                 `}
             >
