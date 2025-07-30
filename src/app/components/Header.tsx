@@ -256,9 +256,9 @@ export default function Header() {
                     transform transition-transform duration-500 ease-in-out
                     ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} // Виїжджає зверху
                     p-8
-                    ${scrolled ? "pt-[66px]" : "pt-[94px]"}
+                    ${scrolled ? "pt-[75px]" : "pt-[80px]"}
                 `} onClick={(e) => e.stopPropagation()}>
-                    <ul className="flex flex-col space-y-6 border-t border-project-white border-opacity-50 pt-10 mt-[2px]">
+                    <ul className={`flex flex-col space-y-6 border-t border-project-white border-opacity-50 pt-10`}>
                         {navItems.map((item) => (
                             <li key={item.name}>
                                 <Link
