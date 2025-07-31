@@ -250,9 +250,9 @@ export default function Header() {
                     h-full
                     bg-project-blue
                     transform transition-transform duration-500 ease-in-out
-                    ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} // Виїжджає зверху
+                    ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}
                     p-8
-                    ${scrolled ? "pt-[75px]" : "pt-[80px]"}
+                    ${scrolled ? "pt-[80px]" : "pt-[85px]"}
                 `} onClick={(e) => e.stopPropagation()}>
                     <ul className={`flex flex-col space-y-6 border-t border-project-white border-opacity-50 pt-10`}>
                         {navItems.map((item) => (
