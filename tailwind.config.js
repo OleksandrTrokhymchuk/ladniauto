@@ -30,6 +30,7 @@ module.exports = {
       },
        fontFamily: {
         sans: ['var(--font-montserrat)', 'sans-serif'],
+        bicubik: ['var(--font-bicubik)', 'sans-serif'],
       },
       height: {
         '0.25': '0.0625rem',

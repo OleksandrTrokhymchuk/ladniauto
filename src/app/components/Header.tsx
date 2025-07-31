@@ -3,10 +3,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { MouseEventHandler, useEffect, useState } from "react"
-import { usePathname } from 'next/navigation'
 
-import ladniAutoLogo from "../../images/logo.png"
-import phoneIconWithoutBg from "../../images/phone-icon-for-modal.png"
+import ladniAutoLogo from "../../images/logo-for-header.png"
 import phoneIcon from "@/images/phone-icon-for-header.png"
 
 import CallModal from "./CallModal/CallModal"
@@ -15,7 +13,6 @@ export default function Header() {
     const [scrolled, setScrolled] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isPulsing, setIsPulsing] = useState(false)
-    const pathname = usePathname()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,10 +31,10 @@ export default function Header() {
     }, [])
 
     const navItems = [
-        { name: "Послуги", href: "/services" },
-        { name: "Про нас", href: "/about" },
-        { name: "Блог", href: "/blog" },
-        { name: "Контакти", href: "/contact" },
+        { name: "Послуги", href: "/" },
+        { name: "Про нас", href: "/" },
+        { name: "Блог", href: "/" },
+        { name: "Контакти", href: "/" },
     ]
 
     const toggleMenu = () => {
@@ -84,31 +81,32 @@ export default function Header() {
                 z-500
                 fixed top-0 w-full z-50
                 bg-project-blue
-                ${scrolled ? 'vsm:py-1 lg:py-2 shadow-lg opacity-95' : 'lg:py-3 vsm:py-2 shadow-md'}
+                ${scrolled ? 'vsm:py-1 lg:py-1.5 shadow-lg opacity-95' : 'lg:py-3 vsm:py-2 shadow-md'}
                 ${isMenuOpen ? "shadow-none" : ""}
                 text-project-white
                 transition-all duration-700 ease-in-out backdrop-blur-sm
                 target:`}
             >
-                <div className="container mx-auto custom-container flex items-center justify-between">
-                    <Link href="/" className={`hidden md:flex items-center mr-8 transition-opacity
+                <div className="container mx-auto custom-container flex items-center">
+                    <Link href="/" className={`hidden md:flex items-center justify-center mr-8 transition-opacity
                         ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
                         `}
                         onClick={scrollToTop}
                         >
-                            <Image
-                                src={ladniAutoLogo}
-                                alt="Ladni Auto Logo"
-                                width={ladniAutoLogo.width}
-                                height={ladniAutoLogo.height}
-                                className={`
-                                    transition-all duration-700
-                                    object-contain
-
-                                    ${scrolled ? "max-w-[130px]" : "max-w-[140px]"}
-                                `}
-                            priority
-                        />
+                            <div className={`flex flex-col transition-all duration-700 max-w-[140px]`}>
+                                <Image
+                                    src={ladniAutoLogo}
+                                    alt="Ladni Auto Logo"
+                                    width={ladniAutoLogo.width}
+                                    height={ladniAutoLogo.height}
+                                    className={`object-contain`}
+                                    priority
+                                />
+                                <div className="mt-1 font-bicubik tracking-[0.285em] text-center text-[0.8rem] font-extralight leading-none">
+                                    <p className="mb-0.5">Ladni Auto</p>
+                                    <p className="text-[0.6rem]">ІЗ США</p>
+                                </div>
+                            </div>
                     </Link>
 
                     <nav className="hidden md:block">
@@ -117,11 +115,7 @@ export default function Header() {
                                 <li key={item.name}>
                                     <Link href={item.href} className={`
                                         lg:text-lg md:text-base px-2 py-2 relative block
-                                        transition-all duration-300 ease-in-out
-                                        ${pathname === item.href
-                                            ? 'font-bold text-project-white after:scale-x-100'
-                                            : 'font-medium text-gray-100 hover:text-project-white hover:after:scale-x-100'
-                                        }
+                                        transition-all duration-300 ease-in-out font-medium text-gray-100 hover:text-project-white hover:after:scale-x-100
                                         after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.25 after:bg-project-white after:scale-x-0 after:origin-left after:transition-transform after:duration-500 after:ease-out
                                     `}>
                                         {item.name}
@@ -164,18 +158,20 @@ export default function Header() {
                                 `}
                                 onClick={scrollToTop}
                                 >
+                                <div className={`flex flex-col transition-all duration-700 vsm:max-w-24 vsm1:max-w-28`}>
                                     <Image
                                         src={ladniAutoLogo}
                                         alt="Ladni Auto Logo"
                                         width={ladniAutoLogo.width}
                                         height={ladniAutoLogo.height}
-                                        className={`
-                                            transition-all duration-700
-                                            object-contain
-                                            vsm:max-w-24 vsm1:max-w-28
-                                        `}
-                                    priority
-                                />
+                                        className={`object-contain`}
+                                        priority
+                                    />
+                                    <div className="mt-1 font-bicubik tracking-[0.285em] text-center text-[0.6rem] font-extralight leading-none">
+                                        <p className="mb-0.5">Ladni Auto</p>
+                                        <p className="text-[0.6rem]">ІЗ США</p>
+                                    </div>
+                                </div>
                             </Link>
                             <div className={`
                                 bg-project-white py-1 rounded-full relative

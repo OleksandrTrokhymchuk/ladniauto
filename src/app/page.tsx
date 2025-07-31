@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import ChooseCar from "./components/ChooseCar/ChooseCar"
 import CallModal from "@/app/components/CallModal/CallModal"
 
+
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 

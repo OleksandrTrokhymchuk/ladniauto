@@ -4,6 +4,13 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import { Montserrat } from 'next/font/google'
 import StoreProvider from "./StoreProvider"
+import localFont from "next/font/local"
+
+const bicubik = localFont({
+  src: '../../public/fonts/bicubik.otf',
+  display: 'swap',
+  variable: '--font-bicubik',
+})
 
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
@@ -31,7 +38,7 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=no" />
         <link rel="preload" href="/images/hero-background.jpg" as="image"></link>
       </head>
-      <body className={`${montserrat.variable}`}>
+      <body className={`${montserrat.variable} ${bicubik.variable}`}>
         <StoreProvider>
           <div className="flex flex-col min-h-[100%] bg-project-white">
             <Header/>
