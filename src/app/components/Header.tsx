@@ -114,7 +114,7 @@ export default function Header() {
                             {navItems.map((item) => (
                                 <li key={item.name}>
                                     <Link href={item.href} className={`
-                                        lg:text-lg md:text-base px-2 py-2 relative block
+                                        lg:text-xl md:text-lg px-2 py-2 relative block
                                         transition-all duration-300 ease-in-out font-medium text-gray-100 hover:text-project-white hover:after:scale-x-100
                                         after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.25 after:bg-project-white after:scale-x-0 after:origin-left after:transition-transform after:duration-500 after:ease-out
                                     `}>

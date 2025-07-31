@@ -62,7 +62,12 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-project-blue w-full rounded-3xl p-5 bg-opacity-90 shadow-2xl">
-              <p className="text-center text-4xl font-bold">Оберіть автомобіль</p>
+              <p className="text-center font-bold
+                vsm:text-xl msm:text-2xl md:text-3xl lg:text-4xl"
+                // text-4xl
+              >
+                Розкажіть про авто яке вам цікаве та оберіть свій подарунок! 🎁
+              </p>
               <div
                 className="h-[1px] bg-project-white w-[95%] mx-auto my-4 bg-opacity-30"
               ></div>
