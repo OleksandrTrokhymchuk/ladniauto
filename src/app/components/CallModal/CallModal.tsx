@@ -116,7 +116,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
         <form className="relative" onSubmit={handleFormSubmit}>
           <div className="mb-6 relative">
             <span className="absolute -left-14 top-14 -translate-y-1/2 scale-17">
-              <Image src={userIcon} alt="user icon" />
+              <Image src={userIcon} alt="user icon" priority/>
             </span>
             <label
                 htmlFor="name-input"
@@ -148,7 +148,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
 
           <div className="mb-6 relative">
             <span className="absolute -left-9 top-14 -translate-y-1/2 scale-25">
-              <Image src={phoneIcon} alt="phone icon" />
+              <Image src={phoneIcon} alt="phone icon" priority/>
             </span>
             <PhoneInput
               label="Ваш номер телефону"
@@ -167,7 +167,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
 
           <div className="relative">
             <span className="absolute -left-12 top-14 -translate-y-1/2 scale-23">
-              <Image src={carIcon} alt="car icon" />
+              <Image src={carIcon} alt="car icon" priority/>
             </span>
             <label
                 htmlFor="car-budget-info-input"
