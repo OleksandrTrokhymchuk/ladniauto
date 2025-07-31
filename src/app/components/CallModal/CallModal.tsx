@@ -56,8 +56,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
       setUserInput("")
       onClose()
     },
-    [phoneNumber, onClose]
-  );
+    [phoneNumber, userInput, onClose]
+  )
 
   const requestClose = useCallback(() => {
     onClose()
@@ -121,7 +121,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
             <label
                 htmlFor="name-input"
                 className={`block text-project-white font-bold mb-1
-                  transition-all duration-300
+                  transition-all duration-500
                 ${isUserInputFocused ? "text-xl" : "text-lg"}
                 `}
               >
@@ -133,7 +133,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               className={`w-full px-4 py-2 text-project-blue bg-project-white rounded-lg pl-8
                 border-2 border-transparent focus:outline-none
                 text-[16px] min-h-[44px]
-                transition-all duration-300 ease-in-out
+                transition-all duration-500 ease-in-out
                 ${isUserInputFocused ? 'ring-2 ring-project-white' : ''}
               `}
               onFocus={() => setIsUserInputFocused(true)}
@@ -172,7 +172,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
             <label
                 htmlFor="car-budget-info-input"
                 className={`block text-project-white font-bold mb-1
-                  transition-all duration-300
+                  transition-all duration-500
                 ${isCarBudgetInfoInputFocused ? "text-xl" : "text-lg"}
                 `}
               >
@@ -184,7 +184,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               className={`w-full px-4 py-2 text-project-blue bg-project-white rounded-lg pl-[45px]
                 border-2 border-transparent focus:outline-none
                 text-[16px] min-h-[44px]
-                transition-all duration-300 ease-in-out
+                transition-all duration-500 ease-in-out
                 ${isCarBudgetInfoInputFocused ? 'ring-2 ring-project-white' : ''}
               `}
               onFocus={(e) => {
