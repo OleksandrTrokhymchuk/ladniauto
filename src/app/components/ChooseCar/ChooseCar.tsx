@@ -24,7 +24,6 @@ export default function ChooseCar() {
     const [phoneNumber, setPhoneNumber] = useState<string>("")
     const [userInput, setUserInput] = useState<string>("")
     const [isUserInputFocused, setIsUserInputFocused] = useState<boolean>(false)
-    // const isAllOptionsSelected = useRef<boolean>(false)
     const [isAllOptionsSelected, setIsAllOptionsSelected] = useState<boolean>(false)
 
     const selectedCarBody = useAppSelector((state) => state.selectedCarBodies.value)
@@ -70,7 +69,7 @@ export default function ChooseCar() {
             <Swiper
                 slidesPerView={1}
                 centeredSlides={true}
-                speed={1200}
+                speed={850}
                 navigation={true}
                 modules={[ Navigation]}
                 autoHeight
@@ -82,7 +81,6 @@ export default function ChooseCar() {
                 <SwiperSlide>
                     <p className='text-center text-2xl'>Кузов</p>
                     <div className="vsm:grid-small-auto-fit-cards msm:grid-auto-fit-cards">
-                    {/* <div className="msm:grid msm:grid-auto-fit-cards msm:gap-9 vsm:gap-y-5 vsm:flex vsm:flex-wrap vsm:py-2"> */}
                         {
                             carBodies.map(carBody => <CarBody key={carBody} carBody={carBody} onNextSlideClick={handleNextSlide}/>)
                         }
@@ -131,7 +129,7 @@ export default function ChooseCar() {
                             <label
                                 htmlFor="name-input"
                                 className={`block text-project-white font-bold mb-1
-                                    transition-all duration-500
+                                    transition-all duration-300
                                     ${isUserInputFocused ? "text-xl" : "text-lg"}
                                 `}
                             >
@@ -143,7 +141,7 @@ export default function ChooseCar() {
                                 className={`w-full px-4 py-2 text-project-blue bg-project-white rounded-lg pl-8
                                     border-2 border-transparent focus:outline-none
                                     text-[16px] min-h-[44px]
-                                    transition-all duration-500 ease-in-out
+                                    transition-all duration-300 ease-in-out
                                     ${isUserInputFocused ? 'ring-2 ring-project-white' : ''}
                                 `}
                                 onFocus={() => setIsUserInputFocused(true)}
@@ -170,7 +168,7 @@ export default function ChooseCar() {
                                 type="submit"
                                 className={`bg-project-green my-1 rounded-xl text-project-white shadow-md text-2xl
                                 py-3 px-8 font-semibold
-                                transition-all duration-500
+                                transition-all duration-300
                                 hover-supported:hover:scale-110 no-hover:active:scale-110
                                 hover-supported:hover:opacity-90 no-hover:active:opacity-90
                                 ${phoneNumber.replace(/\D/g, "").length < 12 || userInput.length < 2
