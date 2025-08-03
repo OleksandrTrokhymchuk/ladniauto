@@ -41,7 +41,7 @@ export default function ChooseCar() {
     const carBodies: string[] = ["crossover", "sedan", "hatchback", "minivan", "pickup", "coupe", "unknown"]
     const budgets: string[] = ["10 000 — 20 000", "20 000 — 30 000", "30 000 — 40 000", "40 000 — 50 000", "Більше 50 000"]
     const fuelTypes: string[] = ["petrol", "diesel", "electric", "hybrid", "unknown"]
-    const gifts: string[] = ["gift1", "gift2", "gift3", "gift4"]
+    const gifts: string[] = ["Vehicle History Check", "Vehicle Report", "Market Analysis", "Total Cost Calculation"]
 
     const handleNextSlide = () => {
         if (swiperRef.current) {
@@ -77,7 +77,7 @@ export default function ChooseCar() {
                 style={{ width: '100%' }}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
             >
-
+                
                 <SwiperSlide>
                     <p className='text-center text-2xl'>Кузов</p>
                     <div className="vsm:grid-small-auto-fit-cards msm:grid-auto-fit-cards">
@@ -104,7 +104,7 @@ export default function ChooseCar() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <p className='text-center text-2xl'>Подарунок</p>
-                    <div className='grid grid-auto-fit-cards gap-9'>
+                    <div className='grid grid-auto-fit-gift-cards gap-9'>
                         {
                             gifts.map(gift => <Gift key={gift} gift={gift} onNextSlideClick={handleNextSlide}/>)
                         }

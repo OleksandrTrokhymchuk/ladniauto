@@ -4,7 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { MouseEventHandler, useEffect, useState } from "react"
 
-import ladniAutoLogo from "../../images/logo-for-header.png"
+import ladniAutoLogoNoText from "../../images/logo-for-header.png"
+import ladniAutoLogo from "../../images/logo.png"
 import phoneIcon from "@/images/phone-icon-for-header.png"
 
 import CallModal from "./CallModal/CallModal"
@@ -95,10 +96,10 @@ export default function Header() {
                         >
                             <div className={`flex flex-col transition-all duration-700 max-w-[140px]`}>
                                 <Image
-                                    src={ladniAutoLogo}
+                                    src={ladniAutoLogoNoText}
                                     alt="Ladni Auto Logo"
-                                    width={ladniAutoLogo.width}
-                                    height={ladniAutoLogo.height}
+                                    width={ladniAutoLogoNoText.width}
+                                    height={ladniAutoLogoNoText.height}
                                     className={`object-contain`}
                                     priority
                                 />
@@ -160,10 +161,10 @@ export default function Header() {
                                 >
                                 <div className={`flex flex-col transition-all duration-700 vsm:max-w-24 vsm1:max-w-28`}>
                                     <Image
-                                        src={ladniAutoLogo}
+                                        src={ladniAutoLogoNoText}
                                         alt="Ladni Auto Logo"
-                                        width={ladniAutoLogo.width}
-                                        height={ladniAutoLogo.height}
+                                        width={ladniAutoLogoNoText.width}
+                                        height={ladniAutoLogoNoText.height}
                                         className={`object-contain`}
                                         priority
                                     />

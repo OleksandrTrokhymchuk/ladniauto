@@ -69,7 +69,7 @@ export default function Home() {
                 Розкажіть про авто яке вам цікаве та оберіть свій подарунок! 🎁
               </p>
               <div
-                className="h-[1px] bg-project-white w-[95%] mx-auto my-4 bg-opacity-30"
+                className="h-0.25 bg-project-white w-[95%] mx-auto my-4 bg-opacity-30"
               ></div>
               <ChooseCar/>
             </div>

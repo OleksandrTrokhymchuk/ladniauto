@@ -52,9 +52,15 @@ module.exports = {
         'vsm4': '500px',
         'msm': '550px', // medium-small
         // 'sm': '640px',
+        'sm1': '726px',
         // 'md': '768px',
+        'md1': '830px',
+        'md2': '930px',
         // 'lg': '1024px',
+        'lg1': '1097px',
         // 'xl': '1280px',
+        'xl1': '1310px',
+        'xl2': '1432px',
         // '2xl': '1536px',
       },
       fontSize: {
