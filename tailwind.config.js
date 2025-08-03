@@ -23,7 +23,7 @@ module.exports = {
         'fade-out-up': 'fade-out-up 0.3s ease-in forwards',
       },
       colors: {
-        'project-blue': '#024097',
+        'project-blue': '#013f97',
         'project-white': '#feffff',
         'project-green': '#149218',
         'project-blue-darker': '#013070',
@@ -36,7 +36,7 @@ module.exports = {
         '0.25': '0.0625rem',
       },
       scale: {
-        '10': '0.10',
+        '9': '0.09',
         '17': '0.17',
         '23': '0.23',
         '25': '0.25',

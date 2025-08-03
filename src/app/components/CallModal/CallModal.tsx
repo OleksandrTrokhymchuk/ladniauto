@@ -166,7 +166,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
           </div>
 
           <div className="relative">
-            <span className="absolute -left-12 top-14 -translate-y-1/2 scale-23">
+            <span className="absolute -left-[187px] top-14 -translate-y-1/2 scale-9">
               <Image src={carIcon} alt="car icon" priority/>
             </span>
             <label
@@ -181,7 +181,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
             <input
               id="car-budget-info-input"
               type="text"
-              className={`w-full px-4 py-2 text-project-blue bg-project-white rounded-lg pl-[45px]
+              className={`w-full px-4 py-2 text-project-blue bg-project-white rounded-lg pl-14
                 border-2 border-transparent focus:outline-none
                 text-[16px] min-h-[44px]
                 transition-all duration-300 ease-in-out
