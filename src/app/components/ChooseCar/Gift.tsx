@@ -73,7 +73,7 @@ export default function Gift({ gift, onNextSlideClick }: GiftProps) {
                     transition-all duration-200 text-center vsm:p-3 msm:p-4 lg:p-5 flex-col
                     ${selectedGift === gift ? "bg-opacity-45" : ""}
                     `}>
-                        <h4 className="vsm:text-lg vsm2:text-xl">
+                        <h4 className="vsm:text-lg vsm2:text-xl font-semibold">
                             {cardData?.giftTitleToUkr}
                         </h4>
                         <div className="h-0.25 w-3/4 mx-auto bg-project-white bg-opacity-30
