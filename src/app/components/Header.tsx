@@ -209,7 +209,10 @@ export default function Header() {
 
             <button
                 onClick={toggleMenu}
-                className="z-50 flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none fixed right-2 top-9"
+                className={`z-50 flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none fixed right-2
+                    transition-all duration-700 
+                    ${scrolled ? "top-8" : "top-9"}
+                    `}
                 aria-label="Toggle menu"
             >
                 <span className={`
@@ -238,7 +241,7 @@ export default function Header() {
                 <nav className={` w-full h-full bg-project-blue transform transition-transform duration-500 ease-in-out  p-8
                     ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}
                 `} onClick={(e) => e.stopPropagation()}>
-                    <ul className={`flex flex-col space-y-5 pb-7`}>
+                    <ul className={`flex flex-col space-y-5 pb-7 text-center pt-10`}>
                         {navItems.map((item) => (
                             <li key={item.name}>
                                 <Link
@@ -253,7 +256,8 @@ export default function Header() {
                             </li>
                         ))}
                     </ul>
-                    <div className=" pt-6 border-t border-project-white border-opacity-50 flex items-center vsm:justify-center msm:justify-around
+                    <div className="w-[80%] h-px bg-opacity-50 bg-project-white mx-auto"></div>
+                    <div className=" pt-6  flex items-center vsm:justify-center msm:justify-around
                     vsm:flex-col msm:flex-row vsm: gap-y-5
                     ">
                         <a
@@ -276,7 +280,7 @@ export default function Header() {
                     </div>
                     <Link href="/" onClick={(e) => {toggleMenu(); scrollToTop(e)}}>
                         <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className={`mx-auto
-                            ${scrolled ? "max-w-[80%] pt-10" : "max-w-[65%] pt-6"}
+                            ${scrolled ? "max-w-[70%] pt-10" : "max-w-[65%] pt-6"}
                             `}/>
                     </Link>
                 </nav>
