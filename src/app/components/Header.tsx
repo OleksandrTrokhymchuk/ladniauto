@@ -248,7 +248,7 @@ export default function Header() {
                                     href={item.href}
                                     onClick={toggleMenu}
                                     className={`
-                                        text-xl font-bold text-project-white block py-2
+                                        text-2xl font-bold text-project-white block py-2
                                     `}
                                 >
                                     {item.name}
@@ -279,9 +279,7 @@ export default function Header() {
                         </button>
                     </div>
                     <Link href="/" onClick={(e) => {toggleMenu(); scrollToTop(e)}}>
-                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className={`mx-auto
-                            ${scrolled ? "max-w-[70%] pt-10" : "max-w-[65%] pt-6"}
-                            `}/>
+                        <Image src={ladniAutoLogo} alt="Ladni Auto Logo" className={`mx-auto pt-6 max-w-[75%]`}/>
                     </Link>
                 </nav>
             </div>
