@@ -31,13 +31,15 @@ export default function Home() {
             <div className="vsm:min-h-[calc(100vh-112px)] md:min-h-0 md:mb-20">
               <h1
                 className="vsm:text-6xl lg:text-7xl font-bold text-project-blue mb-10"
-                style={{textShadow: '0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff'}}
+                style={{textShadow: '0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px rgba(255, 255, 255, 0.3), 0 0 3px rgba(255, 255, 255, 0.3)'}}
                 >
                 Авто із США під ключ
               </h1>
               <div className="flex flex-col gap-y-6 mb-16">
                 <h2>Ми не продаємо авто – ми продаємо спокій. Реалізовуємо автомобільні мрії клієнтів.</h2>
-                <p>Від аукціону США до видачі відновленого авто у вашому місті. Купуємо безпечні, а віддаємо готові. Ви обираєте – ми робимо результат. Чесно. Прозоро. Без зайвих турбот.</p>
+                <p>Від аукціону США до видачі відновленого авто у вашому місті. <br />
+                   Купуємо безпечні, а віддаємо готові. Ви обираєте – ми робимо результат. <br />
+                   Чесно. Прозоро. Без зайвих турбот.</p>
               </div>
               <div className="">
                 <p className="font-semibold text-2xl mb-4"

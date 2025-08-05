@@ -209,7 +209,7 @@ export default function Header() {
 
             <button
                 onClick={toggleMenu}
-                className={`z-50 flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none fixed right-2
+                className={`z-50 md:hidden flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none fixed right-2
                     transition-all duration-700 
                     ${scrolled ? "top-8" : "top-9"}
                     `}
