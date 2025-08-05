@@ -144,7 +144,7 @@ export default function Header() {
                             </a>
                             <button
                               className={`bg-project-white lg:text-lg md:text-base hover:bg-gray-300 text-project-blue font-bold  rounded-full
-                                    py-2 px-5 xl:px-6
+                                    py-2 md:px-5 xl:px-6
                                     transition-all duration-700 transform hover:scale-105 active:scale-95 whitespace-nowrap
                                     ${isPulsing && !isModalOpen ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
                               `}
@@ -193,16 +193,6 @@ export default function Header() {
                                     066 731 98 09
                                 </a>
                             </div>
-                            {/* <div> */}
-                                {/* <Image src={phone} alt="phone" width={50} height={50} className={`
-                                    ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
-                                    transition-all ease-in-out transform  ${isPulsing && !isModalOpen ? 'scale-50 rotate-12' : ''}`}
-                                    onClick={() => {!isMenuOpen && setIsModalOpen(true)}}
-                                /> */}
-                                {/* <div className="scale-45 absolute -top-9 left-0 bg-project-white rounded-full p-5">
-                                    <Image src={phoneIcon} alt="phone icon" />
-                                </div> */}
-                            {/* </div> */}
                             <div className="flex items-center gap-x-4">
                                 <div
                                     className={`max-h-14 max-w-14
@@ -256,9 +246,9 @@ export default function Header() {
                     transform transition-transform duration-500 ease-in-out
                     ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}
                     p-8
-                    ${scrolled ? "pt-[80px]" : "pt-[85px]"}
+                    ${scrolled ? "pt-[70px]" : "pt-[75px]"}
                 `} onClick={(e) => e.stopPropagation()}>
-                    <ul className={`flex flex-col space-y-6 border-t border-project-white border-opacity-50 pt-10`}>
+                    <ul className={`flex flex-col space-y-4 pb-7`}>
                         {navItems.map((item) => (
                             <li key={item.name}>
                                 <Link
@@ -273,7 +263,7 @@ export default function Header() {
                             </li>
                         ))}
                     </ul>
-                    <div className="mt-10 pt-6 border-t border-project-white border-opacity-50 flex items-center vsm:justify-center msm:justify-around
+                    <div className=" pt-6 border-t border-project-white border-opacity-50 flex items-center vsm:justify-center msm:justify-around
                     vsm:flex-col msm:flex-row vsm: gap-y-5
                     ">
                         <a
