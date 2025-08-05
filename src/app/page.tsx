@@ -31,7 +31,8 @@ export default function Home() {
             <div className="vsm:min-h-[calc(100vh-112px)] md:min-h-0 md:mb-20">
               <h1
                 className="vsm:text-6xl lg:text-7xl font-bold text-project-blue mb-10"
-              >
+                style={{textShadow: '0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff'}}
+                >
                 Авто із США під ключ
               </h1>
               <div className="flex flex-col gap-y-6 mb-16">

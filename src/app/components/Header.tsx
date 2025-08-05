@@ -33,6 +33,7 @@ export default function Header() {
 
     const navItems = [
         { name: "Послуги", href: "/" },
+        { name: "Кейси", href: "/" },
         { name: "Про нас", href: "/" },
         { name: "Блог", href: "/" },
         { name: "Контакти", href: "/" },
@@ -89,7 +90,7 @@ export default function Header() {
                 target:`}
             >
                 <div className="container mx-auto custom-container flex items-center">
-                    <Link href="/" className={`hidden md:flex items-center justify-center mr-8 transition-opacity
+                    <Link href="/" className={`hidden md:flex items-center justify-center md:mr-5 xl:mr-8 transition-opacity
                         ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
                         `}
                         onClick={scrollToTop}
@@ -111,11 +112,12 @@ export default function Header() {
                     </Link>
 
                     <nav className="hidden md:block">
-                        <ul className="flex items-center space-x-2">
+                        <ul className="flex items-center md:space-x-1 lg:space-x-2">
                             {navItems.map((item) => (
                                 <li key={item.name}>
                                     <Link href={item.href} className={`
-                                        lg:text-xl md:text-lg px-2 py-2 relative block
+                                        md:text-base md1:text-lg xl:text-xl
+                                        px-2 py-2 relative block
                                         transition-all duration-300 ease-in-out font-medium text-gray-100 hover:text-project-white hover:after:scale-x-100
                                         after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.25 after:bg-project-white after:scale-x-0 after:origin-left after:transition-transform after:duration-500 after:ease-out
                                     `}>
@@ -126,13 +128,13 @@ export default function Header() {
                         </ul>
                     </nav>
 
-                    <div className="hidden md:flex items-center space-x-6 ml-auto">
+                    <div className="hidden md:flex items-center md:space-x-4 xl:space-x-6 ml-auto">
                         <div className={`w-px bg-project-white opacity-50 ${scrolled ? 'h-14' : 'h-16'} transition-all duration-500`}></div>
                         <div className="flex md:flex-col lg:flex-row items-center md:items-start lg:items-center md:space-y-2 lg:space-y-0 lg:space-x-6">
                             <a
                                 href="tel:+380667319809"
                                 className={`
-                                    lg:text-2xl md:text-xl font-bold whitespace-nowrap
+                                    md:text-xl xl:text-2xl font-bold whitespace-nowrap
                                     transition-all duration-500 ease-in-out
                                     mx-auto
                                     hover:transform hover:scale-105
@@ -141,7 +143,8 @@ export default function Header() {
                                 +38 066 731 98 09
                             </a>
                             <button
-                              className={`bg-project-white lg:text-lg md:text-base hover:bg-gray-300 text-project-blue font-bold py-2 px-6 rounded-full
+                              className={`bg-project-white lg:text-lg md:text-base hover:bg-gray-300 text-project-blue font-bold  rounded-full
+                                    py-2 px-5 xl:px-6
                                     transition-all duration-700 transform hover:scale-105 active:scale-95 whitespace-nowrap
                                     ${isPulsing && !isModalOpen ? 'scale-105 brightness-125 drop-shadow-lg rotate-1' : ''}
                               `}
