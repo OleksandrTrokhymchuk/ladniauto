@@ -78,10 +78,10 @@ export default function Header() {
     }
 
     return (
-        <>
+        <div className="relative">
             <header className={`
-                z-500
-                fixed top-0 w-full z-50
+                z-40
+                fixed top-0 w-full
                 bg-project-blue
                 ${scrolled ? 'vsm:py-1 lg:py-1.5 shadow-lg opacity-95' : 'lg:py-3 vsm:py-2 shadow-md'}
                 ${isMenuOpen ? "shadow-none" : ""}
@@ -91,7 +91,7 @@ export default function Header() {
             >
                 <div className="container mx-auto custom-container flex items-center">
                     <Link href="/" className={`hidden md:flex items-center justify-center md:mr-5 xl:mr-8 transition-opacity
-                        ${isMenuOpen ? "duration-200 opacity-0" : "duration-700"}
+                        
                         `}
                         onClick={scrollToTop}
                         >
@@ -155,11 +155,9 @@ export default function Header() {
                         </div>
                     </div>
 
-                    <div className="md:hidden w-full">
-                        <div className="flex items-center vsm:gap-x-3 vsm1:gap-x-5 justify-between relative">
-                            <Link href="/" className={`md:hidden flex items-center transition-opacity
-                                ${isMenuOpen ? "duration-200 opacity-0 pointer-events-none" : "duration-700"}
-                                `}
+                    <div className={`md:hidden w-full ${isMenuOpen ? "pointer-events-none" : ""}`}>
+                        <div className="flex items-center vsm:gap-x-3 vsm1:gap-x-5 justify-between relative mr-11">
+                            <Link href="/" className={`md:hidden flex items-center transition-opacity`}
                                 onClick={scrollToTop}
                                 >
                                 <div className={`flex flex-col transition-all duration-700 vsm:max-w-24 vsm1:max-w-28`}>
@@ -181,7 +179,6 @@ export default function Header() {
                                 bg-project-white py-1 rounded-full relative
                                 vsm:px-1 vsm1:px-1.5 vsm15:px-2 vsm2:px-5 vsm3:px-7 vsm4:px-9
                                 flex gap-x-1
-                                ${isMenuOpen ? "duration-200 opacity-0 pointer-events-none" : "duration-700"}
                                 `}
                             >
                                 <a
@@ -195,8 +192,7 @@ export default function Header() {
                             </div>
                             <div className="flex items-center gap-x-4">
                                 <div
-                                    className={`max-h-14 max-w-14
-                                        ${isMenuOpen ? "opacity-0 pointer-events-none duration-200" : "duration-700"}
+                                    className={`max-h-14 max-w-14 duration-700
                                         ${isPulsing && !isModalOpen ? 'scale-50 rotate-12' : ''}
                                         active:opacity-70
                                         block md:hidden
@@ -205,33 +201,33 @@ export default function Header() {
                                 >
                                     <Image src={phoneIcon} alt="phone icon" />
                                 </div>
-
-                                <button
-                                    onClick={toggleMenu}
-                                    className="z-1000 flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none z-50 relative"
-                                    aria-label="Toggle menu"
-                                >
-                                    <span className={`
-                                        w-8 h-[1px] bg-project-white
-                                        transition-all duration-500 ease-in-out
-                                        ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}
-                                    `}></span>
-                                    <span className={`
-                                        w-8 h-[1px] bg-project-white
-                                        transition-all duration-200 ease-in-out
-                                        ${isMenuOpen ? 'opacity-0' : ''}
-                                    `}></span>
-                                    <span className={`
-                                        w-8 h-[1px] bg-project-white
-                                        transition-all duration-500 ease-in-out
-                                        ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}
-                                    `}></span>
-                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
+
+            <button
+                onClick={toggleMenu}
+                className="z-50 flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none fixed right-2 top-9"
+                aria-label="Toggle menu"
+            >
+                <span className={`
+                    w-8 h-[1px] bg-project-white
+                    transition-all duration-500 ease-in-out
+                    ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}
+                `}></span>
+                <span className={`
+                    w-8 h-[1px] bg-project-white
+                    transition-all duration-200 ease-in-out
+                    ${isMenuOpen ? 'opacity-0' : ''}
+                `}></span>
+                <span className={`
+                    w-8 h-[1px] bg-project-white
+                    transition-all duration-500 ease-in-out
+                    ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}
+                `}></span>
+            </button>
 
             <div className={`
                 fixed top-0 left-0 h-full w-full z-40
@@ -239,16 +235,10 @@ export default function Header() {
                 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
                 flex justify-center items-start
             `} onClick={toggleMenu}>
-                <nav className={`
-                    w-full
-                    h-full
-                    bg-project-blue
-                    transform transition-transform duration-500 ease-in-out
+                <nav className={` w-full h-full bg-project-blue transform transition-transform duration-500 ease-in-out  p-8
                     ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}
-                    p-8
-                    ${scrolled ? "pt-[70px]" : "pt-[75px]"}
                 `} onClick={(e) => e.stopPropagation()}>
-                    <ul className={`flex flex-col space-y-4 pb-7`}>
+                    <ul className={`flex flex-col space-y-5 pb-7`}>
                         {navItems.map((item) => (
                             <li key={item.name}>
                                 <Link
@@ -292,6 +282,6 @@ export default function Header() {
                 </nav>
             </div>
             <CallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>
-        </>
+        </div>
     )
 }
