@@ -4,8 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { MouseEventHandler, useEffect, useState } from "react"
 
-import ladniAutoLogoNoText from "../../images/logo-for-header.png"
-import ladniAutoLogo from "../../images/logo.png"
+import ladniAutoLogoNoText from "../../images/Logopng-for-header.png"
+import ladniAutoLogo from "../../images/Logopng.png"
 import phoneIcon from "@/images/phone-icon-for-header.png"
 
 import CallModal from "./CallModal/CallModal"
@@ -90,9 +90,7 @@ export default function Header() {
                 target:`}
             >
                 <div className="container mx-auto custom-container flex items-center">
-                    <Link href="/" className={`hidden md:flex items-center justify-center md:mr-5 xl:mr-8 transition-opacity
-                        
-                        `}
+                    <Link href="/" className={`hidden md:flex items-center justify-center md:mr-5 xl:mr-8 transition-opacity`}
                         onClick={scrollToTop}
                         >
                             <div className={`flex flex-col transition-all duration-700 max-w-[140px]`}>

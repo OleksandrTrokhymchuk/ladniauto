@@ -3,7 +3,7 @@
 import instagramIcon from "@/images/instagram.svg"
 import telegramIcon from "@/images/telegram.svg"
 import youtubeIcon from "@/images/youtube.svg"
-import ladniAutoLogo from "../../images/logo.png"
+import ladniAutoLogo from "../../images/Logopng.png"
 
 import Image from "next/image"
 import { MouseEventHandler } from "react"
@@ -28,8 +28,6 @@ export default function Footer() {
                         href="tel:+380667319809"
                         className={`
                             font-bold whitespace-nowrap
-                            transition-all duration-500 ease-in-out
-                            hover-supported:hover:scale-105 no-hover:active:scale-105
                         `}
                     >
                         +38 066 731 98 09

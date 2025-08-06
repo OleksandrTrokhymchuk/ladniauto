@@ -24,7 +24,7 @@ export default function Hero() {
                 <div className="vsm:min-h-[calc(100vh-112px)] md:min-h-0 md:mb-20">
                   <h1
                     className="vsm:text-6xl lg:text-7xl font-bold text-project-blue mb-10"
-                    style={{textShadow: '0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px rgba(255, 255, 255, 0.3), 0 0 3px rgba(255, 255, 255, 0.3)'}}
+                    style={{textShadow: '0 0 1px rgba(255, 255, 255, 0.2), 0 0 2px rgba(255, 255, 255, 0.2), 0 0 3px rgba(255, 255, 255, 0.2)'}}
                     >
                     Авто із США під ключ
                   </h1>
@@ -57,16 +57,13 @@ export default function Hero() {
                     </div>
                   </div>
                 </div>
-                <div className="bg-project-blue w-full rounded-3xl p-5 bg-opacity-90 shadow-2xl">
-                  <p className="text-center font-bold
-                    vsm:text-xl msm:text-2xl md:text-3xl lg:text-4xl"
-                    // text-4xl
+                <div className="bg-project-blue w-full rounded-3xl bg-opacity-90 shadow-2xl">
+                  <p className="text-center font-bold text-project-dark bg-project-white
+                    vsm:text-xl msm:text-2xl md:text-3xl lg:text-4xl p-5 rounded-t-3xl mb-4"
                   >
                     Розкажіть про авто яке вам цікаве та оберіть свій подарунок! 🎁
                   </p>
-                  <div
-                    className="h-0.25 bg-project-white w-[95%] mx-auto my-4 bg-opacity-30"
-                  ></div>
+                  
                   <ChooseCar/>
                 </div>
             </div>

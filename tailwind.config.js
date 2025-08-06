@@ -27,7 +27,7 @@ module.exports = {
         'project-white': '#feffff',
         'project-green': '#149218',
         'project-blue-darker': '#013070',
-        'project-dark': '#080808',
+        'project-dark': '#101010',
       },
        fontFamily: {
         sans: ['var(--font-montserrat)', 'sans-serif'],
