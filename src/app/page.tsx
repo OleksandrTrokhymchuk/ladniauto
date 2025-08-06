@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Hero from "./components/Hero"
-import heroBackground from "../../public/images/bg1.png"
+import heroBackground from "../../public/images/bg2.png"
 
 export default function Home() {
   return (
