@@ -15,6 +15,7 @@ export default function Services() {
                 <div className="w-full lg:w-1/3 p-4 sm:p-6">
                     <div className="aspect-square w-full max-w-sm mx-auto lg:max-w-none">
                         <Image
+                            priority
                             className="border border-solid border-project-blue p-3 w-full h-full object-cover rounded-lg"
                             src={servicesImage}
                             alt="service"
@@ -78,6 +79,7 @@ export default function Services() {
                 <div className="w-full lg:w-1/3 p-4 sm:p-6">
                     <div className="aspect-square w-full max-w-sm mx-auto lg:max-w-none">
                         <Image
+                            priority
                             className="border border-solid border-project-blue p-3 w-full h-full object-cover rounded-lg"
                             src={servicesImage}
                             alt="service"
