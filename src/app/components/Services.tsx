@@ -21,7 +21,7 @@ export default function Services() {
                         />
                     </div>
                     <div className="mt-6 text-center lg:hidden">
-                        <h4 className="font-bold text-2xl sm:text-3xl mb-2">Пакет "Базовий"</h4>
+                        <h4 className="font-bold text-2xl sm:text-3xl mb-2">Пакет &quot;Базовий&quot;</h4>
                         <p className="font-bold text-xl sm:text-2xl">
                             Ціна: <bdi>500</bdi> $
                         </p>
@@ -29,7 +29,7 @@ export default function Services() {
                 </div>
                 <div className="flex-1 p-4 sm:p-6 lg:p-8">
                     <div className="hidden lg:block mb-6">
-                        <h4 className="font-bold text-3xl xl:text-4xl mb-3">Пакет "Базовий"</h4>
+                        <h4 className="font-bold text-3xl xl:text-4xl mb-3">Пакет &quot;Базовий&quot;</h4>
                         <p className="font-bold text-2xl xl:text-3xl">
                             Ціна: <bdi>500</bdi> $
                         </p>
@@ -84,7 +84,7 @@ export default function Services() {
                         />
                     </div>
                     <div className="mt-6 text-center lg:hidden">
-                        <h4 className="font-bold text-2xl sm:text-3xl mb-2">Пакет "Під ключ з ремонтом"</h4>
+                        <h4 className="font-bold text-2xl sm:text-3xl mb-2">Пакет &quot;Під ключ з ремонтом&quot;</h4>
                         <p className="font-bold text-xl sm:text-2xl">
                             Ціна: <bdi>1000</bdi> $
                         </p>
@@ -92,7 +92,7 @@ export default function Services() {
                 </div>
                 <div className="flex-1 p-4 sm:p-6 lg:p-8">
                     <div className="hidden lg:block mb-6">
-                        <h4 className="font-bold text-3xl xl:text-4xl mb-3">Пакет "Під ключ з ремонтом"</h4>
+                        <h4 className="font-bold text-3xl xl:text-4xl mb-3">Пакет &quot;Під ключ з ремонтом&quot;</h4>
                         <p className="font-bold text-2xl xl:text-3xl">
                             Ціна: <bdi>1000</bdi> $
                         </p>
@@ -145,7 +145,7 @@ export default function Services() {
 
     <div className="h-px w-3/4 mx-auto bg-opacity-30 bg-project-blue"></div>
     <div className="text-xl text-center flex flex-col gap-y-5 mt-5">
-        <p className="font-bold">Обидва пакети передбачають постійний зв'язок, прозору комунікацію і фокус на результат.</p>
+        <p className="font-bold">Обидва пакети передбачають постійний зв&apos;язок, прозору комунікацію і фокус на результат.</p>
         <p>Обирайте рівень залучення, який вам зручний — усе інше ми беремо на себе.</p>
     </div>
 </div>
