@@ -32,7 +32,7 @@ export default function Header() {
     }, [])
 
     const navItems = [
-        { name: "Послуги", href: "/" },
+        { name: "Послуги", href: "/#services" },
         { name: "Кейси", href: "/" },
         { name: "Про нас", href: "/" },
         { name: "Блог", href: "/" },

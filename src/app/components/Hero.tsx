@@ -59,7 +59,7 @@ export default function Hero() {
                 </div>
                 <div className="bg-project-blue w-full rounded-3xl bg-opacity-90 shadow-2xl">
                   <p className="text-center font-bold text-project-dark bg-project-white
-                    vsm:text-xl msm:text-2xl md:text-3xl lg:text-4xl p-5 rounded-t-3xl mb-4"
+                    vsm:text-xl msm:text-2xl md:text-3xl lg:text-4xl p-5 rounded-t-3xl "
                   >
                     Розкажіть про авто яке вам цікаве та оберіть свій подарунок! 🎁
                   </p>

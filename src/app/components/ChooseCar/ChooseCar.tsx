@@ -72,8 +72,9 @@ export default function ChooseCar() {
                 speed={850}
                 navigation={true}
                 modules={[ Navigation]}
+                autoHeight
                 className="mySwiper"
-                style={{ width: '100%' }}
+                style={{ width: '100%', padding: "15px" }}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
             >
                 

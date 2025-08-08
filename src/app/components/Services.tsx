@@ -1,0 +1,153 @@
+import Image from "next/image"
+import servicesImage from "../../../public/images/Services/service2.jpg"
+
+export default function Services() {
+    return(
+
+<div className="custom-container text-project-blue px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl sm:text-4xl lg:text-6xl font-semibold uppercase mb-8 sm:mb-12 text-center lg:text-left">
+        Пакети послуг
+    </h2>
+
+    <div className="max-w-7xl mx-auto mb-16">
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="flex flex-col lg:flex-row">
+                <div className="w-full lg:w-1/3 p-4 sm:p-6">
+                    <div className="aspect-square w-full max-w-sm mx-auto lg:max-w-none">
+                        <Image
+                            className="border border-solid border-project-blue p-3 w-full h-full object-cover rounded-lg"
+                            src={servicesImage}
+                            alt="service"
+                        />
+                    </div>
+                    <div className="mt-6 text-center lg:hidden">
+                        <h4 className="font-bold text-2xl sm:text-3xl mb-2">Пакет "Базовий"</h4>
+                        <p className="font-bold text-xl sm:text-2xl">
+                            Ціна: <bdi>500</bdi> $
+                        </p>
+                    </div>
+                </div>
+                <div className="flex-1 p-4 sm:p-6 lg:p-8">
+                    <div className="hidden lg:block mb-6">
+                        <h4 className="font-bold text-3xl xl:text-4xl mb-3">Пакет "Базовий"</h4>
+                        <p className="font-bold text-2xl xl:text-3xl">
+                            Ціна: <bdi>500</bdi> $
+                        </p>
+                    </div>
+                    <div className="mb-6 sm:mb-8">
+                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
+                            Базовий пакет для тих, хто хоче самостійно займатися ремонтом та оформленням, але
+                            цінує професійний супровід на етапі покупки та доставки.
+                        </p>
+                    </div>
+                    <div className="mb-6 sm:mb-8">
+                        <h4 className="font-bold text-lg sm:text-xl lg:text-2xl mb-4">
+                            Що входить:
+                        </h4>
+                        <ul className="space-y-2 sm:space-y-3">
+                            <li className="flex items-start text-sm sm:text-base lg:text-lg">
+                                <span className="font-bold mr-3">•</span>
+                                <span>Пошук і перевірка лотів перед торгами</span>
+                            </li>
+                            <li className="flex items-start text-sm sm:text-base lg:text-lg">
+                                <span className="font-bold mr-3">•</span>
+                                <span>Участь в аукціоні</span>
+                            </li>
+                            <li className="flex items-start text-sm sm:text-base lg:text-lg">
+                                <span className="font-bold mr-3">•</span>
+                                <span>Організація логістики: США – порт – Україна – ваше місто</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-lg sm:text-xl lg:text-2xl mb-3 sm:mb-4">
+                            Результат:
+                        </h4>
+                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
+                            Ви отримуєте придбане авто, ключі та документи у своєму місті. Далі — ремонтуєте та реєструєте самостійно.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div className="max-w-7xl mx-auto mb-16">
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="flex flex-col lg:flex-row">
+                <div className="w-full lg:w-1/3 p-4 sm:p-6">
+                    <div className="aspect-square w-full max-w-sm mx-auto lg:max-w-none">
+                        <Image
+                            className="border border-solid border-project-blue p-3 w-full h-full object-cover rounded-lg"
+                            src={servicesImage}
+                            alt="service"
+                        />
+                    </div>
+                    <div className="mt-6 text-center lg:hidden">
+                        <h4 className="font-bold text-2xl sm:text-3xl mb-2">Пакет "Під ключ з ремонтом"</h4>
+                        <p className="font-bold text-xl sm:text-2xl">
+                            Ціна: <bdi>1000</bdi> $
+                        </p>
+                    </div>
+                </div>
+                <div className="flex-1 p-4 sm:p-6 lg:p-8">
+                    <div className="hidden lg:block mb-6">
+                        <h4 className="font-bold text-3xl xl:text-4xl mb-3">Пакет "Під ключ з ремонтом"</h4>
+                        <p className="font-bold text-2xl xl:text-3xl">
+                            Ціна: <bdi>1000</bdi> $
+                        </p>
+                    </div>
+                    <div className="mb-6 sm:mb-8">
+                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
+                            Пакет для тих, хто хоче отримати готове, відновлене авто без клопотів та візитів на
+                            станції техобслуговування. Ведення всіх етапів відновлення ми беремо на себе.
+                        </p>
+                    </div>
+                    <div className="mb-6 sm:mb-8">
+                        <h4 className="font-bold text-lg sm:text-xl lg:text-2xl mb-4">
+                            Що входить:
+                        </h4>
+                        <ul className="space-y-2 sm:space-y-3">
+                            <li className="flex items-start text-sm sm:text-base lg:text-lg">
+                                <span className="font-bold mr-3">•</span>
+                                <span>Всі послуги з пакету «Базовий»</span>
+                            </li>
+                            <li className="flex items-start text-sm sm:text-base lg:text-lg">
+                                <span className="font-bold mr-3">•</span>
+                                <span>Доставка авто в Київ</span>
+                            </li>
+                            <li className="flex items-start text-sm sm:text-base lg:text-lg">
+                                <span className="font-bold mr-3">•</span>
+                                <span>Організація ремонту, підбір і доставка запчастин</span>
+                            </li>
+                            <li className="flex items-start text-sm sm:text-base lg:text-lg">
+                                <span className="font-bold mr-3">•</span>
+                                <span>Детейлінг, технічне обслуговування</span>
+                            </li>
+                            <li className="flex items-start text-sm sm:text-base lg:text-lg">
+                                <span className="font-bold mr-3">•</span>
+                                <span>Сертифікація та постановка на облік (за потреби)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-lg sm:text-xl lg:text-2xl mb-3 sm:mb-4">
+                            Результат:
+                        </h4>
+                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
+                            Ви отримуєте чистий, відновлений автомобіль, повністю готовий до експлуатації.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div className="h-px w-3/4 mx-auto bg-opacity-30 bg-project-blue"></div>
+    <div className="text-xl text-center flex flex-col gap-y-5 mt-5">
+        <p className="font-bold">Обидва пакети передбачають постійний зв'язок, прозору комунікацію і фокус на результат.</p>
+        <p>Обирайте рівень залучення, який вам зручний — усе інше ми беремо на себе.</p>
+    </div>
+</div>
+    )
+}
