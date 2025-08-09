@@ -12,9 +12,10 @@ import TimePicker from "./TimerPicker"
 type ModalProps = {
   isOpen: boolean
   onClose: () => void
+  serviceType?: null | string
 }
 
-export default function Modal({ isOpen, onClose }: ModalProps) {
+export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
   const [showContent, setShowContent] = useState<boolean>(false)
   const [isVisible, setIsVisible] = useState<boolean>(false)
   const [phoneNumber, setPhoneNumber] = useState<string>("")
@@ -112,7 +113,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
           </svg>
         </button>
         <h2 className="mb-5 text-xl font-bold">Залишити заявку</h2>
-        <p className="mb-5 max-w-80">Будь ласка, введіть Ваше ім&apos;я та Ваш номер телефону</p>
+        <p className="mb-5 max-w-80"><strong style={{display: serviceType ? "block" : "none"}} className="mb-2">Ви обрали {serviceType}!</strong>Будь ласка, введіть Ваше ім&apos;я та Ваш номер телефону</p>
         <form className="relative" onSubmit={handleFormSubmit}>
           <div className="mb-6 relative">
             <span className="absolute -left-14 top-14 -translate-y-1/2 scale-17">
