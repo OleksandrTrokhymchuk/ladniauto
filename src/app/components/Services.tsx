@@ -9,16 +9,16 @@ export default function Services() {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const serviceTypeValue = useRef<string>("")
 
-      useEffect(() => {
-           if (isModalOpen) {
-               document.body.style.overflow = 'hidden'
-           } else {
-               document.body.style.overflow = ''
-           }
-           return () => {
-               document.body.style.overflow = ''
-           }
-       }, [isModalOpen])
+    //   useEffect(() => {
+    //        if (isModalOpen) {
+    //            document.body.style.overflow = 'hidden'
+    //        } else {
+    //            document.body.style.overflow = ''
+    //        }
+    //        return () => {
+    //            document.body.style.overflow = ''
+    //        }
+    //    }, [isModalOpen])
     return(
 <>
 <div className="custom-container text-project-blue px-4 sm:px-6 lg:px-8">

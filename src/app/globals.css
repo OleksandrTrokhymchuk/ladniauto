@@ -12,12 +12,14 @@
     gap: 35px;
     padding: 20px;
   }
+
   .grid-auto-fit-gift-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 35px;
     padding: 20px;
   }
+
   .grid-small-auto-fit-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -58,96 +60,103 @@
   }
 
 
-.bordered-element {
-  @apply relative;
-}
-.bordered-element-gift-card {
-  @apply relative;
-}
+  .bordered-element {
+    @apply relative;
+  }
 
-.bordered-element::before {
-  content: '';
-  @apply absolute top-0 left-0 right-0 bottom-0 border border-project-white;
-  @apply transition-all duration-200 ease-out;
-  border-radius: 5px;
-  opacity: 0.2;
-  transform: scale(1);
-  pointer-events: none;
-}
-.bordered-element-gift-card::before {
-  content: '';
-  @apply absolute top-0 left-0 right-0 bottom-0 border border-project-white;
-  @apply transition-all duration-200 ease-out;
-  border-radius: 5px;
-  opacity: 0.2;
-  transform: scale(1);
-  pointer-events: none;
-}
+  .bordered-element-gift-card {
+    @apply relative;
+  }
 
-@media (hover: hover) {
-  .bordered-element:hover::before {
-    @apply border-project-green;
-    opacity: 1;
-    border-radius: 8px;
-    transform: scale(1.08);
+  .bordered-element::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 bottom-0 border border-project-white;
+    @apply transition-all duration-200 ease-out;
+    border-radius: 5px;
+    opacity: 0.2;
+    transform: scale(1);
+    pointer-events: none;
   }
-  .bordered-element-gift-card:hover::before {
-    @apply border-project-green;
-    opacity: 1;
-    border-radius: 8px;
-    transform: scale(1.04);
-  }
-}
 
-@media (hover: none) {
-  .bordered-element:active::before {
-    opacity: 1;
-    border-radius: 8px;
-    transform: scale(1.08);
+  .bordered-element-gift-card::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 bottom-0 border border-project-white;
+    @apply transition-all duration-200 ease-out;
+    border-radius: 5px;
+    opacity: 0.2;
+    transform: scale(1);
+    pointer-events: none;
   }
-  .bordered-element-gift-card:active::before {
-    opacity: 1;
-    border-radius: 8px;
-    transform: scale(1.04);
-  }
-}
 
-.bordered-element.fade-border::before {
-  opacity: 0.2;
-  transform: scale(1);
-}
-.bordered-element-gift-card.fade-border::before {
-  opacity: 0.2;
-  transform: scale(1);
-}
+  @media (hover: hover) {
+    .bordered-element:hover::before {
+      @apply border-project-green;
+      opacity: 1;
+      border-radius: 8px;
+      transform: scale(1.08);
+    }
 
-@media (hover: hover) {
-  .bordered-element.fade-border:hover::before {
-    @apply border-project-green;
-    opacity: 1;
-    border-radius: 8px;
-    transform: scale(1.08);
+    .bordered-element-gift-card:hover::before {
+      @apply border-project-green;
+      opacity: 1;
+      border-radius: 8px;
+      transform: scale(1.04);
+    }
   }
-  .bordered-element-gift-card.fade-border:hover::before {
-    @apply border-project-green;
-    opacity: 1;
-    border-radius: 8px;
-    transform: scale(1.04);
-  }
-}
 
-@media (hover: none) {
-  .bordered-element.fade-border:active::before {
-    opacity: 1;
-    border-radius: 8px;
-    transform: scale(1.08);
+  @media (hover: none) {
+    .bordered-element:active::before {
+      opacity: 1;
+      border-radius: 8px;
+      transform: scale(1.08);
+    }
+
+    .bordered-element-gift-card:active::before {
+      opacity: 1;
+      border-radius: 8px;
+      transform: scale(1.04);
+    }
   }
-   .bordered-element-gift-card.fade-border:active::before {
-    opacity: 1;
-    border-radius: 8px;
-    transform: scale(1.04);
+
+  .bordered-element.fade-border::before {
+    opacity: 0.2;
+    transform: scale(1);
   }
-}
+
+  .bordered-element-gift-card.fade-border::before {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  @media (hover: hover) {
+    .bordered-element.fade-border:hover::before {
+      @apply border-project-green;
+      opacity: 1;
+      border-radius: 8px;
+      transform: scale(1.08);
+    }
+
+    .bordered-element-gift-card.fade-border:hover::before {
+      @apply border-project-green;
+      opacity: 1;
+      border-radius: 8px;
+      transform: scale(1.04);
+    }
+  }
+
+  @media (hover: none) {
+    .bordered-element.fade-border:active::before {
+      opacity: 1;
+      border-radius: 8px;
+      transform: scale(1.08);
+    }
+
+    .bordered-element-gift-card.fade-border:active::before {
+      opacity: 1;
+      border-radius: 8px;
+      transform: scale(1.04);
+    }
+  }
 }
 
 body {

@@ -1,7 +1,7 @@
-import Image from "next/image"
-import Hero from "./components/Hero"
-import heroBackground from "../../public/images/hero-background2.jpg"
-import Services from "./components/Services"
+import Image from "next/image";
+import Hero from "./components/Hero";
+import heroBackground from "../../public/images/hero-background2.jpg";
+import Services from "./components/Services";
 
 export default function Home() {
   return (
@@ -16,16 +16,16 @@ export default function Home() {
           sizes="100vw"
           style={{
             objectFit: "cover",
-            objectPosition: "bottom right"
+            objectPosition: "bottom right",
           }}
         />
-        <div className="relative z-10">
-          <Hero/>
+        <div className="relative">
+          <Hero />
         </div>
       </section>
       <section className="min-h-screen py-28 bg-project-white" id="services">
-          <Services/>
+        <Services />
       </section>
     </>
-  )
+  );
 }
