@@ -144,8 +144,8 @@ export default function Header() {
           >
             <div
               className={`w-px bg-project-white opacity-50 ${
-                scrolled ? "h-14" : "h-16"
-              } transition-all duration-500`}
+                scrolled ? "h-16" : "h-[4.5rem]"
+              } transition-all duration-700`}
             ></div>
             <div className="flex md:flex-col lg:flex-row items-center md:items-start lg:items-center md:space-y-2 lg:space-y-0 lg:space-x-6">
               <a

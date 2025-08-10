@@ -28,25 +28,28 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
   const unlockBodyRef = useRef<(() => void) | null>(null);
 
   const lockBody = useCallback(() => {
-  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-  
-  document.body.style.paddingRight = `${scrollbarWidth}px`;
-  document.body.style.overflow = "hidden";
-  
-  const header = document.querySelector('header');
-  if (header) {
-    header.style.transition = `none`;
-    header.style.paddingRight = `${scrollbarWidth}px`;
-  }
-  
-  return () => {
-    document.body.style.paddingRight = "";
-    document.body.style.overflow = "";
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+    document.body.style.overflow = "hidden";
+
+    const header = document.querySelector("header");
     if (header) {
-      header.style.paddingRight = "";
+      header.style.transitionProperty = 'none'
+      header.style.paddingRight = `${scrollbarWidth}px`;
     }
-  };
-}, []);
+
+    return () => {
+      document.body.style.paddingRight = "";
+      document.body.style.overflow = "";
+      if (header) {
+        header.style.paddingRight = "";
+        header.style.transitionProperty = 'all';
+        header.style.transitionDuration = '0ms';
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -72,8 +75,15 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
         if (unlockBodyRef.current) {
           unlockBodyRef.current();
           unlockBodyRef.current = null;
+          const header = document.querySelector("header")
+          if (header) 
+          {
+            setTimeout(() => {
+              header.style.transitionDuration="700ms"
+            }, 10)
+          }
         }
-      }, 250); 
+      }, 250);
       return () => clearTimeout(timer);
     }
   }, [isOpen, lockBody]);
