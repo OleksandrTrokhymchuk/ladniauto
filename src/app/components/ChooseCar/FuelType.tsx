@@ -45,9 +45,9 @@ export default function FuelType({ fuelType, onNextSlideClick }: CardCardProps) 
                 hover-supported:hover:scale-110
                 hover-supported:hover:z-100 no-hover:active:z-100
 
-                ${selectedFuelTypes.includes(cardData.fuelType) ? "scale-110 " : ""}
+                ${selectedFuelTypes.includes(cardData.fuelTypeToUkr) ? "scale-110 " : ""}
                 `}
-            onClick={() => {dispatch(changeFuelType(cardData.fuelType)); onNextSlideClick()}}
+            onClick={() => {dispatch(changeFuelType(cardData.fuelTypeToUkr)); onNextSlideClick()}}
             >
             <div className={`msm:border-none vsm:border vsm:border-opacity-20 vsm:border-project-white
                     msm:bordered-element vsm:rounded-md
@@ -62,14 +62,14 @@ export default function FuelType({ fuelType, onNextSlideClick }: CardCardProps) 
                     flex flex-col justify-between
                     transition-all duration-200
                     hover-supported:hover:rounded-lg no-hover:active:rounded-lg
-                    ${selectedFuelTypes.includes(cardData.fuelType) ? "bg-project-green rounded-lg" : ""}
+                    ${selectedFuelTypes.includes(cardData.fuelTypeToUkr) ? "bg-project-green rounded-lg" : ""}
                 `}
             >
                 <div className={`bg-project-blue-darker rounded-lg h-[90%]
                         ${cardData.fuelType === "unknown" ? "vsm2:mb-[2px] msm:mb-0" : "mb-1"}
                         flex items-center justify-center
                         transition-all duration-200
-                        ${selectedFuelTypes.includes(cardData.fuelType) ? "bg-opacity-45" : ""}
+                        ${selectedFuelTypes.includes(cardData.fuelTypeToUkr) ? "bg-opacity-45" : ""}
                     `}
                 >
                     <div className="relative">

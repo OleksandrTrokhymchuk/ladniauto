@@ -48,7 +48,7 @@ export default function Gift({ gift, onNextSlideClick }: GiftProps) {
     ]
 
     const cardData = cardsList.find(giftItem => giftItem.gift === gift)
-    const selectedScaleClass = cardData && selectedGift.includes(cardData.gift) ? 'scale-105' : '';
+    const selectedScaleClass = cardData && selectedGift.includes(cardData.giftTitleToUkr) ? 'scale-105' : '';
 
     return (
         <div className={`hover-supported:hover:cursor-pointer transform z-0 mx-auto
@@ -57,7 +57,7 @@ export default function Gift({ gift, onNextSlideClick }: GiftProps) {
                 hover-supported:hover:z-100 no-hover:active:z-100
                 ${selectedScaleClass}
             `}
-            onClick={() => {dispatch(changeGift(gift)); onNextSlideClick()}}
+            onClick={() => {dispatch(changeGift(cardData?.giftTitleToUkr ?? "")); onNextSlideClick()}}
         >
             <div className={`msm:border-none vsm:border vsm:border-opacity-20 vsm:border-project-white
                 msm:bordered-element-gift-card vsm:rounded-md p-2
@@ -66,12 +66,12 @@ export default function Gift({ gift, onNextSlideClick }: GiftProps) {
                 flex flex-col justify-between
                 transition-all duration-200
                 hover-supported:hover:rounded-lg no-hover:active:rounded-lg
-                ${selectedGift === gift ? "bg-project-green rounded-lg" : ""}
+                ${selectedGift === cardData?.giftTitleToUkr ? "bg-project-green rounded-lg" : ""}
                 `}
             >
                 <div className={`bg-project-blue-darker rounded-lg h-[100%] flex justify-start
                     transition-all duration-200 text-center vsm:p-3 msm:p-4 lg:p-5 flex-col
-                    ${selectedGift === gift ? "bg-opacity-45" : ""}
+                    ${selectedGift === cardData?.giftTitleToUkr ? "bg-opacity-45" : ""}
                     `}>
                         <h4 className="vsm:text-lg vsm2:text-xl font-semibold">
                             {cardData?.giftTitleToUkr}

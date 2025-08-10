@@ -5,6 +5,7 @@ import Image from "next/image";
 import phoneIcon from "@/images/phone-icon-for-modal.png";
 import userIcon from "@/images/user-icon-for-modal.png";
 import carIcon from "@/images/car-icon-for-modal.png";
+import emailjs from "@emailjs/browser";
 
 import PhoneInput from "./PhoneInput";
 import TimePicker from "./TimerPicker";
@@ -25,7 +26,54 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
   const [isUserInputFocused, setIsUserInputFocused] = useState<boolean>(false);
   const [isCarBudgetInfoInputFocused, setIsCarBudgetInfoInputFocused] =
     useState<boolean>(false);
+
+  const [selectedHour, setSelectedHour] = useState<string>("09");
+  const [selectedMinute, setSelectedMinute] = useState<string>("00");
+
   const unlockBodyRef = useRef<(() => void) | null>(null);
+
+  const SERVICE_ID = "service_test";
+  const TEMPLATE_ID = "template_b5nrlfs";
+  const PUBLIC_KEY = "CEDA8vJPZZOw4ykOJ";
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!userInput.trim()) {
+      return;
+    }
+
+    try {
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          user_name:
+            userInput.charAt(0).toUpperCase() + userInput.slice(1) ||
+            "Не вказано",
+          user_phone: phoneNumber || "Не вказано",
+          user_carBudgetInfo:
+            carBudgetInfoInput.charAt(0).toUpperCase() +
+              carBudgetInfoInput.slice(1) || "Не вказано",
+          user_carBody: "Не вказано",
+          user_fuelType: "Не вказано",
+          user_budget: "Не вказано",
+          user_gift: "Не вказано",
+          user_service: serviceType || "Не вказано",
+          user_callTime:
+            selectedHour && selectedMinute
+              ? `${selectedHour}:${selectedMinute}`
+              : "Не вказано",
+        },
+        PUBLIC_KEY
+      );
+
+      console.log("SUCCESS!", result.text);
+      setUserInput("");
+    } catch (error) {
+      console.log("FAILED...", error);
+    }
+  };
 
   const lockBody = useCallback(() => {
     const scrollbarWidth =
@@ -36,7 +84,7 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
 
     const header = document.querySelector("header");
     if (header) {
-      header.style.transitionProperty = 'none'
+      header.style.transitionProperty = "none";
       header.style.paddingRight = `${scrollbarWidth}px`;
     }
 
@@ -45,8 +93,8 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
       document.body.style.overflow = "";
       if (header) {
         header.style.paddingRight = "";
-        header.style.transitionProperty = 'all';
-        header.style.transitionDuration = '0ms';
+        header.style.transitionProperty = "all";
+        header.style.transitionDuration = "0ms";
       }
     };
   }, []);
@@ -75,12 +123,11 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
         if (unlockBodyRef.current) {
           unlockBodyRef.current();
           unlockBodyRef.current = null;
-          const header = document.querySelector("header")
-          if (header) 
-          {
+          const header = document.querySelector("header");
+          if (header) {
             setTimeout(() => {
-              header.style.transitionDuration="700ms"
-            }, 10)
+              header.style.transitionDuration = "700ms";
+            }, 10);
           }
         }
       }, 250);
@@ -91,17 +138,15 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
   const handleFormSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-      const cleanPhoneNumber = phoneNumber.replace(/\D/g, "");
-      console.log("Номер телефону (відформатований):", phoneNumber);
-      console.log("Номер телефону (чистий):", cleanPhoneNumber);
 
-      console.log("user name", userInput);
-
-      setPhoneNumber("");
-      setUserInput("");
-      onClose();
+      setUserInput("")
+      setPhoneNumber("")
+      setSelectedHour("09")
+      setSelectedMinute("00")
+      setCarBudgetInfoInput("")
+      onClose()
     },
-    [phoneNumber, userInput, onClose]
+    [userInput, phoneNumber, selectedHour, selectedMinute, carBudgetInfoInput , onClose]
   );
 
   const requestClose = useCallback(() => {
@@ -138,7 +183,7 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
   return (
     <div
       onClick={handleOverlayClick}
-      className={`px-3 text-project-white backdrop-blur-sm fixed inset-0 z-modal flex items-center justify-center bg-black/50 transition-opacity duration-300
+      className={`px-3 text-project-white backdrop-blur-md fixed inset-0 z-modal flex items-center justify-center bg-black/55 transition-opacity duration-300
         ${showContent ? "opacity-100" : "opacity-0"}
       `}
     >
@@ -148,13 +193,15 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
             showContent && !isClosing
               ? "opacity-100 translate-y-0 duration-500"
               : isClosing
-              ? "opacity-0 translate-y-[70vh] duration-500"
+              ? "opacity-0 translate-y-[20vh] duration-1000"
               : "opacity-0 translate-y-[-20vh] duration-1000"
           }
         `}
       >
         <button
-          className="absolute right-4 top-4 text-white transition-all duration-300 opacity-50 hover:scale-125 hover:opacity-100"
+          className="absolute right-4 top-4 text-white transition-all duration-300 opacity-50
+            hover-supported:hover:scale-110 no-hover:active:scale-110
+            hover-supported:hover:opacity-100 no-hover:active:opacity-100"
           onClick={requestClose}
           aria-label="Close modal"
         >
@@ -183,7 +230,13 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
           </strong>
           Будь ласка, введіть Ваше ім&apos;я та Ваш номер телефону
         </p>
-        <form className="relative" onSubmit={handleFormSubmit}>
+        <form
+          className="relative"
+          onSubmit={(e) => {
+            handleFormSubmit(e);
+            handleSubmit(e); //EMAILJS
+          }}
+        >
           <div className="mb-6 relative">
             <span className="absolute -left-14 top-14 -translate-y-1/2 scale-17">
               <Image src={userIcon} alt="user icon" priority />
@@ -235,7 +288,12 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
             <p className="mb-1 font-bold">
               Виберіть час, за яким Вам зателефонувати
             </p>
-            <TimePicker />
+            <TimePicker
+              selectedHour={selectedHour}
+              selectedMinute={selectedMinute}
+              setSelectedHour={setSelectedHour}
+              setSelectedMinute={setSelectedMinute}
+            />
           </div>
 
           <div className="relative">

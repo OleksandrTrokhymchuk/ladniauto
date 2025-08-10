@@ -7,16 +7,6 @@ import CallModal from "@/app/components/CallModal/CallModal";
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // useEffect(() => {
-  //   if (isModalOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "";
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = "";
-  //   };
-  // }, [isModalOpen]);
   return (
     <>
       <div className="custom-container vsm:text-lg lg:text-xl">

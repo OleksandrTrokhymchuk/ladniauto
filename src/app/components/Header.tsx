@@ -6,7 +6,7 @@ import { MouseEventHandler, useEffect, useState } from "react";
 
 import ladniAutoLogoNoText from "../../images/Logopng-for-header.png";
 import ladniAutoLogo from "../../images/Logopng.png";
-import phoneIcon from "@/images/phone-icon-for-header.png";
+import phoneIcon from "@/images/phone-icon-for-header2.png";
 
 import CallModal from "./CallModal/CallModal";
 
@@ -32,12 +32,29 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { name: "Послуги", href: "/#services" },
+    { name: "Послуги", href: "services" },
     { name: "Кейси", href: "/" },
     { name: "Про нас", href: "/" },
     { name: "Блог", href: "/" },
     { name: "Контакти", href: "/" },
   ];
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    const header = document.querySelector("header");
+
+    if (element && header) {
+      const headerHeight = header.offsetHeight;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -55,16 +72,16 @@ export default function Header() {
     return () => clearInterval(pulseInterval);
   }, []);
 
-//   useEffect(() => {
-//     if (isMenuOpen) {
-//       document.body.style.overflow = "hidden";
-//     } else {
-//       document.body.style.overflow = "";
-//     }
-//     return () => {
-//       document.body.style.overflow = "";
-//     };
-//   }, [isMenuOpen]);
+  //   useEffect(() => {
+  //     if (isMenuOpen) {
+  //       document.body.style.overflow = "hidden";
+  //     } else {
+  //       document.body.style.overflow = "";
+  //     }
+  //     return () => {
+  //       document.body.style.overflow = "";
+  //     };
+  //   }, [isMenuOpen]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -123,17 +140,20 @@ export default function Header() {
             <ul className="flex items-center md:space-x-1 lg:space-x-2">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    href={item.href}
+                  <p
+                    onClick={() => {
+                      scrollToSection(item.href);
+                    }}
                     className={`
-                                        md:text-base md1:text-lg xl:text-xl
-                                        px-2 py-2 relative block
-                                        transition-all duration-300 ease-in-out font-medium text-gray-100 hover:text-project-white hover:after:scale-x-100
-                                        after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.25 after:bg-project-white after:scale-x-0 after:origin-left after:transition-transform after:duration-500 after:ease-out
-                                    `}
+                        md:text-base md1:text-lg xl:text-xl
+                        px-2 py-2 relative block
+                        hover-supported:hover:cursor-pointer
+                        transition-all duration-300 ease-in-out font-medium text-gray-100 hover:text-project-white hover:after:scale-x-100
+                        after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.25 after:bg-project-white after:scale-x-0 after:origin-left after:transition-transform after:duration-500 after:ease-out
+                    `}
                   >
                     {item.name}
-                  </Link>
+                  </p>
                 </li>
               ))}
             </ul>
@@ -150,12 +170,7 @@ export default function Header() {
             <div className="flex md:flex-col lg:flex-row items-center md:items-start lg:items-center md:space-y-2 lg:space-y-0 lg:space-x-6">
               <a
                 href="tel:+380667319809"
-                className={`
-                                    md:text-xl xl:text-2xl font-bold whitespace-nowrap
-                                    transition-all duration-500 ease-in-out
-                                    mx-auto
-                                    hover:transform hover:scale-105
-                                `}
+                className={`md:text-xl xl:text-2xl font-bold whitespace-nowrap mx-auto`}
               >
                 +38 066 731 98 09
               </a>
@@ -246,7 +261,7 @@ export default function Header() {
       <button
         onClick={toggleMenu}
         className={`z-50 md:hidden flex flex-col justify-around w-8 h-6 bg-transparent border-none cursor-pointer p-0 focus:outline-none fixed right-2
-                    transition-all duration-700 
+                    transition-all duration-700
                     ${scrolled ? "top-8" : "top-9"}
                     `}
         aria-label="Toggle menu"
@@ -296,23 +311,21 @@ export default function Header() {
           <ul className={`flex flex-col space-y-5 pb-7 text-center pt-10`}>
             {navItems.map((item) => (
               <li key={item.name}>
-                <Link
-                  href={item.href}
-                  onClick={toggleMenu}
-                  className={`
-                                        text-2xl font-bold text-project-white block py-2
-                                    `}
+                <p
+                  onClick={() => {
+                    toggleMenu();
+                    scrollToSection(item.href);
+                  }}
+                  className={`text-2xl font-bold text-project-white block py-2 `}
                 >
                   {item.name}
-                </Link>
+                </p>
               </li>
             ))}
           </ul>
           <div className="w-[80%] h-px bg-opacity-50 bg-project-white mx-auto"></div>
           <div
-            className=" pt-6  flex items-center vsm:justify-center msm:justify-around
-                    vsm:flex-col msm:flex-row vsm: gap-y-5
-                    "
+            className=" pt-6  flex items-center vsm:justify-center msm:justify-around vsm:flex-col msm:flex-row vsm: gap-y-5"
           >
             <a
               href="tel:+380667319809"

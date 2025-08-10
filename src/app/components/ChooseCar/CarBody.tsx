@@ -46,9 +46,9 @@ export default function CarBody({ carBody, onNextSlideClick }: CardCardProps) {
                 hover-supported:hover:scale-110
                 hover-supported:hover:z-100 no-hover:active:z-100
 
-                ${selectedCarBodies.includes(cardData.carBody) ? "scale-110 " : ""}
+                ${selectedCarBodies.includes(cardData.carBodyToUkr) ? "scale-110 " : ""}
                 `}
-            onClick={() => {dispatch(changeCarBody(cardData.carBody)); onNextSlideClick()}}
+            onClick={() => {dispatch(changeCarBody(cardData.carBodyToUkr)); onNextSlideClick()}}
             >
             <div className={`msm:border-none vsm:border vsm:border-opacity-20 vsm:border-project-white
                     msm:bordered-element vsm:rounded-md
@@ -63,14 +63,14 @@ export default function CarBody({ carBody, onNextSlideClick }: CardCardProps) {
                     flex flex-col justify-between
                     transition-all duration-200
                     hover-supported:hover:rounded-lg no-hover:active:rounded-lg
-                    ${selectedCarBodies.includes(cardData.carBody) ? "bg-project-green rounded-lg" : ""}
+                    ${selectedCarBodies.includes(cardData.carBodyToUkr) ? "bg-project-green rounded-lg" : ""}
                 `}
             >
                 <div className={`bg-project-blue-darker rounded-lg h-[90%]
                         ${cardData.carBody === "unknown" ? "vsm2:mb-[2px] msm:mb-0" : "mb-1"}
                         flex items-center justify-center
                         transition-all duration-200
-                        ${selectedCarBodies.includes(cardData.carBody) ? "bg-opacity-45" : ""}
+                        ${selectedCarBodies.includes(cardData.carBodyToUkr) ? "bg-opacity-45" : ""}
                     `}
                 >
                     {

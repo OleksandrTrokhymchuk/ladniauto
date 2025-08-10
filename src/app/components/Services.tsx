@@ -42,9 +42,11 @@ export default function Services() {
                         className="hidden lg:block
                         text-project-white bg-project-blue w-3/4 py-5 rounded-lg
                         text-bold text-xl transitil-all duration-500
-                        hover-supported:hover:bg-project-blue-darker no-hover:active:bg-project-blue-darker"
+                        hover-supported:hover:bg-project-blue-darker no-hover:active:bg-project-blue-darker
+                        hover-supported:hover:shadow-lg
+                        hover-supported:hover:scale-105 no-hover:active:scale-105"
                         
-                    onClick={() => {serviceTypeValue.current = `пакет "Базовий"`; setIsModalOpen(true)}}
+                    onClick={() => {serviceTypeValue.current = `"Базовий"`; setIsModalOpen(true)}}
                     >
                         Замовити
                     </button>
@@ -100,7 +102,7 @@ export default function Services() {
                             className="text-project-white bg-project-blue w-1/2 vsm:py-3 msm:py-5 rounded-lg
                             text-bold text-xl transitil-all duration-500
                             hover-supported:hover:bg-project-blue-darker no-hover:active:bg-project-blue-darker"
-                            onClick={() => {serviceTypeValue.current = `пакет "Базовий"`; setIsModalOpen(true)}}
+                            onClick={() => {serviceTypeValue.current = `"Базовий"`; setIsModalOpen(true)}}
                         >
                             Замовити
                         </button>
@@ -125,8 +127,10 @@ export default function Services() {
                         className="hidden lg:block
                         text-project-white bg-project-blue w-3/4 py-5 rounded-lg
                         text-bold text-xl transitil-all duration-500
-                        hover-supported:hover:bg-project-blue-darker no-hover:active:bg-project-blue-darker"
-                        onClick={() => {serviceTypeValue.current = `пакет "Під ключ з ремонтом"`; setIsModalOpen(true)}}
+                        hover-supported:hover:bg-project-blue-darker no-hover:active:bg-project-blue-darker
+                        hover-supported:hover:shadow-lg
+                        hover-supported:hover:scale-105 no-hover:active:scale-105"
+                        onClick={() => {serviceTypeValue.current = `"Під ключ з ремонтом"`; setIsModalOpen(true)}}
                     >
                         Замовити
                     </button>
@@ -190,7 +194,7 @@ export default function Services() {
                             className="text-project-white bg-project-blue w-1/2 vsm:py-3 msm:py-5 rounded-lg
                             text-bold text-xl transitil-all duration-500
                             hover-supported:hover:bg-project-blue-darker no-hover:active:bg-project-blue-darker"
-                            onClick={() => {serviceTypeValue.current = `пакет "Під ключ з ремонтом"`; setIsModalOpen(true)}}
+                            onClick={() => {serviceTypeValue.current = `"Під ключ з ремонтом"`; setIsModalOpen(true)}}
                         >
                             Замовити
                         </button>

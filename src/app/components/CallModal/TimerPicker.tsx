@@ -1,9 +1,13 @@
-// components/TimePicker.tsx
 import React, { useState, useRef, useEffect } from 'react'
 
-const TimePicker: React.FC = () => {
-  const [selectedHour, setSelectedHour] = useState<string>('09')
-  const [selectedMinute, setSelectedMinute] = useState<string>('00')
+interface TimePickerProps {
+  selectedHour: string
+  selectedMinute: string
+  setSelectedHour: (hour: string) => void;
+  setSelectedMinute: (minute: string) => void;
+}
+
+export default function TimePicker({selectedHour, selectedMinute, setSelectedHour, setSelectedMinute} : TimePickerProps) {
   const [isHourOpen, setIsHourOpen] = useState<boolean>(false)
   const [isMinuteOpen, setIsMinuteOpen] = useState<boolean>(false)
   const [hourClosing, setHourClosing] = useState<boolean>(false)
@@ -177,4 +181,3 @@ const TimePicker: React.FC = () => {
   )
 }
 
-export default TimePicker
