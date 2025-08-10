@@ -110,7 +110,7 @@ export default function FuelType({ fuelType, onNextSlideClick }: CardCardProps) 
                                 {cardData.fuelType === "petrol" && "A"}
                                 {cardData.fuelType === "diesel" && "D"}
                                 {cardData.fuelType === "hybrid" && <div className="vsm:max-h-[18px] vsm:max-w-[18px] vsm3:max-h-[30px] vsm3:max-w-[30px]">
-                                    <Image src={lightningIcon} width={30} alt="electro"/>
+                                    <Image src={lightningIcon} width={30} alt="electro" priority/>
                                 </div>}
                             </span>
                         </div>

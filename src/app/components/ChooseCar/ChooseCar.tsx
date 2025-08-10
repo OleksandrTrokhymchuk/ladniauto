@@ -189,7 +189,7 @@ export default function ChooseCar() {
         </SwiperSlide>
         <SwiperSlide>
           <p className="text-center text-2xl">Подарунок</p>
-          <div className="grid grid-auto-fit-gift-cards gap-9">
+          <div className="grid grid-auto-fit-gift-cards">
             {gifts.map((gift) => (
               <Gift key={gift} gift={gift} onNextSlideClick={handleNextSlide} />
             ))}
