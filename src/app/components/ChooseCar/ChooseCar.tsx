@@ -272,8 +272,9 @@ export default function ChooseCar() {
                 className={`bg-project-green my-1 rounded-xl text-project-white shadow-md text-2xl
                                 py-3 px-8 font-semibold
                                 transition-all duration-300
-                                hover-supported:hover:scale-110 no-hover:active:scale-110
-                                hover-supported:hover:opacity-90 no-hover:active:opacity-90
+                                ${phoneNumber.replace(/\D/g, "").length < 12 || userInput.length < 2 ? "hover-supported:hover:opacity-45 no-hover:active:opacity-45" :
+                                    "hover-supported:hover:scale-105 no-hover:active:scale-105 hover-supported:hover:opacity-90 no-hover:active:opacity-90"
+                                    }
                                 ${
                                   phoneNumber.replace(/\D/g, "").length < 12 ||
                                   userInput.length < 2
