@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import servicesImage1 from "../../../public/images/Services/service2.png";
 import servicesImage2 from "../../../public/images/Services/service2.jpg";
-import servicesImage1 from "../../../public/images/Services/service1.jpg";
 import { useState } from "react";
 import CallModal from "@/app/components/CallModal/CallModal";
 import { useAppDispatch } from "@/lib/redux/hooks";
