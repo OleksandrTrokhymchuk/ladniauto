@@ -3,6 +3,7 @@ import selectedCarBodiesReducer from './features/selectedCarBodies/selectedCarBo
 import selectedBudgetReducer from './features/selectedBudget/selectedBudgetSlice'
 import selectedFuelTypesReducer from './features/selectedFuelTypes/selectedFuelTypesSlice'
 import selectedGiftsReducer from './features/selectGift/selectedGiftsSlice'
+import modalReducer from './features/modal/modalSlice'
 
 export const makeStore = () => {
   return configureStore({
@@ -11,6 +12,7 @@ export const makeStore = () => {
       selectedBudget: selectedBudgetReducer,
       selectedFuelTypes: selectedFuelTypesReducer,
       selectedGifts: selectedGiftsReducer,
+      modal: modalReducer,
     },
   })
 }

@@ -9,6 +9,7 @@ import emailjs from "@emailjs/browser";
 
 import PhoneInput from "./PhoneInput";
 import TimePicker from "./TimerPicker";
+import { useAppSelector } from "@/lib/redux/hooks";
 
 type ModalProps = {
   isOpen: boolean;
@@ -29,6 +30,8 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
 
   const [selectedHour, setSelectedHour] = useState<string>("09");
   const [selectedMinute, setSelectedMinute] = useState<string>("00");
+
+  const serviceTypeValue = useAppSelector(state => state.modal.serviceTypeValue)
 
   const unlockBodyRef = useRef<(() => void) | null>(null);
 
@@ -223,10 +226,10 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
         <h2 className="mb-5 text-xl font-bold">Залишити заявку</h2>
         <p className="mb-5 max-w-80">
           <strong
-            style={{ display: serviceType ? "block" : "none" }}
+            style={{ display: serviceTypeValue ? "block" : "none" }}
             className="mb-2"
           >
-            Ви обрали {serviceType}!
+            Ви обрали пакет "{serviceTypeValue}"!
           </strong>
           Будь ласка, введіть Ваше ім&apos;я та Ваш номер телефону
         </p>

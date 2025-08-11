@@ -1,11 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ChooseCar from "../components/ChooseCar/ChooseCar";
 import CallModal from "@/app/components/CallModal/CallModal";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
+import { openModal, closeModal } from "@/lib/redux/features/modal/modalSlice";
+
 
 export default function Hero() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useAppDispatch()
+  const isModalOpenSlice = useAppSelector(state => state.modal.isModalOpenSlice)
 
   return (
     <>
@@ -51,7 +56,7 @@ export default function Hero() {
                         hover-supported:hover:scale-110 no-hover:active:scale-110
                         hover-supported:hover:opacity-90 no-hover:active:opacity-90
                         "
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {dispatch(openModal())}}
               >
                 Залишити заявку
               </button>
@@ -70,7 +75,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="z-modal">
-        <CallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        <CallModal isOpen={isModalOpenSlice} onClose={() => {dispatch(closeModal())}} />
       </div>
     </>
   );

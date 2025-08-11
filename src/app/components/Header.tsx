@@ -9,11 +9,19 @@ import ladniAutoLogo from "../../images/Logopng.png";
 import phoneIcon from "@/images/phone-icon-for-header2.png";
 
 import CallModal from "./CallModal/CallModal";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
+import { openModal, closeModal, setServiceTypeValue } from "@/lib/redux/features/modal/modalSlice";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPulsing, setIsPulsing] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const dispatch = useAppDispatch()
+  const isModalOpenSlice = useAppSelector(state => state.modal.isModalOpenSlice)
+
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +55,7 @@ export default function Header() {
       const headerHeight = header.offsetHeight;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition =
-        elementPosition + window.pageYOffset - headerHeight;
+        elementPosition + window.pageYOffset;
 
       window.scrollTo({
         top: offsetPosition,
@@ -71,19 +79,6 @@ export default function Header() {
     }, 10000);
     return () => clearInterval(pulseInterval);
   }, []);
-
-  //   useEffect(() => {
-  //     if (isMenuOpen) {
-  //       document.body.style.overflow = "hidden";
-  //     } else {
-  //       document.body.style.overflow = "";
-  //     }
-  //     return () => {
-  //       document.body.style.overflow = "";
-  //     };
-  //   }, [isMenuOpen]);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const scrollToTop: MouseEventHandler = (
     e: React.MouseEvent<HTMLButtonElement>
@@ -179,12 +174,12 @@ export default function Header() {
                                     py-2 md:px-5 xl:px-6
                                     transition-all duration-700 transform hover:scale-105 active:scale-95 whitespace-nowrap
                                     ${
-                                      isPulsing && !isModalOpen
+                                      isPulsing && !isModalOpenSlice
                                         ? "scale-105 brightness-125 drop-shadow-lg rotate-1"
                                         : ""
                                     }
                               `}
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {dispatch(setServiceTypeValue("")); dispatch(openModal())}}
               >
                 Зателефонуйте мені
               </button>
@@ -239,7 +234,7 @@ export default function Header() {
                 <div
                   className={`max-h-14 max-w-14 duration-700
                                         ${
-                                          isPulsing && !isModalOpen
+                                          isPulsing && !isModalOpenSlice
                                             ? "scale-50 rotate-12"
                                             : ""
                                         }
@@ -247,7 +242,7 @@ export default function Header() {
                                         block md:hidden
                                         `}
                   onClick={() => {
-                    !isMenuOpen && setIsModalOpen(true);
+                    !isMenuOpen && dispatch(setServiceTypeValue("")); dispatch(openModal())
                   }}
                 >
                   <Image src={phoneIcon} alt="phone icon" />
@@ -339,12 +334,12 @@ export default function Header() {
                                 vsm:max-w-[80%] msm:max-w-[50%]
                                 transition-all duration-700 transform
                                 ${
-                                  isPulsing && !isModalOpen
+                                  isPulsing && !isModalOpenSlice
                                     ? "scale-105 brightness-125 drop-shadow-lg rotate-1"
                                     : ""
                                 }
                                 `}
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => {dispatch(setServiceTypeValue("")); dispatch(openModal())}}
             >
               Зателефонуйте мені
             </button>
@@ -364,7 +359,7 @@ export default function Header() {
           </Link>
         </nav>
       </div>
-      <CallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <CallModal isOpen={isModalOpen} onClose={() => {dispatch(closeModal())}} />
     </div>
   );
 }
