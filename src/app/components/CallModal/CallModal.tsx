@@ -350,7 +350,9 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
             type="submit"
             className={`
               mt-3 w-full rounded-full bg-project-white px-6 py-3 font-bold text-project-blue transition-all duration-300
-              hover:bg-gray-300
+              hover-supported:hover:bg-gray-300
+              no-hover:active:bg-gray-300
+
               ${
                 phoneNumber.replace(/\D/g, "").length < 12 ||
                 userInput.length < 2
