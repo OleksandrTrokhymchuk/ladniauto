@@ -1,16 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import servicesImage from "../../../public/images/Services/service2.jpg";
-import { useRef, useState } from "react";
+import servicesImage2 from "../../../public/images/Services/service2.jpg";
+import servicesImage1 from "../../../public/images/Services/service1.jpg";
+import { useState } from "react";
 import CallModal from "@/app/components/CallModal/CallModal";
 import { useAppDispatch } from "@/lib/redux/hooks";
-import { openModal, closeModal, setServiceTypeValue } from "@/lib/redux/features/modal/modalSlice";
+import {
+  openModal,
+  closeModal,
+  setServiceTypeValue,
+} from "@/lib/redux/features/modal/modalSlice";
 
 export default function Services() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  //   const serviceTypeValue = useRef<string>("");
-//   const [serviceTypeValue, setServiceTypeValue] = useState<string>("");
 
   const dispatch = useAppDispatch();
 
@@ -29,7 +32,7 @@ export default function Services() {
                   <Image
                     priority
                     className="border border-solid border-project-blue p-3 w-full h-full object-cover rounded-lg"
-                    src={servicesImage}
+                    src={servicesImage2}
                     alt="service"
                   />
                 </div>
@@ -41,7 +44,6 @@ export default function Services() {
                         hover-supported:hover:shadow-lg
                         hover-supported:hover:scale-105 no-hover:active:scale-105"
                   onClick={() => {
-                    // serviceTypeValue.current = `"Базовий"`;
                     dispatch(setServiceTypeValue("Базовий"));
                     dispatch(openModal());
                   }}
@@ -129,7 +131,7 @@ export default function Services() {
                   <Image
                     priority
                     className="border border-solid border-project-blue p-3 w-full h-full object-cover rounded-lg"
-                    src={servicesImage}
+                    src={servicesImage1}
                     alt="service"
                   />
                 </div>
@@ -168,9 +170,9 @@ export default function Services() {
                 </div>
                 <div className="mb-6 sm:mb-8">
                   <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
-                    Базовий пакет для тих, хто хоче самостійно займатися
-                    ремонтом та оформленням, але цінує професійний супровід на
-                    етапі покупки та доставки.
+                    Пакет для тих, хто хоче отримати готове, відновлене авто без
+                    клопотів та візитів на станції техобслуговування. Ведення
+                    всіх етапів відновлення ми беремо на себе.
                   </p>
                 </div>
                 <div className="mb-6 sm:mb-8">
@@ -180,24 +182,26 @@ export default function Services() {
                   <ul className="space-y-2 sm:space-y-3">
                     <li className="flex items-start text-sm sm:text-base lg:text-lg">
                       <span className="font-bold mr-3">•</span>
-                      <span>Пошук і перевірка лотів перед торгами</span>
+                      <span>Всі послуги з пакету &quot;Базовий&quot;</span>
                     </li>
                     <li className="flex items-start text-sm sm:text-base lg:text-lg">
                       <span className="font-bold mr-3">•</span>
-                      <span>Пошук і перевірка лотів перед торгами</span>
-                    </li>
-                    <li className="flex items-start text-sm sm:text-base lg:text-lg">
-                      <span className="font-bold mr-3">•</span>
-                      <span>Пошук і перевірка лотів перед торгами</span>
-                    </li>
-                    <li className="flex items-start text-sm sm:text-base lg:text-lg">
-                      <span className="font-bold mr-3">•</span>
-                      <span>Участь в аукціоні</span>
+                      <span>Доставка авто в Київ</span>
                     </li>
                     <li className="flex items-start text-sm sm:text-base lg:text-lg">
                       <span className="font-bold mr-3">•</span>
                       <span>
-                        Організація логістики: США – порт – Україна – ваше місто
+                        Організація ремонту, підбір і доставка запчастин
+                      </span>
+                    </li>
+                    <li className="flex items-start text-sm sm:text-base lg:text-lg">
+                      <span className="font-bold mr-3">•</span>
+                      <span>Детейлінг, технічне обслуговування</span>
+                    </li>
+                    <li className="flex items-start text-sm sm:text-base lg:text-lg">
+                      <span className="font-bold mr-3">•</span>
+                      <span>
+                        Сертифікація та постановка на облік (за потреби)
                       </span>
                     </li>
                   </ul>
@@ -207,8 +211,8 @@ export default function Services() {
                     Результат:
                   </h4>
                   <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
-                    Ви отримуєте придбане авто, ключі та документи у своєму
-                    місті. Далі — ремонтуєте та реєструєте самостійно.
+                    Ви отримуєте чистий, відновлений автомобіль, повністю
+                    готовий до експлуатації.
                   </p>
                 </div>
                 <div className="lg:hidden flex justify-center mt-5">
@@ -244,9 +248,8 @@ export default function Services() {
       <CallModal
         isOpen={isModalOpen}
         onClose={() => {
-          dispatch(closeModal())
+          dispatch(closeModal());
         }}
-        // serviceType="Базовий"
       />
     </>
   );
