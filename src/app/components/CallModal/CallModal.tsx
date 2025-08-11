@@ -229,7 +229,7 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
             style={{ display: serviceTypeValue ? "block" : "none" }}
             className="mb-2"
           >
-            Ви обрали пакет "{serviceTypeValue}"!
+            Ви обрали пакет &quot;{serviceTypeValue}&quot;!
           </strong>
           Будь ласка, введіть Ваше ім&apos;я та Ваш номер телефону
         </p>
