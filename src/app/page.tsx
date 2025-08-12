@@ -2,6 +2,7 @@ import Image from "next/image";
 import Hero from "./components/Hero";
 import heroBackground from "../../public/images/hero-background2.jpg";
 import Services from "./components/Services";
+import WhyUs from "./components/WhyUs";
 
 export default function Home() {
   return (
@@ -23,8 +24,11 @@ export default function Home() {
           <Hero />
         </div>
       </section>
-      <section className="min-h-screen py-28 bg-project-white" id="services">
+      <section className="min-h-screen py-24 bg-project-white" id="services">
         <Services />
+      </section>
+      <section className="py-24 bg-gray-200" id="whyus">
+        <WhyUs />
       </section>
     </>
   );

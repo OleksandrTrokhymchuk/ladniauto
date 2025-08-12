@@ -25,7 +25,7 @@ export default function Services() {
         </h2>
 
         <div className="max-w-7xl mx-auto mb-16">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="bg-gray-200 rounded-lg shadow-lg overflow-hidden">
             <div className="flex flex-col lg:flex-row">
               <div className="w-full lg:w-1/3 p-4 sm:p-6 lg:flex lg:flex-col lg:justify-between lg:items-center">
                 <div className="aspect-square w-full max-w-sm mx-auto lg:max-w-none">
@@ -124,7 +124,7 @@ export default function Services() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mb-16">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="bg-gray-200 rounded-lg shadow-lg overflow-hidden">
             <div className="flex flex-col lg:flex-row">
               <div className="w-full lg:w-1/3 p-4 sm:p-6 lg:flex lg:flex-col lg:justify-between lg:items-center">
                 <div className="aspect-square w-full max-w-sm mx-auto lg:max-w-none">
