@@ -38,11 +38,11 @@ export default function ChooseCar() {
 
   useEffect(() => {
     setIsAllOptionsSelected(
-    //   carBodies.includes(selectedCarBody) &&
-    //     fuelTypes.includes(selectedFuelType) &&
-    //     budgets.includes(selectedBudget) &&
-    //     gifts.includes(selectedGift)
-        selectedCarBody.length > 0 &&
+      //   carBodies.includes(selectedCarBody) &&
+      //     fuelTypes.includes(selectedFuelType) &&
+      //     budgets.includes(selectedBudget) &&
+      //     gifts.includes(selectedGift)
+      selectedCarBody.length > 0 &&
         selectedFuelType.length > 0 &&
         selectedBudget.length > 0 &&
         selectedGift.length > 0
@@ -139,7 +139,7 @@ export default function ChooseCar() {
   );
 
   return (
-    <>
+    <div className="text-project-white shadow-xl rounded-3xl">
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
@@ -196,15 +196,18 @@ export default function ChooseCar() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          {isAllOptionsSelected ? (
-            <p className="text-center text-2xl mb-5">Ваша заявка сформована!</p>
-          ) : (
-            <p className="text-center text-2xl mb-5 text-red-600 font-semibold">
-              Будь ласка, оберіть всі опції
-            </p>
-          )}
-          <form
-            className={`flex justify-center flex-col gap-y-5
+          <div className="pb-5">
+            {isAllOptionsSelected ? (
+              <p className="text-center text-2xl mb-5">
+                Ваша заявка сформована!
+              </p>
+            ) : (
+              <p className="text-center text-2xl mb-5 text-red-600 font-semibold">
+                Будь ласка, оберіть всі опції
+              </p>
+            )}
+            <form
+              className={`flex justify-center flex-col gap-y-5 
                         mx-auto max-w-[290px]
                         border border-solid border-project-white py-4 rounded-xl
                         ${
@@ -213,27 +216,30 @@ export default function ChooseCar() {
                             : "opacity-50 pointer-events-none"
                         }
                         `}
-            onSubmit={(e) => {handleFormSubmit(e); handleSubmit(e)}}
-          >
-            <div className="relative mx-auto">
-              <span className="absolute -left-14 top-14 -translate-y-1/2 scale-17">
-                <Image src={userIcon} alt="user icon" priority />
-              </span>
-              <label
-                htmlFor="name-input"
-                className={`block text-project-white font-bold mb-1
+              onSubmit={(e) => {
+                handleFormSubmit(e);
+                handleSubmit(e);
+              }}
+            >
+              <div className="relative mx-auto">
+                <span className="absolute -left-14 top-14 -translate-y-1/2 scale-17">
+                  <Image src={userIcon} alt="user icon" priority />
+                </span>
+                <label
+                  htmlFor="name-input"
+                  className={`block text-project-white font-bold mb-1
                                     transition-all duration-300
                                     ${
                                       isUserInputFocused ? "text-xl" : "text-lg"
                                     }
                                 `}
-              >
-                Ваше ім&apos;я
-              </label>
-              <input
-                id="name-input"
-                type="text"
-                className={`w-full px-4 py-2 text-project-blue bg-project-white rounded-lg pl-8
+                >
+                  Ваше ім&apos;я
+                </label>
+                <input
+                  id="name-input"
+                  type="text"
+                  className={`w-full px-4 py-2 text-project-blue bg-project-white rounded-lg pl-8
                                     border-2 border-transparent focus:outline-none
                                     text-[16px] min-h-[44px]
                                     transition-all duration-300 ease-in-out
@@ -243,38 +249,41 @@ export default function ChooseCar() {
                                         : ""
                                     }
                                 `}
-                onFocus={() => setIsUserInputFocused(true)}
-                onBlur={() => setIsUserInputFocused(false)}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                  const filteredValue = event.target.value.replace(
-                    /[^a-zA-Zа-яА-ЯҐґІіЇїЄє\s-]/g,
-                    ""
-                  );
-                  setUserInput(filteredValue);
-                }}
-                value={userInput}
-              />
-            </div>
-            <div className=" relative mx-auto">
-              <span className="absolute -left-9 top-14 -translate-y-1/2 scale-25">
-                <Image src={phoneIcon} alt="phone icon" priority />
-              </span>
-              <PhoneInput
-                label="Ваш номер телефону"
-                value={phoneNumber}
-                onChange={setPhoneNumber}
-                className="text-project-blue"
-              />
-            </div>
-            <div className="relative mx-auto">
-              <button
-                type="submit"
-                className={`bg-project-green my-1 rounded-xl text-project-white shadow-md text-2xl
+                  onFocus={() => setIsUserInputFocused(true)}
+                  onBlur={() => setIsUserInputFocused(false)}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    const filteredValue = event.target.value.replace(
+                      /[^a-zA-Zа-яА-ЯҐґІіЇїЄє\s-]/g,
+                      ""
+                    );
+                    setUserInput(filteredValue);
+                  }}
+                  value={userInput}
+                />
+              </div>
+              <div className=" relative mx-auto">
+                <span className="absolute -left-9 top-14 -translate-y-1/2 scale-25">
+                  <Image src={phoneIcon} alt="phone icon" priority />
+                </span>
+                <PhoneInput
+                  label="Ваш номер телефону"
+                  value={phoneNumber}
+                  onChange={setPhoneNumber}
+                  className="text-project-blue"
+                />
+              </div>
+              <div className="relative mx-auto">
+                <button
+                  type="submit"
+                  className={`bg-project-green my-1 rounded-xl text-project-white shadow-md text-2xl
                                 py-3 px-8 font-semibold
                                 transition-all duration-300
-                                ${phoneNumber.replace(/\D/g, "").length < 12 || userInput.length < 2 ? "hover-supported:hover:opacity-45 no-hover:active:opacity-45" :
-                                    "hover-supported:hover:scale-105 no-hover:active:scale-105 hover-supported:hover:opacity-90 no-hover:active:opacity-90"
-                                    }
+                                ${
+                                  phoneNumber.replace(/\D/g, "").length < 12 ||
+                                  userInput.length < 2
+                                    ? "hover-supported:hover:opacity-45 no-hover:active:opacity-45"
+                                    : "hover-supported:hover:scale-105 no-hover:active:scale-105 hover-supported:hover:opacity-90 no-hover:active:opacity-90"
+                                }
                                 ${
                                   phoneNumber.replace(/\D/g, "").length < 12 ||
                                   userInput.length < 2
@@ -282,17 +291,18 @@ export default function ChooseCar() {
                                     : ""
                                 }
                                 `}
-                disabled={
-                  phoneNumber.replace(/\D/g, "").length < 12 ||
-                  userInput.length < 2
-                }
-              >
-                Надіслати
-              </button>
-            </div>
-          </form>
+                  disabled={
+                    phoneNumber.replace(/\D/g, "").length < 12 ||
+                    userInput.length < 2
+                  }
+                >
+                  Надіслати
+                </button>
+              </div>
+            </form>
+          </div>
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 }
