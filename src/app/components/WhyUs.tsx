@@ -38,6 +38,7 @@ export default function WhyUs() {
             <div
               key={advantage.id}
               className={`group relative bg-white border rounded-2xl p-4 sm:p-6 shadow-lg transition-all duration-500 transform border-gray-100
+                vsm:w-[98%] mx-auto
                 hover-supported:hover:-translate-y-2 no-hover:active:-translate-y-2
                 hover-supported:hover:border-project-blue/60 no-hover:active:border-project-blue/60
                 `}
@@ -49,7 +50,7 @@ export default function WhyUs() {
               </div>
 
 
-              <h3 className="text-xl lg:text-2xl font-bold mb-4 vsm:mt-4 lg:mt-0">
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 text-center lg:text-left lg:mt-1">
                  {advantage.title}
               </h3>
 
