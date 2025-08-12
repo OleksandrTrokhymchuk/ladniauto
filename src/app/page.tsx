@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Hero from "./components/Hero";
-import heroBackground from "../../public/images/hero-background2.jpg";
+import heroBackground from "../../public/images/hero-background.jpg";
 import heroBackgroundMobile from "../../public/images/hero-backgorund-mobile.jpg";
 import Services from "./components/Services";
 import WhyUs from "./components/WhyUs";

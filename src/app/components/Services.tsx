@@ -233,7 +233,7 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="h-px w-3/4 mx-auto bg-opacity-30 bg-project-blue"></div>
+        <div className="h-px vsm:w-4/5 lg:w-[60%] mx-auto bg-opacity-30 bg-project-blue"></div>
         <div className="text-xl text-center flex flex-col gap-y-5 mt-5">
           <p className="font-bold">
             Обидва пакети передбачають постійний зв&apos;язок, прозору
