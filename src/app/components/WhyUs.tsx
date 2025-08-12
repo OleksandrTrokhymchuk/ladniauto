@@ -38,7 +38,7 @@ export default function WhyUs() {
             <div
               key={advantage.id}
               className={`group relative bg-white border rounded-2xl p-4 sm:p-6 shadow-lg transition-all duration-500 transform border-gray-100
-                vsm:w-[98%] mx-auto
+                vsm:w-[97%] mx-auto
                 hover-supported:hover:-translate-y-2 no-hover:active:-translate-y-2
                 hover-supported:hover:border-project-blue/60 no-hover:active:border-project-blue/60
                 `}
