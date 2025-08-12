@@ -4,19 +4,19 @@ export default function WhyUs() {
       id: "1",
       title: "Безпека покупки",
       description: "Автомобілі відбираються виключно від страхових компаній. Відсіюються сумнівні лоти, так звані \"ляльки\" та машини, що вже потрапляли на аукціони раніше. Це мінімізує ризики і забезпечує передбачуваний результат покупки.",
-      icon: "🛡️"
+      icon: "✅"
     },
     {
       id: "2",
       title: "Закриті торги",
       description: "Надаємо варіанти авто із закритих Штатів для кращого вибору. Більше варіантів - більше шансів купити авто в потрібному бюджеті.",
-      icon: "🔒"
+      icon: "🔐"
     },
     {
       id: "3",
       title: "Прозорість витрат",
       description: "Перед участю в торгах клієнт отримує повний розрахунок витрат: вартість лоту, збори аукціону, логістика, розмитнення та орієнтовна вартість ремонту. Прозорий розрахунок від аукціону до отримання ключів та придбаного автомобіля.",
-      icon: "💎"
+      icon: "📝"
     },
     {
       id: "4",
@@ -42,14 +42,14 @@ export default function WhyUs() {
                 hover-supported:hover:border-project-blue/60 no-hover:active:border-project-blue/60
                 `}
             >
-              <div className="absolute -top-4 -left-4 vsm:w-9 vsm:h-9 lg:w-12 lg:h-12 bg-project-blue rounded-full flex items-center justify-center text-project-white font-bold text-lg shadow-lg">
-                <span className="vsm:text-lg lg:text-2xl">
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-project-blue rounded-full flex items-center justify-center text-project-white font-bold text-lg shadow-lg">
+                <span className="text-2xl">
                     {advantage.icon}
                 </span>
               </div>
 
 
-              <h3 className="text-xl lg:text-2xl font-bold mb-4">
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 vsm:mt-4 lg:mt-0">
                  {advantage.title}
               </h3>
 
