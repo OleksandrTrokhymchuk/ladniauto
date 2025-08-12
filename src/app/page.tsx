@@ -41,10 +41,10 @@ export default function Home() {
           <Hero />
         </div>
       </section>
-      <section className="min-h-screen py-24 bg-project-white" id="services">
+      <section className="min-h-screen vsm:py-14 lg:py-24 bg-project-white" id="services">
         <Services />
       </section>
-      <section className="py-24 bg-gray-200" id="whyus">
+      <section className="vsm:py-14 lg:py-24 bg-gray-200" id="whyus">
         <WhyUs />
       </section>
     </>
